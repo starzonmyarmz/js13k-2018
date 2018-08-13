@@ -1,3 +1,37 @@
-body {
-  margin: 0
+#left_foot, #right_foot {
+  animation: walk 0.2s infinite;
+}
+
+#right_foot {
+  animation-delay: 0.1s;
+}
+
+#head {
+  animation: bob 0.4s infinite;
+  position: relative;
+  z-index: 5;
+}
+
+@keyframes walk {
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes bob {
+  50% {
+    transform: translateY(2px);
+  }
+}
+
+
+
+#goal {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(0.7)
+  }
 }
