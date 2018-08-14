@@ -1,3 +1,25 @@
+:root {
+  --accent: #333;
+  --secondary: #fff;
+}
+
+body {
+  text-align: center;
+  margin: 0;
+}
+
+svg {
+  vertical-align: middle;
+}
+
+#stage {
+  align-items: center;
+  display: inline-flex;
+  height: 480px;
+  justify-content: center;
+  width: 768px;
+}
+
 #left_foot, #right_foot {
   animation: walk 0.2s infinite;
 }
@@ -24,8 +46,6 @@
   }
 }
 
-
-
 #goal {
   animation: pulse 2s infinite;
 }
@@ -34,4 +54,26 @@
   50% {
     transform: scale(0.7)
   }
+}
+
+[hidden] {
+  display: none !important;
+}
+
+
+
+.on {
+  background: var(--secondary);
+  color: var(--accent);
+  fill: color: var(--accent);
+}
+
+.off {
+  background: var(--accent);
+  color: var(--secondary);
+  fill: var(--secondary);
+}
+
+.on .l2, .off .l1 {
+  opacity: 0.1;
 }
