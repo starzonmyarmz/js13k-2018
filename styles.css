@@ -20,15 +20,16 @@ svg {
   width: 768px;
 }
 
-#left_foot, #right_foot {
+#guy.walk #left_foot,
+#guy.walk #right_foot {
   animation: walk 0.2s infinite;
 }
 
-#right_foot {
+#guy.walk #right_foot {
   animation-delay: 0.1s;
 }
 
-#head {
+#guy.walk #head {
   animation: bob 0.4s infinite;
   position: relative;
   z-index: 5;
@@ -60,7 +61,9 @@ svg {
   display: none !important;
 }
 
-
+#guy.left {
+  transform: scaleX(-1);
+}
 
 .on {
   background: var(--secondary);
