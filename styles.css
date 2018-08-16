@@ -61,7 +61,12 @@ svg {
   display: none !important;
 }
 
-#guy.left {
+
+#inner-guy {
+  transform-origin: 13px;
+}
+
+#guy.left #inner-guy {
   transform: scaleX(-1);
 }
 
