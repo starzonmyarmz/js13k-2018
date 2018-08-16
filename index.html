@@ -8,6 +8,22 @@
     <path class="l2" d="M368,16 L368,40 L408,40 L408,56 L368,56 L368,96 L352,96 L352,0 L368,0 L424,0 L424,16 L368,16 Z M280,40 L320,40 L320,56 L280,56 L280,96 L264,96 L264,0 L280,0 L336,0 L336,16 L280,16 L280,40 Z M232,16 L192,16 L192,80 L232,80 L232,16 Z M248,16 L248,80 L248,96 L176,96 L176,80 L176,16 L176,0 L248,0 L248,16 Z"/>
   </svg>
 
+  <svg width="256" height="32">
+    <defs>
+      <pattern id="spike_up"  width="16" height="16" patternUnits="userSpaceOnUse">
+        <polygon points="8 0 16 16 0 16"/>
+      </pattern>
+
+      <pattern id="spike_down"  width="16" height="16" patternUnits="userSpaceOnUse">
+        <polygon points="8 0 16 16 0 16" transform="rotate(180,8,8)"/>
+      </pattern>
+    </defs>
+
+    <rect fill="url(#spike_down)" width="256" height="16"></rect>
+
+    <rect fill="url(#spike_up)" y="16" width="256" height="16"></rect>
+  </svg>
+
   <div id="credits" hidden>
     Made by Brad Dunbar, Daniel Marino, and Micah Marino for JS13Game 2018
   </div>
@@ -19,7 +35,7 @@
 <button id="walk">toggle walk</button>
 <button id="direction">toggle direction</button>
 
-<svg id="guy" width="26" height="48" viewBox="0 0 26 48">
+<svg id="guy" width="26" height="48" viewBox="0 0 26 48" >
   <path class="accent" d="M0 19h24v15a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V19z"/>
   <path id="left_foot" class="accent" d="M4 38h6v7.5c0 .8 0 1.2-.3 1.5-.1.3-.4.6-.7.7-.3.2-.7.3-1.5.3h-1c-.8 0-1.2 0-1.5-.3-.3-.1-.6-.4-.7-.7-.2-.3-.3-.7-.3-1.5V38z"/>
   <path id="right_foot" class="accent" d="M14 38h6v7.5c0 .8 0 1.2-.3 1.5-.1.3-.4.6-.7.7-.3.2-.7.3-1.5.3h-1c-.8 0-1.2 0-1.5-.3-.3-.1-.6-.4-.7-.7-.2-.3-.3-.7-.3-1.5V38z"/>
@@ -31,7 +47,7 @@
   </g>
 </svg>
 
-<svg id="goal" fill="#444" width="24" height="24" viewBox="0 0 24 24">
+<svg id="goal" fill="#444" width="24" height="24" viewBox="0 0 24 24" >
   <path d="M12 19.26L6.37 22.1a1 1 0 0 1-1.44-1.07l1.05-5.98-4.47-4.22a1 1 0 0 1 .55-1.72l6.22-.88 2.83-5.5a1 1 0 0 1 1.78 0l2.83 5.5 6.22.88a1 1 0 0 1 .55 1.72l-4.47 4.22 1.05 5.98a1 1 0 0 1-1.44 1.07L12 19.26z"/>
 </svg>
 
