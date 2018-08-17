@@ -67,13 +67,14 @@ svg {
 
 /*  Goal  */
 
-#goal {
+#inner-goal {
   animation: pulse 2s infinite;
+  transform-origin: 12px 12px;
 }
 
 @keyframes pulse {
   50% {
-    transform: scale(0.7)
+    transform: scale(0.7);
   }
 }
 

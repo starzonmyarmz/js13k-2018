@@ -1,55 +1,62 @@
 <!doctype html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <script src="index.js" defer></script>
+</head>
+<body class="on">
+  <div id="stage">
+    <svg width="768" height="480" viewBox="0 0 768 480">
+      <g id="guy">
+        <g id="inner-guy">
+          <path class="accent" d="M0 19h24v15a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V19z"/>
+          <path id="left_foot" class="accent" d="M4 38h6v7.5c0 .8 0 1.2-.3 1.5-.1.3-.4.6-.7.7-.3.2-.7.3-1.5.3h-1c-.8 0-1.2 0-1.5-.3-.3-.1-.6-.4-.7-.7-.2-.3-.3-.7-.3-1.5V38z"/>
+          <path id="right_foot" class="accent" d="M14 38h6v7.5c0 .8 0 1.2-.3 1.5-.1.3-.4.6-.7.7-.3.2-.7.3-1.5.3h-1c-.8 0-1.2 0-1.5-.3-.3-.1-.6-.4-.7-.7-.2-.3-.3-.7-.3-1.5V38z"/>
+          <g id="head">
+            <path class="accent" d="M26 4v13a2 2 0 0 1-2 2H0V4a4 4 0 0 1 4-4h18a4 4 0 0 1 4 4z"/>
+            <path class="accent" d="M24 19v2H0V4a4 4 0 0 1 4-4h18a4 4 0 0 1 4 4v13a2 2 0 0 1-2 2z"/>
+            <path id="face" d="M5 3a1 1 0 0 0-1 1v12c0 .6.4 1 1 1h18c.6 0 1-.4 1-1V4c0-.6-.4-1-1-1H5z"/>
+            <path class="accent" d="M11 7a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+            <path id="eye" class="accent" d="M19 7a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+          </g>
+        </g>
+      </g>
 
-<link rel="stylesheet" href="styles.css">
-
-<div id="stage">
-  <svg id="title" width="424" height="96" viewBox="0 0 424 96">
-    <path class="l1" d="M16,80 L56,80 L56,16 L16,16 L16,80 Z M16,96 L0,96 L0,16 L0,0 L72,0 L72,16 L72,96 L56,96 L16,96 Z M144,16 L104,16 L104,96 L88,96 L88,16 L88,0 L160,0 L160,16 L160,96 L144,96 L144,16 Z"/>
-    <path class="l2" d="M368,16 L368,40 L408,40 L408,56 L368,56 L368,96 L352,96 L352,0 L368,0 L424,0 L424,16 L368,16 Z M280,40 L320,40 L320,56 L280,56 L280,96 L264,96 L264,0 L280,0 L336,0 L336,16 L280,16 L280,40 Z M232,16 L192,16 L192,80 L232,80 L232,16 Z M248,16 L248,80 L248,96 L176,96 L176,80 L176,16 L176,0 L248,0 L248,16 Z"/>
-  </svg>
-
-  <svg width="256" height="32">
-    <defs>
-      <pattern id="spike_up"  width="16" height="16" patternUnits="userSpaceOnUse">
-        <polygon points="8 0 16 16 0 16"/>
-      </pattern>
-
-      <pattern id="spike_down"  width="16" height="16" patternUnits="userSpaceOnUse">
-        <polygon points="8 0 16 16 0 16" transform="rotate(180,8,8)"/>
-      </pattern>
-    </defs>
-
-    <rect fill="url(#spike_down)" width="256" height="16"></rect>
-
-    <rect fill="url(#spike_up)" y="16" width="256" height="16"></rect>
-  </svg>
-
-  <div id="credits" hidden>
-    Made by Brad Dunbar, Daniel Marino, and Micah Marino for JS13Game 2018
+      <g id="goal" transform="translate(570, 350)">
+        <g id="inner-goal">
+          <path d="M12 19.26L6.37 22.1a1 1 0 0 1-1.44-1.07l1.05-5.98-4.47-4.22a1 1 0 0 1 .55-1.72l6.22-.88 2.83-5.5a1 1 0 0 1 1.78 0l2.83 5.5 6.22.88a1 1 0 0 1 .55 1.72l-4.47 4.22 1.05 5.98a1 1 0 0 1-1.44 1.07L12 19.26z"/>
+        </g>
+      </g>
+    </svg>
   </div>
-</div>
+</body>
+
+<svg id="title" width="424" height="96" viewBox="0 0 424 96" hidden>
+  <path class="l1" d="M16,80 L56,80 L56,16 L16,16 L16,80 Z M16,96 L0,96 L0,16 L0,0 L72,0 L72,16 L72,96 L56,96 L16,96 Z M144,16 L104,16 L104,96 L88,96 L88,16 L88,0 L160,0 L160,16 L160,96 L144,96 L144,16 Z"/>
+  <path class="l2" d="M368,16 L368,40 L408,40 L408,56 L368,56 L368,96 L352,96 L352,0 L368,0 L424,0 L424,16 L368,16 Z M280,40 L320,40 L320,56 L280,56 L280,96 L264,96 L264,0 L280,0 L336,0 L336,16 L280,16 L280,40 Z M232,16 L192,16 L192,80 L232,80 L232,16 Z M248,16 L248,80 L248,96 L176,96 L176,80 L176,16 L176,0 L248,0 L248,16 Z"/>
+</svg>
+
+<br>
+
+<svg width="256" height="32" hidden>
+  <defs>
+    <pattern id="spike_up"  width="16" height="16" patternUnits="userSpaceOnUse">
+      <polygon points="8 0 16 16 0 16"/>
+    </pattern>
+
+    <pattern id="spike_down"  width="16" height="16" patternUnits="userSpaceOnUse">
+      <polygon points="8 0 16 16 0 16" transform="rotate(180,8,8)"/>
+    </pattern>
+  </defs>
+
+  <rect fill="url(#spike_down)" width="256" height="16"></rect>
+  <rect fill="url(#spike_up)" y="16" width="256" height="16"></rect>
+</svg>
+
+
 
 <br>
 
 <button id="toggle">toggle colors</button>
-<button id="walk">toggle walk</button>
-<button id="direction">toggle direction</button>
-
-<svg id="guy" width="26" height="48" viewBox="0 0 26 48" >
-  <path class="accent" d="M0 19h24v15a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V19z"/>
-  <path id="left_foot" class="accent" d="M4 38h6v7.5c0 .8 0 1.2-.3 1.5-.1.3-.4.6-.7.7-.3.2-.7.3-1.5.3h-1c-.8 0-1.2 0-1.5-.3-.3-.1-.6-.4-.7-.7-.2-.3-.3-.7-.3-1.5V38z"/>
-  <path id="right_foot" class="accent" d="M14 38h6v7.5c0 .8 0 1.2-.3 1.5-.1.3-.4.6-.7.7-.3.2-.7.3-1.5.3h-1c-.8 0-1.2 0-1.5-.3-.3-.1-.6-.4-.7-.7-.2-.3-.3-.7-.3-1.5V38z"/>
-  <g id="head">
-    <path class="accent" d="M26 4v13a2 2 0 0 1-2 2H0V4a4 4 0 0 1 4-4h18a4 4 0 0 1 4 4z"/>
-    <path id="face" d="M5 3a1 1 0 0 0-1 1v12c0 .6.4 1 1 1h18c.6 0 1-.4 1-1V4c0-.6-.4-1-1-1H5z"/>
-    <path class="accent" d="M11 7a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-    <path id="eye" class="accent" d="M19 7a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-  </g>
-</svg>
-
-<svg id="goal" fill="#444" width="24" height="24" viewBox="0 0 24 24" >
-  <path d="M12 19.26L6.37 22.1a1 1 0 0 1-1.44-1.07l1.05-5.98-4.47-4.22a1 1 0 0 1 .55-1.72l6.22-.88 2.83-5.5a1 1 0 0 1 1.78 0l2.83 5.5 6.22.88a1 1 0 0 1 .55 1.72l-4.47 4.22 1.05 5.98a1 1 0 0 1-1.44 1.07L12 19.26z"/>
-</svg>
 
 <script>
   document.body.classList.add('on');
