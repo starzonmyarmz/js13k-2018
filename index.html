@@ -23,7 +23,9 @@
 
       <g id="goal" transform="translate(570, 350)">
         <g id="inner-goal">
-          <path d="M12 19.26L6.37 22.1a1 1 0 0 1-1.44-1.07l1.05-5.98-4.47-4.22a1 1 0 0 1 .55-1.72l6.22-.88 2.83-5.5a1 1 0 0 1 1.78 0l2.83 5.5 6.22.88a1 1 0 0 1 .55 1.72l-4.47 4.22 1.05 5.98a1 1 0 0 1-1.44 1.07L12 19.26z"/>
+          <g id="inner-goal-finish">
+            <path d="M12 19.26L6.37 22.1a1 1 0 0 1-1.44-1.07l1.05-5.98-4.47-4.22a1 1 0 0 1 .55-1.72l6.22-.88 2.83-5.5a1 1 0 0 1 1.78 0l2.83 5.5 6.22.88a1 1 0 0 1 .55 1.72l-4.47 4.22 1.05 5.98a1 1 0 0 1-1.44 1.07L12 19.26z"/>
+          </g>
         </g>
       </g>
     </svg>
@@ -57,20 +59,15 @@
 <br>
 
 <button id="toggle">toggle colors</button>
+<button id="finish">toggle goal animation</button>
 
 <script>
-  document.body.classList.add('on');
-
   document.getElementById('toggle').addEventListener('click', function() {
     document.body.classList.toggle('on');
     document.body.classList.toggle('off');
   });
 
-  document.getElementById('direction').addEventListener('click', function() {
-    document.getElementById('guy').classList.toggle('left');
+  document.getElementById('finish').addEventListener('click', function() {
+    document.body.classList.toggle('finish');
   });
-
-  document.getElementById('walk').addEventListener('click', function() {
-    document.getElementById('guy').classList.toggle('walk');
-  })
 </script>
