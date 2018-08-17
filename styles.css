@@ -20,17 +20,29 @@ svg {
   width: 768px;
 }
 
-#guy.walk #left_foot,
-#guy.walk #right_foot {
+
+
+/*  Guy  */
+
+#inner-guy {
+  transform-origin: 13px;
+}
+
+.left #inner-guy {
+  transform: scaleX(-1);
+}
+
+.walk #left_foot,
+.walk #right_foot {
   animation: walk 0.2s infinite;
 }
 
-#guy.walk #right_foot {
+.walk #right_foot {
   animation-delay: 0.1s;
 }
 
-#guy.walk #head {
-  animation: bob 0.4s infinite;
+.walk #head {
+  animation: walk 0.4s infinite;
   position: relative;
   z-index: 5;
 }
@@ -41,11 +53,19 @@ svg {
   }
 }
 
-@keyframes bob {
-  50% {
-    transform: translateY(2px);
-  }
+.on #guy .accent,
+.off #face {
+  fill: var(--accent);
 }
+
+.on #face,
+.off #guy .accent {
+  fill: var(--secondary);
+}
+
+
+
+/*  Goal  */
 
 #goal {
   animation: pulse 2s infinite;
@@ -57,18 +77,13 @@ svg {
   }
 }
 
+
+
 [hidden] {
   display: none !important;
 }
 
 
-#inner-guy {
-  transform-origin: 13px;
-}
-
-#guy.left #inner-guy {
-  transform: scaleX(-1);
-}
 
 .on {
   background: var(--secondary);
@@ -84,14 +99,4 @@ svg {
 
 .on .l2, .off .l1 {
   opacity: 0.1;
-}
-
-.on #guy .accent,
-.off #face {
-  fill: var(--accent);
-}
-
-.on #face,
-.off #guy .accent {
-  fill: var(--secondary);
 }
