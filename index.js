@@ -23,13 +23,16 @@ class Body {
 }
 
 class Goal extends Body {
-  constructor (x, y) {
+  constructor () {
     super()
-    this.x = x
-    this.y = y
+    this.x = 0
+    this.y = 0
     this.width = 22
     this.height = 20
     this.element = document.getElementById('goal')
+  }
+
+  render () {
     this.element.setAttribute('transform', `translate(${this.x}, ${this.y})`)
   }
 }
@@ -83,13 +86,9 @@ class Bar extends Body {
 }
 
 class Scene {
-  constructor (guy, goal, bars) {
-    this.start = guy
-    this.guy = new Guy()
-    this.reset()
-    this.goal = new Goal(...goal)
-    this.bars = bars.map((args) => new Bar(...args))
-    for (const bar of this.bars) svg.appendChild(bar.element)
+  constructor () {
+    this.guy = new Guy
+    this.goal = new Goal
   }
 
   get on () {
@@ -100,6 +99,17 @@ class Scene {
     this._on = value
     document.body.classList.toggle('on', value)
     document.body.classList.toggle('off', !value)
+  }
+
+  load (guy, goal, bars) {
+    this.start = guy
+    this.goal.x = goal[0]
+    this.goal.y = goal[1]
+    this.goal.render()
+    if (this.bars) for (const bar of this.bars) bar.element.remove()
+    this.bars = bars.map((args) => new Bar(...args))
+    for (const bar of this.bars) svg.appendChild(bar.element)
+    this.reset()
   }
 
   reset () {
@@ -153,7 +163,11 @@ class Scene {
 
     if (this.lost()) this.reset()
 
-    if (this.won()) document.body.classList.add('finish')
+    if (this.won()) {
+      if (sceneIndex < scenes.length - 1) sceneIndex += 1
+      this.load(...scenes[sceneIndex])
+      // document.body.classList.add('finish')
+    }
 
     if (!this.standing()) {
       this.guy.vy = Math.min(10, this.guy.vy + 2)
@@ -161,11 +175,22 @@ class Scene {
   }
 }
 
-const scene = new Scene([100, 320], [570, 350], [
-  [0, 400, 200, 16, true],
-  [200, 400, 200, 16, false],
-  [400, 400, 200, 16, true],
-])
+const scenes = [
+  [[100, 320], [570, 350], [
+    [0, 400, 200, 16, true],
+    [200, 400, 200, 16, false],
+    [400, 400, 200, 16, true],
+  ]],
+  [[100, 120], [470, 350], [
+    [0, 400, 200, 16, false],
+    [200, 400, 200, 16, true],
+    [400, 400, 200, 16, false],
+  ]]
+]
+
+let sceneIndex = 0
+const scene = new Scene
+scene.load(...scenes[sceneIndex])
 
 requestAnimationFrame(function tick () {
   scene.tick()
