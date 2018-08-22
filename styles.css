@@ -107,14 +107,6 @@ svg {
   fill: var(--secondary);
 }
 
-.on .l2, .off .l1 {
+.on .dark, .off .light {
   opacity: 0.1;
-}
-
-.on .dark {
-  display: none;
-}
-
-.off .light {
-  display: none;
 }
