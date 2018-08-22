@@ -110,3 +110,11 @@ svg {
 .on .l2, .off .l1 {
   opacity: 0.1;
 }
+
+.on .dark {
+  display: none;
+}
+
+.off .light {
+  display: none;
+}
