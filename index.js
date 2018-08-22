@@ -7,11 +7,7 @@ document.addEventListener('keydown', ({key}) => { KEYS[key] = true })
 document.addEventListener('keyup', ({key}) => { KEYS[key] = false })
 
 document.addEventListener('keypress', ({key}) => {
-  if (key === ' ') {
-    scene.on = !scene.on
-    document.body.classList.toggle('on', scene.on)
-    document.body.classList.toggle('off', !scene.on)
-  }
+  if (key === ' ') scene.on = !scene.on
 })
 
 class Body {
@@ -88,11 +84,29 @@ class Bar extends Body {
 
 class Scene {
   constructor (guy, goal, bars) {
-    this.on = true
-    this.guy = new Guy(...guy)
+    this.start = guy
+    this.guy = new Guy()
+    this.reset()
     this.goal = new Goal(...goal)
     this.bars = bars.map((args) => new Bar(...args))
     for (const bar of this.bars) svg.appendChild(bar.element)
+  }
+
+  get on () {
+    return this._on
+  }
+
+  set on (value) {
+    this._on = value
+    document.body.classList.toggle('on', value)
+    document.body.classList.toggle('off', !value)
+  }
+
+  reset () {
+    this.on = true
+    const [x, y] = this.start
+    this.guy.x = x
+    this.guy.y = y
   }
 
   standing () {
@@ -123,6 +137,10 @@ class Scene {
     )
   }
 
+  lost () {
+    return this.guy.top > HEIGHT
+  }
+
   tick () {
     if (KEYS.ArrowUp && this.standing()) this.guy.vy = -15
 
@@ -132,6 +150,8 @@ class Scene {
     }
 
     this.guy.tick()
+
+    if (this.lost()) this.reset()
 
     if (this.won()) document.body.classList.add('finish')
 
