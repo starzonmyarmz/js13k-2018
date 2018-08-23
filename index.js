@@ -1,52 +1,108 @@
 const svg = document.querySelector('svg')
+const KEYS = {}
 const WIDTH = 768
 const HEIGHT = 480
+const NO_DEFAULT = [
+  ' ',
+  'ArrowUp',
+  'ArrowDown',
+  'ArrowLeft',
+  'ArrowRight'
+]
 
-const KEYS = {}
-document.addEventListener('keydown', ({key}) => { KEYS[key] = true })
-document.addEventListener('keyup', ({key}) => { KEYS[key] = false })
+const sleep = (delay) => new Promise((resolve, reject) => {
+  let start = performance.now()
+  requestAnimationFrame(function check (now) {
+    if (now >= start + delay) return resolve()
+    requestAnimationFrame(check)
+  })
+})
 
-document.addEventListener('keypress', ({key}) => {
-  if (key === ' ') scene.on = !scene.on
+document.addEventListener('keydown', (event) => {
+  KEYS[event.key] = true
+  if (event.key === ' ') scene.on = !scene.on
+  if (NO_DEFAULT.includes(event.key)) event.preventDefault()
+})
+
+document.addEventListener('keyup', (event) => {
+  KEYS[event.key] = false
 })
 
 class Body {
-  get top () { return this.y }
+  get top () {
+    return this.y
+  }
 
-  get bottom () { return this.y + this.height }
+  get bottom () {
+    return this.y + this.height
+  }
 
-  set bottom (value) { this.y = value - this.height }
+  get left () {
+    return this.x
+  }
 
-  get left () { return this.x }
+  get right () {
+    return this.x + this.width
+  }
 
-  get right () { return this.x + this.width }
+  set bottom (value) {
+    this.y = value - this.height
+  }
 }
 
 class Goal extends Body {
   constructor () {
     super()
+    this.element = document.getElementById('goal')
     this.x = 0
     this.y = 0
     this.width = 22
     this.height = 20
-    this.element = document.getElementById('goal')
   }
 
-  render () {
-    this.element.setAttribute('transform', `translate(${this.x}, ${this.y})`)
+  get x () {
+    return this._x
+  }
+
+  set x (value) {
+    this.element.setAttribute('x', this._x = value)
+  }
+
+  get y () {
+    return this._y
+  }
+
+  set y (value) {
+    this.element.setAttribute('y', this._y = value)
   }
 }
 
 class Guy extends Body {
   constructor (x, y) {
     super()
+    this.element = document.getElementById('guy')
     this.x = x
     this.y = y
-    this.element = document.getElementById('guy')
     this.height = 48
     this.width = 26
     this.speed = 5
     this.vy = 0
+  }
+
+  get x () {
+    return this._x
+  }
+
+  set x (value) {
+    this.element.setAttribute('x', this._x = value)
+  }
+
+  get y () {
+    return this._y
+  }
+
+  set y (value) {
+    this.element.setAttribute('y', this._y = value)
   }
 
   tick () {
@@ -63,7 +119,6 @@ class Guy extends Body {
     this.y += this.vy
 
     this.element.classList.toggle('walk', KEYS.ArrowLeft || KEYS.ArrowRight)
-    this.element.setAttribute('transform', `translate(${this.x}, ${this.y})`)
   }
 }
 
@@ -86,9 +141,13 @@ class Bar extends Body {
 }
 
 class Scene {
-  constructor () {
+  constructor (levels) {
+    this.index = 0
+    this.paused = false
     this.guy = new Guy
     this.goal = new Goal
+    this.levels = levels
+    this.load(...levels[0])
   }
 
   get on () {
@@ -101,11 +160,22 @@ class Scene {
     document.body.classList.toggle('off', !value)
   }
 
+  async advance () {
+    this.paused = true
+    document.body.classList.add('finish')
+    await sleep(1000)
+    this.index = Math.min(this.index + 1, this.levels.length - 1)
+    this.load(...this.levels[this.index])
+    document.body.classList.remove('finish')
+    await sleep(1000)
+    this.paused = false
+  }
+
   load (guy, goal, bars) {
     this.start = guy
-    this.goal.x = goal[0]
-    this.goal.y = goal[1]
-    this.goal.render()
+    const [x, y] = goal
+    this.goal.x = x
+    this.goal.y = y
     if (this.bars) for (const bar of this.bars) bar.element.remove()
     this.bars = bars.map((args) => new Bar(...args))
     for (const bar of this.bars) svg.appendChild(bar.element)
@@ -152,7 +222,11 @@ class Scene {
   }
 
   tick () {
-    if (KEYS.ArrowUp && this.standing()) this.guy.vy = -15
+    if (this.paused) return
+
+    if (KEYS.ArrowUp && this.standing()) {
+      this.guy.vy = -15
+    }
 
     if (this.landing()) {
       this.guy.bottom = this.landing().y
@@ -161,21 +235,16 @@ class Scene {
 
     this.guy.tick()
 
-    if (this.lost()) this.reset()
-
-    if (this.won()) {
-      if (sceneIndex < scenes.length - 1) sceneIndex += 1
-      this.load(...scenes[sceneIndex])
-      // document.body.classList.add('finish')
-    }
-
     if (!this.standing()) {
       this.guy.vy = Math.min(10, this.guy.vy + 2)
     }
+
+    if (this.lost()) this.reset()
+    if (this.won()) this.advance()
   }
 }
 
-const scenes = [
+const scene = new Scene([
   [[100, 320], [570, 350], [
     [0, 400, 200, 16, true],
     [200, 400, 200, 16, false],
@@ -186,11 +255,7 @@ const scenes = [
     [200, 400, 200, 16, true],
     [400, 400, 200, 16, false],
   ]]
-]
-
-let sceneIndex = 0
-const scene = new Scene
-scene.load(...scenes[sceneIndex])
+])
 
 requestAnimationFrame(function tick () {
   scene.tick()

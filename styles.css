@@ -9,7 +9,9 @@ body {
 }
 
 svg {
+  overflow: visible;
   vertical-align: middle;
+  width: 100%;
 }
 
 #stage {
@@ -72,13 +74,17 @@ svg {
   transform-origin: 12px 12px;
 }
 
+.finish #inner-goal {
+  animation: none;
+}
+
 #inner-goal-finish {
   transition: transform 0.5s;
   transform-origin: 12px 12px;
 }
 
 .finish #inner-goal-finish {
-  transform: scale(150);
+  transform: scale(200);
 }
 
 @keyframes pulse {
@@ -98,7 +104,7 @@ svg {
 .on {
   background: var(--secondary);
   color: var(--accent);
-  fill: color: var(--accent);
+  fill: var(--accent);
 }
 
 .off {
