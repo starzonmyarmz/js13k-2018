@@ -3,8 +3,13 @@
   --secondary: #fff;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
-  text-align: center;
+  align-items: center;
+  display: flex;
   margin: 0;
 }
 
@@ -15,11 +20,8 @@ svg {
 }
 
 #stage {
-  align-items: center;
-  display: inline-flex;
-  height: 480px;
-  justify-content: center;
-  width: 768px;
+  width: 100vw;
+  display: inline-block;
 }
 
 
