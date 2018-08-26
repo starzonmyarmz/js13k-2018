@@ -106,7 +106,7 @@ svg {
 }
 
 .finish #inner-goal-finish {
-  transform: scale(100);
+  transform: scale(150);
 }
 
 @keyframes pulse {
