@@ -86,6 +86,7 @@ class Guy extends Body {
     this.height = 48
     this.width = 26
     this.speed = 5
+    this.vx = 0
     this.vy = 0
   }
 
@@ -106,17 +107,18 @@ class Guy extends Body {
   }
 
   tick () {
-    if (KEYS.ArrowLeft) {
-      this.x = Math.max(0, this.x - this.speed)
+    if (KEYS.ArrowLeft && !KEYS.ArrowRight) {
+      this.vx = -this.speed
       this.element.classList.add('left')
-    }
-
-    if (KEYS.ArrowRight) {
-      this.x = Math.min(WIDTH - this.width, this.x + this.speed)
+    } else if (KEYS.ArrowRight && !KEYS.ArrowLeft) {
+      this.vx = this.speed
       this.element.classList.remove('left')
+    } else {
+      this.vx = 0
     }
 
-    this.y += this.vy
+    this.x = Math.min(WIDTH - this.width, Math.max(0, this.x + this.vx))
+    this.y = Math.max(0, this.y + this.vy)
 
     this.element.classList.toggle('walk', KEYS.ArrowLeft || KEYS.ArrowRight)
   }
