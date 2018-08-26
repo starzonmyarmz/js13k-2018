@@ -26,6 +26,17 @@ svg {
 
 
 
+/*  Title  */
+
+#letsgo {
+  animation: pulse 2s infinite;
+  fill: var(--accent);
+  opacity: 0.2;
+  transform-origin: 50% 75%;
+}
+
+
+
 /*  Guy  */
 
 #inner-guy {
@@ -49,12 +60,6 @@ svg {
   animation: walk 0.4s infinite;
   position: relative;
   z-index: 5;
-}
-
-@keyframes walk {
-  50% {
-    transform: translateY(-2px);
-  }
 }
 
 .on #guy .accent,
@@ -109,12 +114,6 @@ svg {
   transform: scale(150);
 }
 
-@keyframes pulse {
-  50% {
-    transform: scale(0.7);
-  }
-}
-
 
 
 /*  Swap Foreground/Background  */
@@ -133,6 +132,22 @@ svg {
 
 .on .dark, .off .light {
   opacity: 0.1;
+}
+
+
+
+/*  Animations  */
+
+@keyframes walk {
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(0.7);
+  }
 }
 
 

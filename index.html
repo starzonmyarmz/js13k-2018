@@ -6,10 +6,17 @@
 <body class="on">
   <div id="stage">
     <svg viewBox="0 0 768 480">
-      <svg x="20" y="20">
-        <path d="M28 9v7h-4V0h10v16h-2V9h-4zm0-2h4V2h-4v5zM16 7h4v2h-4v5h6v2H12V0h10v2h-6v5zm36 0h4V0h2v16h-2V9h-4v7h-4V0h4v7zm18 0v9H60v-2h8V9h-8V0h10v2h-6v5h6zM39 2h-3V0h10v2h-3v14h-4V2zM4 2v12h4V2H4zM0 0h10v16H0V0zM72 3h2v3h-2zM72 11h2v3h-2z"/>
+      <svg id="title" viewBox="0 0 768 480" hidden>
+        <path class="l1" d="M188 272h40v-64h-40v64zm0 16h-16v-96h72v96h-56zm128-80h-40v80h-16v-96h72v96h-16v-80z"/>
+        <path class="l2" d="M540 208v24h40v16h-40v40h-16v-96h72v16h-56zm-88 24h40v16h-40v40h-16v-96h72v16h-56v24zm-48-24h-40v64h40v-64zm16 0v80h-72v-96h72v16z" opacity=".2"/>
+        <g id="letsgo">
+          <path d="M437 366h4v16h-4zM481 366h4v16h-4zM457 366h4v16h-4zM381 366h4v16h-4zM357 366h4v16h-4zM469 366h4v16h-4zM369 366h4v16h-4zM277 366h4v16h-4zM333 366h4v16h-4zM253 366h4v16h-4zM405 366h4v16h-4zM265 366h4v16h-4zM393 366h4v16h-4zM345 366h4v16h-4zM505 366h4v16h-4zM428 368h4v14h-4zM496 368h4v12h-4zM321 368h4v5h-4zM289 368h4v5h-4zM301 368h4v5h-4zM445 366h2v16h-2zM489 375h2v7h-2zM465 366h2v16h-2zM389 366h2v16h-2zM341 366h2v9h-2zM261 366h2v9h-2zM413 366h2v9h-2zM273 366h2v9h-2zM411 375h2v7h-2zM271 375h2v7h-2zM401 366h2v16h-2zM353 366h2v16h-2zM513 366h2v16h-2zM329 375h2v5h-2zM297 375h2v5h-2zM309 375h2v5h-2zM445 380v2h-4v-2zM489 380v2h-4v-2zM465 380v2h-4v-2zM389 380v2h-4v-2zM367 380v2h-6v-2zM445 366v2h-4v-2zM491 366v2h-6v-2zM465 366v2h-4v-2zM389 366v2h-4v-2zM367 366v2h-6v-2zM479 366v2h-6v-2zM379 366v2h-6v-2zM287 366v2h-6v-2zM435 366v2h-10v-2zM503 366v2h-10v-2zM503 380v2h-10v-2zM331 366v2h-10v-2zM299 366v2h-10v-2zM311 366v2h-10v-2zM331 373v2h-10v-2zM299 373v2h-10v-2zM311 373v2h-10v-2zM331 380v2h-10v-2zM299 380v2h-10v-2zM311 380v2h-10v-2zM341 366v2h-4v-2zM261 366v2h-4v-2zM413 366v2h-4v-2zM273 366v2h-4v-2zM401 366v2h-4v-2zM353 366v2h-4v-2zM513 366v2h-4v-2zM479 380v2h-6v-2zM379 380v2h-6v-2zM287 380v2h-6v-2zM477 373v2h-4v-2zM377 373v2h-4v-2zM285 373v2h-4v-2zM491 373v2h-4v-2zM465 373v2h-4v-2zM389 373v2h-4v-2zM341 373v2h-4v-2zM261 373v2h-4v-2zM413 373v2h-4v-2zM273 373v2h-4v-2zM401 373v2h-4v-2zM353 373v2h-4v-2z"/>
+        </g>
       </svg>
 
+      <svg id="deaths" x="20" y="20">
+        <path d="M28 9v7h-4V0h10v16h-2V9h-4zm0-2h4V2h-4v5zM16 7h4v2h-4v5h6v2H12V0h10v2h-6v5zm36 0h4V0h2v16h-2V9h-4v7h-4V0h4v7zm18 0v9H60v-2h8V9h-8V0h10v2h-6v5h6zM39 2h-3V0h10v2h-3v14h-4V2zM4 2v12h4V2H4zM0 0h10v16H0V0zM72 3h2v3h-2zM72 11h2v3h-2z"/>
+      </svg>
 
       <svg id="guy"><g id="inner-guy">
         <path class="accent" d="M0 19h24v15a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V19z"/>
@@ -57,14 +64,8 @@
     </svg>
   </div>
 </body>
+
 <!--
-<svg id="title" width="424" height="96" viewBox="0 0 424 96" hidden>
-  <path class="l1" d="M16,80 L56,80 L56,16 L16,16 L16,80 Z M16,96 L0,96 L0,16 L0,0 L72,0 L72,16 L72,96 L56,96 L16,96 Z M144,16 L104,16 L104,96 L88,96 L88,16 L88,0 L160,0 L160,16 L160,96 L144,96 L144,16 Z"/>
-  <path class="l2" d="M368,16 L368,40 L408,40 L408,56 L368,56 L368,96 L352,96 L352,0 L368,0 L424,0 L424,16 L368,16 Z M280,40 L320,40 L320,56 L280,56 L280,96 L264,96 L264,0 L280,0 L336,0 L336,16 L280,16 L280,40 Z M232,16 L192,16 L192,80 L232,80 L232,16 Z M248,16 L248,80 L248,96 L176,96 L176,80 L176,16 L176,0 L248,0 L248,16 Z"/>
-</svg>
-
-<br>
-
 <svg width="256" height="32" hidden>
   <defs>
     <pattern id="spike_up"  width="16" height="16" patternUnits="userSpaceOnUse">
