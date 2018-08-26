@@ -69,6 +69,26 @@ svg {
 
 
 
+/*  Death  */
+
+#death rect {
+  animation: death 0.8s infinite;
+  opacity: 0;
+}
+
+@keyframes death {
+  0% {
+    opacity: 1;
+    transform: rotate(45deg);
+  }
+  50% {
+    opacity: 0;
+    transform: rotate(0);
+  }
+}
+
+
+
 /*  Goal  */
 
 #inner-goal {
