@@ -227,7 +227,7 @@ class Scene {
     if (this.paused) return
 
     if (KEYS.ArrowUp && this.standing()) {
-      this.guy.vy = -15
+      this.guy.vy = -21
     }
 
     if (this.landing()) {
