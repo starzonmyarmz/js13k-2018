@@ -15,6 +15,7 @@ body {
 
 svg {
   overflow: visible;
+  shape-rendering: crispEdges;
   vertical-align: middle;
   width: 100%;
 }
@@ -98,6 +99,7 @@ svg {
 
 #inner-goal {
   animation: pulse 2s infinite;
+  shape-rendering: auto;
   transform-origin: 12px 12px;
 }
 

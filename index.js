@@ -85,7 +85,7 @@ class Guy extends Body {
     this.y = y
     this.height = 48
     this.width = 26
-    this.speed = 5
+    this.speed = 7
     this.vx = 0
     this.vy = 0
   }
