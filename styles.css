@@ -14,10 +14,11 @@ body {
 }
 
 svg {
+  max-height: 100vh;
+  max-width: 100vw;
   overflow: visible;
   shape-rendering: crispEdges;
   vertical-align: middle;
-  width: 100%;
 }
 
 #stage {
