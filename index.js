@@ -197,7 +197,7 @@ class Scene {
 
   standing () {
     return this.bars.some((bar) =>
-      !bar.spikes &&
+      !bar.spike &&
       bar.on === this.on &&
       this.guy.left <= bar.right &&
       this.guy.right >= bar.left &&
@@ -207,7 +207,7 @@ class Scene {
 
   landing () {
     return this.bars.find((bar) =>
-      !bar.spikes &&
+      !bar.spike &&
       bar.on === this.on &&
       this.guy.left <= bar.right &&
       this.guy.right >= bar.left &&
@@ -227,7 +227,7 @@ class Scene {
 
   lost () {
     return this.guy.top > HEIGHT || this.bars.some((bar) =>
-      bar.spikes &&
+      bar.spike &&
       bar.on ===  this.on &&
       this.guy.left <= bar.right &&
       this.guy.right >= bar.left &&
@@ -260,6 +260,14 @@ class Scene {
 }
 
 const scene = new Scene([
+  [[20, 200], [704, 244], [
+    [0, 288, 330, 600, true],
+    [438, 288, 330, 600, false],
+    [128, 272, 64, 16, true, 'up'],
+    [192, 272, 64, 16, false, 'down'],
+    [256, 80, 16, 64, false, 'left'],
+    [320, 80, 16, 64, false, 'right']
+  ]],
   [[20, 200], [704, 244], [
     [0, 288, 330, 600, true],
     [438, 288, 330, 600, true]
