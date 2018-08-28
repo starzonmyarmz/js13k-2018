@@ -125,14 +125,14 @@ class Guy extends Body {
 }
 
 class Bar extends Body {
-  constructor (x, y, width, height, on, spikes) {
+  constructor (x, y, width, height, on, spike) {
     super()
     this.x = x
     this.y = y
     this.width = width
     this.height = height
     this.on = on
-    this.spikes = spikes
+    this.spike = spike
     this.element = document.createElementNS(svg.namespaceURI, 'rect')
     this.element.setAttribute('x', this.x)
     this.element.setAttribute('y', this.y)
@@ -140,8 +140,8 @@ class Bar extends Body {
     this.element.setAttribute('height', this.height)
     this.element.classList.toggle('light', on)
     this.element.classList.toggle('dark', !on)
-    if (this.spikes) {
-      this.element.setAttribute('fill', 'url(#spike-up)')
+    if (this.spike) {
+      this.element.setAttribute('fill', `url(#spike-${this.spike})`)
     }
   }
 }
