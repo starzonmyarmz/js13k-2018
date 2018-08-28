@@ -177,6 +177,20 @@ class Scene {
     this.paused = false
   }
 
+  async death () {
+    this.paused = true
+    const death = document.getElementById('death')
+    death.setAttribute('x', this.guy.x - 32 + this.guy.width / 2)
+    death.setAttribute('y', this.guy.y - 32 + this.guy.height / 2)
+    this.guy.element.setAttribute('hidden', true)
+    document.body.classList.add('dying')
+    await sleep(700)
+    document.body.classList.remove('dying')
+    this.reset()
+    this.guy.element.removeAttribute('hidden')
+    this.paused = false
+  }
+
   load (guy, goal, bars) {
     this.start = guy
     const [x, y] = goal
@@ -226,7 +240,7 @@ class Scene {
   }
 
   lost () {
-    return this.guy.top > HEIGHT || this.bars.some((bar) =>
+    return this.guy.bottom > HEIGHT || this.bars.some((bar) =>
       bar.spike &&
       bar.on ===  this.on &&
       this.guy.left <= bar.right &&
@@ -254,7 +268,8 @@ class Scene {
       this.guy.vy = Math.min(10, this.guy.vy + 2)
     }
 
-    if (this.lost()) this.reset()
+    if (this.lost()) this.death()
+
     if (this.won()) this.advance()
   }
 }

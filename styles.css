@@ -78,7 +78,12 @@ svg {
 /*  Death Animation  */
 
 #death rect {
+  display: none;
+}
+
+.dying #death rect {
   animation: death 0.8s infinite;
+  display: initial;
   opacity: 0;
 }
 
