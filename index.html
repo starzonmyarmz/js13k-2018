@@ -7,17 +7,17 @@
   <div id="stage">
     <svg viewBox="0 0 768 480">
       <defs>
-        <pattern id="spike-up" width="16" height="16" patternUnits="userSpaceOnUse">
-          <polygon points="8 0 16 16 0 16"/>
+        <pattern id="spike-up" width="16" height="8" patternUnits="userSpaceOnUse">
+          <polygon points="8 0 16 8 0 8"/>
         </pattern>
-        <pattern id="spike-down" width="16" height="16" patternUnits="userSpaceOnUse">
-          <polygon points="8 0 16 16 0 16" transform="rotate(180,8,8)"/>
+        <pattern id="spike-down" width="16" height="8" patternUnits="userSpaceOnUse">
+          <polygon points="0 0 16 0 8 8"/>
         </pattern>
-        <pattern id="spike-left" width="16" height="16" patternUnits="userSpaceOnUse">
-          <polygon points="8 0 16 16 0 16" transform="rotate(270,8,8)"/>
+        <pattern id="spike-left" width="8" height="16" patternUnits="userSpaceOnUse">
+          <polygon points="8 0 8 16 0 8"/>
         </pattern>
-        <pattern id="spike-right" width="16" height="16" patternUnits="userSpaceOnUse">
-          <polygon points="8 0 16 16 0 16" transform="rotate(90,8,8)"/>
+        <pattern id="spike-right" width="8" height="16" patternUnits="userSpaceOnUse">
+          <polygon points="0 0 8 8 16 0"/>
         </pattern>
       </defs>
       <svg id="title" viewBox="0 0 768 480" hidden>
@@ -97,19 +97,3 @@
     </svg>
   </div>
 </body>
-
-<!--
-<svg width="256" height="32" hidden>
-  <defs>
-    <pattern id="spike_up"  width="16" height="16" patternUnits="userSpaceOnUse">
-      <polygon points="8 0 16 16 0 16"/>
-    </pattern>
-
-    <pattern id="spike_down"  width="16" height="16" patternUnits="userSpaceOnUse">
-      <polygon points="8 0 16 16 0 16" transform="rotate(180,8,8)"/>
-    </pattern>
-  </defs>
-
-  <rect fill="url(#spike_down)" width="256" height="16"></rect>
-  <rect fill="url(#spike_up)" y="16" width="256" height="16"></rect>
-</svg> -->
