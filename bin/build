@@ -1,0 +1,6 @@
+#!/bin/bash
+
+mkdir -p dist
+postcss styles.css > dist/styles.css
+cp index.html dist/index.html
+cp index.js dist/index.js
