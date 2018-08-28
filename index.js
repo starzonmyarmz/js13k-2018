@@ -149,6 +149,7 @@ class Bar extends Body {
 class Scene {
   constructor (levels) {
     this.index = 0
+    this.deaths = 0
     this.paused = false
     this.guy = new Guy
     this.goal = new Goal
@@ -166,6 +167,25 @@ class Scene {
     document.body.classList.toggle('off', !value)
   }
 
+  get deaths () {
+    return this._deaths
+  }
+
+  set deaths (value) {
+    this._deaths = value
+    const counter = document.getElementById('counter')
+    counter.innerHTML = ''
+    let s = value.toString()
+    for (let i = 0; i < s.length; i++) {
+      const rect = document.createElementNS(svg.namespaceURI, 'rect')
+      rect.setAttribute('fill', `url(#n${s[i]})`)
+      rect.setAttribute('width', 12)
+      rect.setAttribute('height', 16)
+      rect.setAttribute('x', 12 * i)
+      counter.appendChild(rect)
+    }
+  }
+
   async advance () {
     this.paused = true
     document.body.classList.add('finish')
@@ -178,6 +198,7 @@ class Scene {
   }
 
   async death () {
+    this.deaths += 1
     this.paused = true
     const death = document.getElementById('death')
     death.setAttribute('x', this.guy.x - 32 + this.guy.width / 2)
