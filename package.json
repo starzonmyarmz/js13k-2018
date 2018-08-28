@@ -19,6 +19,7 @@
   "homepage": "https://github.com/starzonmyarmz/js13k-2018#readme",
   "dependencies": {
     "cssnano": "4.1.0",
-    "postcss-cli": "6.0.0"
+    "postcss-cli": "6.0.0",
+    "uglify-es": "3.3.9"
   }
 }
