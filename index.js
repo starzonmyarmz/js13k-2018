@@ -125,13 +125,14 @@ class Guy extends Body {
 }
 
 class Bar extends Body {
-  constructor (x, y, width, height, on) {
+  constructor (x, y, width, height, on, spikes) {
     super()
     this.x = x
     this.y = y
     this.width = width
     this.height = height
     this.on = on
+    this.spikes = spikes
     this.element = document.createElementNS(svg.namespaceURI, 'rect')
     this.element.setAttribute('x', this.x)
     this.element.setAttribute('y', this.y)
@@ -139,6 +140,9 @@ class Bar extends Body {
     this.element.setAttribute('height', this.height)
     this.element.classList.toggle('light', on)
     this.element.classList.toggle('dark', !on)
+    if (this.spikes) {
+      this.element.setAttribute('fill', 'url(#spike-up)')
+    }
   }
 }
 
@@ -193,6 +197,7 @@ class Scene {
 
   standing () {
     return this.bars.some((bar) =>
+      !bar.spikes &&
       bar.on === this.on &&
       this.guy.left <= bar.right &&
       this.guy.right >= bar.left &&
@@ -202,6 +207,7 @@ class Scene {
 
   landing () {
     return this.bars.find((bar) =>
+      !bar.spikes &&
       bar.on === this.on &&
       this.guy.left <= bar.right &&
       this.guy.right >= bar.left &&
@@ -220,7 +226,14 @@ class Scene {
   }
 
   lost () {
-    return this.guy.top > HEIGHT
+    return this.guy.top > HEIGHT || this.bars.some((bar) =>
+      bar.spikes &&
+      bar.on ===  this.on &&
+      this.guy.left <= bar.right &&
+      this.guy.right >= bar.left &&
+      this.guy.top <= bar.bottom &&
+      this.guy.bottom >= bar.top
+    )
   }
 
   tick () {
