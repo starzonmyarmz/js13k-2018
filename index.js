@@ -179,7 +179,7 @@ class Scene {
     for (let i = 0; i < s.length; i++) {
       const rect = document.createElementNS(svg.namespaceURI, 'rect')
       rect.setAttribute('fill', `url(#n${s[i]})`)
-      rect.setAttribute('width', 12)
+      rect.setAttribute('width', 10)
       rect.setAttribute('height', 16)
       rect.setAttribute('x', 12 * i)
       counter.appendChild(rect)
