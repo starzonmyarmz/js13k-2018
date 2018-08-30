@@ -5,96 +5,93 @@
   <script src="index.js" defer></script>
 </head>
 <body class="on">
-
-    <svg viewBox="0 0 768 480">
-      <defs>
-        <pattern id="spike-up" width="16" height="8" patternUnits="userSpaceOnUse">
-          <polygon points="8 0 16 8 0 8"/>
-        </pattern>
-        <pattern id="spike-down" width="16" height="8" patternUnits="userSpaceOnUse">
-          <polygon points="0 0 16 0 8 8"/>
-        </pattern>
-        <pattern id="spike-left" width="8" height="16" patternUnits="userSpaceOnUse">
-          <polygon points="8 0 8 16 0 8"/>
-        </pattern>
-        <pattern id="spike-right" width="8" height="16" patternUnits="userSpaceOnUse">
-          <polygon points="0 0 8 8 0 16"/>
-        </pattern>
-      </defs>
-      <svg id="title" viewBox="0 0 768 480" hidden>
-        <path class="l1" d="M188 272h40v-64h-40v64zm0 16h-16v-96h72v96h-56zm128-80h-40v80h-16v-96h72v96h-16v-80z"/>
-        <path class="l2" d="M540 208v24h40v16h-40v40h-16v-96h72v16h-56zm-88 24h40v16h-40v40h-16v-96h72v16h-56v24zm-48-24h-40v64h40v-64zm16 0v80h-72v-96h72v16z" opacity=".2"/>
-        <g id="letsgo">
-          <path d="M437 366h4v16h-4zM481 366h4v16h-4zM457 366h4v16h-4zM381 366h4v16h-4zM357 366h4v16h-4zM469 366h4v16h-4zM369 366h4v16h-4zM277 366h4v16h-4zM333 366h4v16h-4zM253 366h4v16h-4zM405 366h4v16h-4zM265 366h4v16h-4zM393 366h4v16h-4zM345 366h4v16h-4zM505 366h4v16h-4zM428 368h4v14h-4zM496 368h4v12h-4zM321 368h4v5h-4zM289 368h4v5h-4zM301 368h4v5h-4zM445 366h2v16h-2zM489 375h2v7h-2zM465 366h2v16h-2zM389 366h2v16h-2zM341 366h2v9h-2zM261 366h2v9h-2zM413 366h2v9h-2zM273 366h2v9h-2zM411 375h2v7h-2zM271 375h2v7h-2zM401 366h2v16h-2zM353 366h2v16h-2zM513 366h2v16h-2zM329 375h2v5h-2zM297 375h2v5h-2zM309 375h2v5h-2zM445 380v2h-4v-2zM489 380v2h-4v-2zM465 380v2h-4v-2zM389 380v2h-4v-2zM367 380v2h-6v-2zM445 366v2h-4v-2zM491 366v2h-6v-2zM465 366v2h-4v-2zM389 366v2h-4v-2zM367 366v2h-6v-2zM479 366v2h-6v-2zM379 366v2h-6v-2zM287 366v2h-6v-2zM435 366v2h-10v-2zM503 366v2h-10v-2zM503 380v2h-10v-2zM331 366v2h-10v-2zM299 366v2h-10v-2zM311 366v2h-10v-2zM331 373v2h-10v-2zM299 373v2h-10v-2zM311 373v2h-10v-2zM331 380v2h-10v-2zM299 380v2h-10v-2zM311 380v2h-10v-2zM341 366v2h-4v-2zM261 366v2h-4v-2zM413 366v2h-4v-2zM273 366v2h-4v-2zM401 366v2h-4v-2zM353 366v2h-4v-2zM513 366v2h-4v-2zM479 380v2h-6v-2zM379 380v2h-6v-2zM287 380v2h-6v-2zM477 373v2h-4v-2zM377 373v2h-4v-2zM285 373v2h-4v-2zM491 373v2h-4v-2zM465 373v2h-4v-2zM389 373v2h-4v-2zM341 373v2h-4v-2zM261 373v2h-4v-2zM413 373v2h-4v-2zM273 373v2h-4v-2zM401 373v2h-4v-2zM353 373v2h-4v-2z"/>
-        </g>
-      </svg>
-
-      <svg id="deaths" x="20" y="20">
-        <path d="M28 9v7h-4V0h10v16h-2V9h-4zm0-2h4V2h-4v5zM16 7h4v2h-4v5h6v2H12V0h10v2h-6v5zm36 0h4V0h2v16h-2V9h-4v7h-4V0h4v7zm18 0v9H60v-2h8V9h-8V0h10v2h-6v5h6zM39 2h-3V0h10v2h-3v14h-4V2zM4 2v12h4V2H4zM0 0h10v16H0V0zM72 3h2v3h-2zM72 11h2v3h-2z"/>
-
-        <svg x="80">
-          <defs>
-            <pattern id="n0" width="10" height="16"><path d="M2 2v12h6V2H2zM0 0h10v16H0V0zm4 6h2v4H4V6z"/></pattern>
-            <pattern id="n1" width="10" height="16"><path d="M4 14V2H0V0h6v14h4v2H0v-2h4z"/></pattern>
-            <pattern id="n2" width="10" height="16"><path d="M8 2H0V0h10v9H2v5h8v2H0V7h8z"/></pattern>
-            <pattern id="n3" width="10" height="16"><path d="M8 9H2V7h6V2H0V0h10v16H0v-2h8z"/></pattern>
-            <pattern id="n4" width="10" height="16"><path d="M8 9H0V0h2v7h6V0h2v16H8z"/></pattern>
-            <pattern id="n5" width="10" height="16"><path d="M10 7v9H0v-2h8V9H0V0h10v2H2v5z"/></pattern>
-            <pattern id="n6" width="10" height="16"><path d="M2 14h6V9H2v5zm-2 2V0h10v2H2v5h8v9H0z"/></pattern>
-            <pattern id="n7" width="10" height="16"><path d="M8 2H0V0h10v16H8z"/></pattern>
-            <pattern id="n8" width="10" height="16"><path d="M2 14h6V9H2v5zm-2 2V0h10v16H0zm2-9h6V2H2v5z"/></pattern>
-            <pattern id="n9" width="10" height="16"><path d="M0 0h10v16H8V9H0V0zm8 2H2v5h6V2z"/></pattern>
-          </defs>
-
-          <g id="counter">
-          </g>
-        </svg>
-      </svg>
-
-      <svg id="guy">
-        <g id="inner-guy">
-          <rect class="accent" x="0" y="17" width="24" height="21"/>
-          <rect id="left_foot" class="accent" x="4" y="38" width="6" height="10"/>
-          <rect id="right_foot" class="accent" x="14" y="38" width="6" height="10"/>
-          <g id="head">
-            <rect class="accent" x="0" y="0" width="26" height="19"/>
-            <rect id="face" x="4" y="3" width="20" height="14"/>
-            <rect class="accent" x="9" y="7" width="4" height="4"/>
-            <rect class="accent" x="17" y="7" width="4" height="4"/>
-          </g>
-        </g>
-      </svg>
-
-      <svg id="goal"><g id="inner-goal"><g id="inner-goal-finish">
-        <path d="M12 19.26L6.37 22.1a1 1 0 0 1-1.44-1.07l1.05-5.98-4.47-4.22a1 1 0 0 1 .55-1.72l6.22-.88 2.83-5.5a1 1 0 0 1 1.78 0l2.83 5.5 6.22.88a1 1 0 0 1 .55 1.72l-4.47 4.22 1.05 5.98a1 1 0 0 1-1.44 1.07L12 19.26z"/>
-      </g></g></svg>
-
-      <svg id="death">
-        <rect x="27" y="27" width="10" height="12" style="transform-origin: 32px 32px"/>
-        <rect x="20" y="4" width="2" height="2" style="transform-origin: -10px 30px"/>
-        <rect x="0" y="28" width="2" height="2" style="transform-origin: 7px 70px"/>
-        <rect x="37" y="12" width="2" height="2" style="transform-origin: 15px 15px"/>
-        <rect x="5" y="42" width="2" height="2" style="transform-origin: 30px 70px"/>
-        <rect x="48" y="53" width="2" height="2" style="transform-origin: 60px 30px"/>
-        <rect x="55" y="26" width="2" height="2" style="transform-origin: 37px 5px"/>
-        <rect x="10" y="15" width="2" height="2" style="transform-origin: -2px 55px"/>
-        <rect x="24" y="11" width="6" height="6" style="transform-origin: 5px 32px"/>
-        <rect x="20" y="43" width="6" height="6" style="transform-origin: 46px 51px"/>
-        <rect x="32" y="46" width="6" height="6" style="transform-origin: 54px 37px"/>
-        <rect x="37" y="59" width="2" height="2" style="transform-origin: 65px 41px"/>
-        <rect x="23" y="55" width="2" height="2" style="transform-origin: 45px 51px"/>
-        <rect x="62" y="41" width="2" height="2" style="transform-origin: 56px 6px"/>
-        <rect x="52" y="2" width="2" height="2" style="transform-origin: 14px -13px"/>
-        <rect x="41" y="21" width="8" height="8" style="transform-origin: 28px 15px"/>
-        <rect x="48" y="11" width="4" height="4" style="transform-origin: 10px -4px"/>
-        <rect x="42" y="36" width="8" height="8" style="transform-origin: 47px 19px"/>
-        <rect x="53" y="44" width="3" height="3" style="transform-origin: 57px 16px"/>
-        <rect x="10" y="52" width="2" height="2" style="transform-origin: 47px 66px"/>
-        <rect x="15" y="22" width="8" height="8" style="transform-origin: 14px 44px"/>
-        <rect x="7" y="29" width="4" height="4" style="transform-origin: 19px 56px"/>
-        <rect x="14" y="36" width="4" height="4" style="transform-origin: 30px 55px"/>
-      </svg>
-
+  <svg viewBox="0 0 768 480">
+    <defs>
+      <pattern id="spike-up" width="16" height="8" patternUnits="userSpaceOnUse">
+        <polygon points="8 0 16 8 0 8"/>
+      </pattern>
+      <pattern id="spike-down" width="16" height="8" patternUnits="userSpaceOnUse">
+        <polygon points="0 0 16 0 8 8"/>
+      </pattern>
+      <pattern id="spike-left" width="8" height="16" patternUnits="userSpaceOnUse">
+        <polygon points="8 0 8 16 0 8"/>
+      </pattern>
+      <pattern id="spike-right" width="8" height="16" patternUnits="userSpaceOnUse">
+        <polygon points="0 0 8 8 0 16"/>
+      </pattern>
+    </defs>
+    <svg id="title" viewBox="0 0 768 480" hidden>
+      <path class="l1" d="M188 272h40v-64h-40v64zm0 16h-16v-96h72v96h-56zm128-80h-40v80h-16v-96h72v96h-16v-80z"/>
+      <path class="l2" d="M540 208v24h40v16h-40v40h-16v-96h72v16h-56zm-88 24h40v16h-40v40h-16v-96h72v16h-56v24zm-48-24h-40v64h40v-64zm16 0v80h-72v-96h72v16z" opacity=".2"/>
+      <g id="letsgo">
+        <path d="M437 366h4v16h-4zM481 366h4v16h-4zM457 366h4v16h-4zM381 366h4v16h-4zM357 366h4v16h-4zM469 366h4v16h-4zM369 366h4v16h-4zM277 366h4v16h-4zM333 366h4v16h-4zM253 366h4v16h-4zM405 366h4v16h-4zM265 366h4v16h-4zM393 366h4v16h-4zM345 366h4v16h-4zM505 366h4v16h-4zM428 368h4v14h-4zM496 368h4v12h-4zM321 368h4v5h-4zM289 368h4v5h-4zM301 368h4v5h-4zM445 366h2v16h-2zM489 375h2v7h-2zM465 366h2v16h-2zM389 366h2v16h-2zM341 366h2v9h-2zM261 366h2v9h-2zM413 366h2v9h-2zM273 366h2v9h-2zM411 375h2v7h-2zM271 375h2v7h-2zM401 366h2v16h-2zM353 366h2v16h-2zM513 366h2v16h-2zM329 375h2v5h-2zM297 375h2v5h-2zM309 375h2v5h-2zM445 380v2h-4v-2zM489 380v2h-4v-2zM465 380v2h-4v-2zM389 380v2h-4v-2zM367 380v2h-6v-2zM445 366v2h-4v-2zM491 366v2h-6v-2zM465 366v2h-4v-2zM389 366v2h-4v-2zM367 366v2h-6v-2zM479 366v2h-6v-2zM379 366v2h-6v-2zM287 366v2h-6v-2zM435 366v2h-10v-2zM503 366v2h-10v-2zM503 380v2h-10v-2zM331 366v2h-10v-2zM299 366v2h-10v-2zM311 366v2h-10v-2zM331 373v2h-10v-2zM299 373v2h-10v-2zM311 373v2h-10v-2zM331 380v2h-10v-2zM299 380v2h-10v-2zM311 380v2h-10v-2zM341 366v2h-4v-2zM261 366v2h-4v-2zM413 366v2h-4v-2zM273 366v2h-4v-2zM401 366v2h-4v-2zM353 366v2h-4v-2zM513 366v2h-4v-2zM479 380v2h-6v-2zM379 380v2h-6v-2zM287 380v2h-6v-2zM477 373v2h-4v-2zM377 373v2h-4v-2zM285 373v2h-4v-2zM491 373v2h-4v-2zM465 373v2h-4v-2zM389 373v2h-4v-2zM341 373v2h-4v-2zM261 373v2h-4v-2zM413 373v2h-4v-2zM273 373v2h-4v-2zM401 373v2h-4v-2zM353 373v2h-4v-2z"/>
+      </g>
     </svg>
 
+    <svg id="deaths" x="20" y="20">
+      <path d="M28 9v7h-4V0h10v16h-2V9h-4zm0-2h4V2h-4v5zM16 7h4v2h-4v5h6v2H12V0h10v2h-6v5zm36 0h4V0h2v16h-2V9h-4v7h-4V0h4v7zm18 0v9H60v-2h8V9h-8V0h10v2h-6v5h6zM39 2h-3V0h10v2h-3v14h-4V2zM4 2v12h4V2H4zM0 0h10v16H0V0zM72 3h2v3h-2zM72 11h2v3h-2z"/>
+
+      <svg x="80">
+        <defs>
+          <pattern id="n0" width="10" height="16"><path d="M2 2v12h6V2H2zM0 0h10v16H0V0zm4 6h2v4H4V6z"/></pattern>
+          <pattern id="n1" width="10" height="16"><path d="M4 14V2H0V0h6v14h4v2H0v-2h4z"/></pattern>
+          <pattern id="n2" width="10" height="16"><path d="M8 2H0V0h10v9H2v5h8v2H0V7h8z"/></pattern>
+          <pattern id="n3" width="10" height="16"><path d="M8 9H2V7h6V2H0V0h10v16H0v-2h8z"/></pattern>
+          <pattern id="n4" width="10" height="16"><path d="M8 9H0V0h2v7h6V0h2v16H8z"/></pattern>
+          <pattern id="n5" width="10" height="16"><path d="M10 7v9H0v-2h8V9H0V0h10v2H2v5z"/></pattern>
+          <pattern id="n6" width="10" height="16"><path d="M2 14h6V9H2v5zm-2 2V0h10v2H2v5h8v9H0z"/></pattern>
+          <pattern id="n7" width="10" height="16"><path d="M8 2H0V0h10v16H8z"/></pattern>
+          <pattern id="n8" width="10" height="16"><path d="M2 14h6V9H2v5zm-2 2V0h10v16H0zm2-9h6V2H2v5z"/></pattern>
+          <pattern id="n9" width="10" height="16"><path d="M0 0h10v16H8V9H0V0zm8 2H2v5h6V2z"/></pattern>
+        </defs>
+
+        <g id="counter">
+        </g>
+      </svg>
+    </svg>
+
+    <svg id="guy">
+      <g id="inner-guy">
+        <rect class="accent" x="0" y="17" width="24" height="21"/>
+        <rect id="left_foot" class="accent" x="4" y="38" width="6" height="10"/>
+        <rect id="right_foot" class="accent" x="14" y="38" width="6" height="10"/>
+        <g id="head">
+          <rect class="accent" x="0" y="0" width="26" height="19"/>
+          <rect id="face" x="4" y="3" width="20" height="14"/>
+          <rect class="accent" x="9" y="7" width="4" height="4"/>
+          <rect class="accent" x="17" y="7" width="4" height="4"/>
+        </g>
+      </g>
+    </svg>
+
+    <svg id="goal"><g id="inner-goal"><g id="inner-goal-finish">
+      <path d="M12 19.26L6.37 22.1a1 1 0 0 1-1.44-1.07l1.05-5.98-4.47-4.22a1 1 0 0 1 .55-1.72l6.22-.88 2.83-5.5a1 1 0 0 1 1.78 0l2.83 5.5 6.22.88a1 1 0 0 1 .55 1.72l-4.47 4.22 1.05 5.98a1 1 0 0 1-1.44 1.07L12 19.26z"/>
+    </g></g></svg>
+
+    <svg id="death">
+      <rect x="27" y="27" width="10" height="12" style="transform-origin: 32px 32px"/>
+      <rect x="20" y="4" width="2" height="2" style="transform-origin: -10px 30px"/>
+      <rect x="0" y="28" width="2" height="2" style="transform-origin: 7px 70px"/>
+      <rect x="37" y="12" width="2" height="2" style="transform-origin: 15px 15px"/>
+      <rect x="5" y="42" width="2" height="2" style="transform-origin: 30px 70px"/>
+      <rect x="48" y="53" width="2" height="2" style="transform-origin: 60px 30px"/>
+      <rect x="55" y="26" width="2" height="2" style="transform-origin: 37px 5px"/>
+      <rect x="10" y="15" width="2" height="2" style="transform-origin: -2px 55px"/>
+      <rect x="24" y="11" width="6" height="6" style="transform-origin: 5px 32px"/>
+      <rect x="20" y="43" width="6" height="6" style="transform-origin: 46px 51px"/>
+      <rect x="32" y="46" width="6" height="6" style="transform-origin: 54px 37px"/>
+      <rect x="37" y="59" width="2" height="2" style="transform-origin: 65px 41px"/>
+      <rect x="23" y="55" width="2" height="2" style="transform-origin: 45px 51px"/>
+      <rect x="62" y="41" width="2" height="2" style="transform-origin: 56px 6px"/>
+      <rect x="52" y="2" width="2" height="2" style="transform-origin: 14px -13px"/>
+      <rect x="41" y="21" width="8" height="8" style="transform-origin: 28px 15px"/>
+      <rect x="48" y="11" width="4" height="4" style="transform-origin: 10px -4px"/>
+      <rect x="42" y="36" width="8" height="8" style="transform-origin: 47px 19px"/>
+      <rect x="53" y="44" width="3" height="3" style="transform-origin: 57px 16px"/>
+      <rect x="10" y="52" width="2" height="2" style="transform-origin: 47px 66px"/>
+      <rect x="15" y="22" width="8" height="8" style="transform-origin: 14px 44px"/>
+      <rect x="7" y="29" width="4" height="4" style="transform-origin: 19px 56px"/>
+      <rect x="14" y="36" width="4" height="4" style="transform-origin: 30px 55px"/>
+    </svg>
+  </svg>
 </body>
