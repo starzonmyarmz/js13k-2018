@@ -227,27 +227,6 @@ class Scene {
     this.guy.y = y
   }
 
-  standing () {
-    return this.bars.some((bar) =>
-      !bar.spike &&
-      bar.on === this.on &&
-      this.guy.left <= bar.right &&
-      this.guy.right >= bar.left &&
-      this.guy.bottom === bar.top
-    )
-  }
-
-  landing () {
-    return this.bars.find((bar) =>
-      !bar.spike &&
-      bar.on === this.on &&
-      this.guy.left <= bar.right &&
-      this.guy.right >= bar.left &&
-      this.guy.bottom < bar.top &&
-      this.guy.bottom + this.guy.vy >= bar.top
-    )
-  }
-
   won () {
     return (
       this.guy.left <= this.goal.right &&
@@ -270,15 +249,6 @@ class Scene {
 
   tick () {
     if (this.paused) return
-
-    if (KEYS.ArrowUp && this.standing()) {
-      this.guy.vy = -21
-    }
-
-    if (this.landing()) {
-      this.guy.bottom = this.landing().y
-      this.guy.vy = 0
-    }
 
     this.guy.tick()
 
@@ -306,16 +276,28 @@ class Scene {
       return Math.max(max, bar.bottom - this.guy.top)
     }, -this.guy.top)
 
-    this.guy.x = this.guy.x + Math.max(onLeft, Math.min(this.guy.vx, onRight))
-    this.guy.y = this.guy.y + Math.max(onTop, this.guy.vy)
+    const onBottom = this.bars.reduce((min, bar) => {
+      if (bar.on !== this.on) return min
+      if (bar.top < this.guy.bottom) return min
+      if (bar.left > this.guy.right) return min
+      if (bar.right < this.guy.left) return min
+      return Math.min(min, bar.top - this.guy.bottom)
+    }, HEIGHT - this.guy.bottom + 1)
 
-    if (!this.standing()) {
+    this.guy.x = this.guy.x + Math.max(onLeft, Math.min(onRight, this.guy.vx))
+    this.guy.y = this.guy.y + Math.max(onTop, Math.min(onBottom, this.guy.vy))
+
+    if (onBottom === 0) {
+      this.guy.vy = KEYS.ArrowUp ? -21 : 0
+    } else {
       this.guy.vy = Math.min(10, this.guy.vy + 2)
     }
 
-    if (this.lost()) this.death()
-
-    if (this.won()) this.advance()
+    if (this.lost()) {
+      this.death()
+    } else if (this.won()) {
+      this.advance()
+    }
   }
 }
 
@@ -335,7 +317,6 @@ const scene = new Scene([
     [438, 288, 330, 600, false]
   ]],
   [[24, 255], [724, 268], [
-    [0, 312, 768, 8, true],
     [0, 312, 768, 8, true],
     [380, 0, 8, 312, true],
     [0, 408, 768, 600, false]
