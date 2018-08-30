@@ -1,4 +1,5 @@
 const svg = document.querySelector('svg')
+const ac = new AudioContext()
 const KEYS = {}
 const WIDTH = 768
 const HEIGHT = 480
@@ -9,6 +10,45 @@ const NO_DEFAULT = [
   'ArrowLeft',
   'ArrowRight'
 ]
+
+JUMP_FX = new TinyMusic.Sequence(ac, 180, [
+  'C4 e',
+  'G5 e',
+  'C5 e'
+]);
+
+GOAL_FX = new TinyMusic.Sequence(ac, 280, [
+  'G3 0.125',
+  'Ab3 0.125',
+  'A3 0.125',
+  'Bb3 0.125',
+  'B3 0.125',
+  'C4 0.125',
+  'Db4 0.125',
+  'D4 0.125',
+  'Eb4 0.125',
+  'E4 0.125',
+  'F4 0.125',
+  'Gb4 0.125',
+  'G4 w'
+]);
+
+DEATH_FX = new TinyMusic.Sequence(ac, 180, [
+  'E2 e',
+  'E1 q'
+]);
+
+JUMP_FX.loop = false
+JUMP_FX.smoothing = 1
+
+GOAL_FX.loop = false
+GOAL_FX.smoothing = 0.2
+GOAL_FX.staccato = 0.1
+
+DEATH_FX.loop = false
+DEATH_FX.waveType = 'sawtooth'
+DEATH_FX.bass.gain.value = 10;
+DEATH_FX.smoothing = 0.5
 
 const sleep = (delay) => new Promise((resolve, reject) => {
   let start = performance.now()
@@ -184,6 +224,7 @@ class Scene {
   }
 
   async advance () {
+    window.GOAL_FX.play()
     this.paused = true
     document.body.classList.add('finish')
     await sleep(1000)
@@ -195,6 +236,7 @@ class Scene {
   }
 
   async death () {
+    window.DEATH_FX.play()
     this.deaths += 1
     this.paused = true
     const death = document.getElementById('death')
@@ -289,6 +331,7 @@ class Scene {
 
     if (onBottom === 0) {
       this.guy.vy = KEYS.ArrowUp ? -21 : 0
+      if (KEYS.ArrowUp) window.JUMP_FX.play()
     } else {
       this.guy.vy = Math.min(10, this.guy.vy + 2)
     }

@@ -4,4 +4,5 @@ mkdir -p dist
 postcss styles.css > dist/styles.css
 cp index.html dist/index.html
 cat index.js | uglifyjs -cm > dist/index.js
+cat TinyMusic.min.js | uglifyjs -cm > dist/TinyMusic.min.js
 zip dist/onoff.zip dist/index.html dist/index.js dist/styles.css
