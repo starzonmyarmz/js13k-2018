@@ -298,8 +298,16 @@ class Scene {
       return Math.max(max, bar.right - this.guy.left)
     }, -this.guy.left)
 
+    const onTop = this.bars.reduce((max, bar) => {
+      if (bar.on !== this.on) return max
+      if (bar.bottom > this.guy.top) return max
+      if (bar.left > this.guy.right) return max
+      if (bar.right < this.guy.left) return max
+      return Math.max(max, bar.bottom - this.guy.top)
+    }, -this.guy.top)
+
     this.guy.x = this.guy.x + Math.max(onLeft, Math.min(this.guy.vx, onRight))
-    this.guy.y = Math.max(0, this.guy.y + this.guy.vy)
+    this.guy.y = this.guy.y + Math.max(onTop, this.guy.vy)
 
     if (!this.standing()) {
       this.guy.vy = Math.min(10, this.guy.vy + 2)
