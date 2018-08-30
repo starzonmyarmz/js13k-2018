@@ -117,9 +117,6 @@ class Guy extends Body {
       this.vx = 0
     }
 
-    this.x = Math.min(WIDTH - this.width, Math.max(0, this.x + this.vx))
-    this.y = Math.max(0, this.y + this.vy)
-
     this.element.classList.toggle('walk', KEYS.ArrowLeft || KEYS.ArrowRight)
   }
 }
@@ -284,6 +281,9 @@ class Scene {
     }
 
     this.guy.tick()
+
+    this.guy.x = Math.min(WIDTH - this.guy.width, Math.max(0, this.guy.x + this.guy.vx))
+    this.guy.y = Math.max(0, this.guy.y + this.guy.vy)
 
     if (!this.standing()) {
       this.guy.vy = Math.min(10, this.guy.vy + 2)
