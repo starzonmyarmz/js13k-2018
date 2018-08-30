@@ -282,7 +282,23 @@ class Scene {
 
     this.guy.tick()
 
-    this.guy.x = Math.min(WIDTH - this.guy.width, Math.max(0, this.guy.x + this.guy.vx))
+    const onRight = this.bars.reduce((min, bar) => {
+      if (bar.on !== this.on) return min
+      if (bar.left < this.guy.right) return min
+      if (bar.top > this.guy.bottom) return min
+      if (bar.bottom < this.guy.top) return min
+      return Math.min(min, bar.left - this.guy.right)
+    }, WIDTH - this.guy.right)
+
+    const onLeft = this.bars.reduce((max, bar) => {
+      if (bar.on !== this.on) return max
+      if (bar.right > this.guy.left) return max
+      if (bar.top > this.guy.bottom) return max
+      if (bar.bottom < this.guy.top) return max
+      return Math.max(max, bar.right - this.guy.left)
+    }, -this.guy.left)
+
+    this.guy.x = this.guy.x + Math.max(onLeft, Math.min(this.guy.vx, onRight))
     this.guy.y = Math.max(0, this.guy.y + this.guy.vy)
 
     if (!this.standing()) {
