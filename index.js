@@ -69,6 +69,10 @@ document.addEventListener('keyup', (event) => {
 })
 
 class Body {
+  constructor () {
+    this.bounds = {}
+  }
+
   get top () {
     return this.y
   }
@@ -87,6 +91,29 @@ class Body {
 
   set bottom (value) {
     this.y = value - this.height
+  }
+
+  isLeftOf (other) {
+    return this.right <= other.left
+  }
+
+  isRightOf (other) {
+    return this.left >= other.right
+  }
+
+  isAbove (other) {
+    return this.bottom <= other.top
+  }
+
+  isBelow (other) {
+    return this.top >= other.bottom
+  }
+
+  overlaps (other) {
+    return this.left < other.right &&
+    this.right > other.left &&
+    this.top < other.bottom &&
+    this.bottom > other.top
   }
 }
 
@@ -269,24 +296,43 @@ class Scene {
     this.guy.y = y
   }
 
-  won () {
-    return (
-      this.guy.left <= this.goal.right &&
-      this.guy.right >= this.goal.left &&
-      this.guy.top <= this.goal.bottom &&
-      this.guy.bottom >= this.goal.top
-    )
-  }
-
   lost () {
     return this.guy.bottom > HEIGHT || this.bars.some((bar) =>
       bar.spike &&
-      bar.on ===  this.on &&
-      this.guy.left <= bar.right &&
-      this.guy.right >= bar.left &&
-      this.guy.top <= bar.bottom &&
-      this.guy.bottom >= bar.top
+      bar.on === this.on &&
+      bar.overlaps(this.guy)
     )
+  }
+
+  setBounds (body) {
+    const {bounds} = body
+
+    bounds.left = -body.left
+    bounds.right = WIDTH - body.right
+    bounds.top = -body.top
+    bounds.bottom = HEIGHT - body.bottom + 1
+
+    for (const bar of this.bars) {
+      if (bar.spike || bar.on !== this.on) continue
+
+      if (bar.top < body.bottom && bar.bottom > body.top) {
+        if (bar.isRightOf(body)) {
+          bounds.right = Math.min(bounds.right, bar.left - body.right)
+        } else if (bar.isLeftOf(body)) {
+          bounds.left = Math.max(bounds.left, bar.right - body.left)
+        }
+      }
+
+      if (bar.left < body.right && bar.right > body.left) {
+        if (bar.isBelow(body)) {
+          bounds.bottom = Math.min(bounds.bottom, bar.top - body.bottom)
+        } else if (bar.isAbove(body)) {
+          bounds.top = Math.max(bounds.top, bar.bottom - body.top)
+        }
+      }
+    }
+
+    return bounds
   }
 
   tick () {
@@ -294,42 +340,13 @@ class Scene {
 
     this.guy.tick()
 
-    const onRight = this.bars.reduce((min, bar) => {
-      if (bar.on !== this.on) return min
-      if (bar.left < this.guy.right) return min
-      if (bar.top > this.guy.bottom) return min
-      if (bar.bottom < this.guy.top) return min
-      return Math.min(min, bar.left - this.guy.right)
-    }, WIDTH - this.guy.right)
+    const {left, right} = this.setBounds(this.guy)
+    this.guy.x += Math.min(right, Math.max(left, this.guy.vx))
 
-    const onLeft = this.bars.reduce((max, bar) => {
-      if (bar.on !== this.on) return max
-      if (bar.right > this.guy.left) return max
-      if (bar.top > this.guy.bottom) return max
-      if (bar.bottom < this.guy.top) return max
-      return Math.max(max, bar.right - this.guy.left)
-    }, -this.guy.left)
+    const {top, bottom} = this.setBounds(this.guy)
+    this.guy.y += Math.min(bottom, Math.max(top, this.guy.vy))
 
-    const onTop = this.bars.reduce((max, bar) => {
-      if (bar.on !== this.on) return max
-      if (bar.bottom > this.guy.top) return max
-      if (bar.left > this.guy.right) return max
-      if (bar.right < this.guy.left) return max
-      return Math.max(max, bar.bottom - this.guy.top)
-    }, -this.guy.top)
-
-    const onBottom = this.bars.reduce((min, bar) => {
-      if (bar.on !== this.on) return min
-      if (bar.top < this.guy.bottom) return min
-      if (bar.left > this.guy.right) return min
-      if (bar.right < this.guy.left) return min
-      return Math.min(min, bar.top - this.guy.bottom)
-    }, HEIGHT - this.guy.bottom + 1)
-
-    this.guy.x = this.guy.x + Math.max(onLeft, Math.min(onRight, this.guy.vx))
-    this.guy.y = this.guy.y + Math.max(onTop, Math.min(onBottom, this.guy.vy))
-
-    if (onBottom === 0) {
+    if (bottom === 0) {
       this.guy.vy = KEYS.ArrowUp ? -21 : 0
       if (KEYS.ArrowUp) window.JUMP_FX.play()
     } else {
@@ -338,7 +355,7 @@ class Scene {
 
     if (this.lost()) {
       this.death()
-    } else if (this.won()) {
+    } else if (this.guy.overlaps(this.goal)) {
       this.advance()
     }
   }
