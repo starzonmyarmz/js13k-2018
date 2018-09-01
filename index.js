@@ -280,9 +280,7 @@ class Scene {
 
   lost () {
     return this.guy.bottom > HEIGHT || this.bars.some((bar) =>
-      bar.spike &&
-      bar.on === this.on &&
-      bar.overlaps(this.guy)
+      bar.on === this.on && bar.overlaps(this.guy)
     )
   }
 
