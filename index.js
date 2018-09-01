@@ -132,7 +132,7 @@ class Goal extends Body {
   }
 
   set x (value) {
-    this.element.setAttribute('x', this._x = value)
+    this.element.setAttribute('x', this._x = value || 0)
   }
 
   get y () {
@@ -140,7 +140,7 @@ class Goal extends Body {
   }
 
   set y (value) {
-    this.element.setAttribute('y', this._y = value)
+    this.element.setAttribute('y', this._y = value || 0)
   }
 }
 
@@ -162,7 +162,7 @@ class Guy extends Body {
   }
 
   set x (value) {
-    this.element.setAttribute('x', this._x = value)
+    this.element.setAttribute('x', this._x = value || 0)
   }
 
   get y () {
@@ -170,7 +170,7 @@ class Guy extends Body {
   }
 
   set y (value) {
-    this.element.setAttribute('y', this._y = value)
+    this.element.setAttribute('y', this._y = value || 0)
   }
 
   tick () {
