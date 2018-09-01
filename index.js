@@ -69,8 +69,25 @@ document.addEventListener('keyup', (event) => {
 })
 
 class Body {
-  constructor () {
+  constructor (element) {
+    this.element = element
     this.bounds = {}
+  }
+
+  get x () {
+    return this._x
+  }
+
+  set x (value) {
+    this.element.setAttribute('x', this._x = value || 0)
+  }
+
+  get y () {
+    return this._y
+  }
+
+  set y (value) {
+    this.element.setAttribute('y', this._y = value || 0)
   }
 
   get top () {
@@ -119,35 +136,17 @@ class Body {
 
 class Goal extends Body {
   constructor () {
-    super()
-    this.element = document.getElementById('goal')
+    super(document.getElementById('goal'))
     this.x = 0
     this.y = 0
     this.width = 22
     this.height = 20
   }
-
-  get x () {
-    return this._x
-  }
-
-  set x (value) {
-    this.element.setAttribute('x', this._x = value || 0)
-  }
-
-  get y () {
-    return this._y
-  }
-
-  set y (value) {
-    this.element.setAttribute('y', this._y = value || 0)
-  }
 }
 
 class Guy extends Body {
   constructor (x, y) {
-    super()
-    this.element = document.getElementById('guy')
+    super(document.getElementById('guy'))
     this.x = x
     this.y = y
     this.height = 48
@@ -155,22 +154,6 @@ class Guy extends Body {
     this.speed = 7
     this.vx = 0
     this.vy = 0
-  }
-
-  get x () {
-    return this._x
-  }
-
-  set x (value) {
-    this.element.setAttribute('x', this._x = value || 0)
-  }
-
-  get y () {
-    return this._y
-  }
-
-  set y (value) {
-    this.element.setAttribute('y', this._y = value || 0)
   }
 
   tick () {
@@ -190,14 +173,13 @@ class Guy extends Body {
 
 class Bar extends Body {
   constructor (x, y, width, height, on, spike) {
-    super()
+    super(document.createElementNS(svg.namespaceURI, 'rect'))
     this.x = x
     this.y = y
     this.width = width
     this.height = height
     this.on = on
     this.spike = spike
-    this.element = document.createElementNS(svg.namespaceURI, 'rect')
     this.element.setAttribute('x', this.x)
     this.element.setAttribute('y', this.y)
     this.element.setAttribute('width', this.width)
