@@ -22,6 +22,7 @@
     "cssnano": "4.1.0",
     "http-server": "0.11.1",
     "postcss-cli": "6.0.0",
+    "rollup": "0.65.0",
     "uglify-es": "3.3.9"
   }
 }
