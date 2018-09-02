@@ -19,7 +19,7 @@ class Scene {
     this.guy = new Guy
     this.goal = new Goal
     this.levels = levels
-    this.load(...levels[0])
+    this.load(...levels[this.index])
   }
 
   get on () {
