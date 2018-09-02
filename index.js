@@ -87,11 +87,11 @@ class Scene {
     if (this.bars) for (const bar of this.bars) bar.element.remove()
     this.bars = bars.map((args) => new Bar(...args))
     for (const bar of this.bars) svg.appendChild(bar.element)
+    this.on = true
     this.reset()
   }
 
   reset () {
-    this.on = true
     const [x, y] = this.start
     this.guy.x = x
     this.guy.y = y
