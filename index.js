@@ -8,10 +8,6 @@ const svg = document.querySelector('svg')
 const WIDTH = 768
 const HEIGHT = 480
 
-document.addEventListener('keydown', (event) => {
-  if (event.key === ' ') scene.on = !scene.on
-})
-
 class Goal extends Body {
   constructor () {
     super(document.getElementById('goal'))
@@ -220,6 +216,10 @@ class Scene {
 }
 
 const scene = new Scene(levels)
+
+document.addEventListener('keydown', ({key}) => {
+  if (key === ' ') scene.on = !scene.on
+})
 
 requestAnimationFrame(function tick () {
   scene.tick()
