@@ -1,3 +1,4 @@
+import sleep from './src/sleep.js'
 import Body from './src/body.js'
 import {GOAL_FX, JUMP_FX, DEATH_FX} from './src/sound.js'
 
@@ -12,15 +13,6 @@ const NO_DEFAULT = [
   'ArrowLeft',
   'ArrowRight'
 ]
-
-
-const sleep = (delay) => new Promise((resolve, reject) => {
-  let start = performance.now()
-  requestAnimationFrame(function check (now) {
-    if (now >= start + delay) return resolve()
-    requestAnimationFrame(check)
-  })
-})
 
 document.addEventListener('keydown', (event) => {
   KEYS[event.key] = true
