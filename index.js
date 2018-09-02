@@ -11,13 +11,13 @@ const NO_DEFAULT = [
   'ArrowRight'
 ]
 
-JUMP_FX = new TinyMusic.Sequence(ac, 180, [
+const JUMP_FX = new TinyMusic.Sequence(ac, 180, [
   'C4 e',
   'G5 e',
   'C5 e'
 ]);
 
-GOAL_FX = new TinyMusic.Sequence(ac, 280, [
+const GOAL_FX = new TinyMusic.Sequence(ac, 280, [
   'G3 0.125',
   'Ab3 0.125',
   'A3 0.125',
@@ -33,7 +33,7 @@ GOAL_FX = new TinyMusic.Sequence(ac, 280, [
   'G4 w'
 ]);
 
-DEATH_FX = new TinyMusic.Sequence(ac, 180, [
+const DEATH_FX = new TinyMusic.Sequence(ac, 180, [
   'E2 e',
   'E1 q'
 ]);
@@ -233,7 +233,7 @@ class Scene {
   }
 
   async advance () {
-    window.GOAL_FX.play()
+    GOAL_FX.play()
     this.paused = true
     document.body.classList.add('finish')
     await sleep(1000)
@@ -245,7 +245,7 @@ class Scene {
   }
 
   async death () {
-    window.DEATH_FX.play()
+    DEATH_FX.play()
     this.deaths += 1
     this.paused = true
     const death = document.getElementById('death')
@@ -328,7 +328,7 @@ class Scene {
 
     if (bottom === 0) {
       this.guy.vy = KEYS.ArrowUp ? -21 : 0
-      if (KEYS.ArrowUp) window.JUMP_FX.play()
+      if (KEYS.ArrowUp) JUMP_FX.play()
     } else {
       this.guy.vy = Math.min(10, this.guy.vy + 2)
     }
