@@ -1,10 +1,10 @@
+import KEYS from './src/keys.js'
 import levels from './src/levels.js'
 import sleep from './src/sleep.js'
 import Body from './src/body.js'
 import {GOAL_FX, JUMP_FX, DEATH_FX} from './src/sound.js'
 
 const svg = document.querySelector('svg')
-const KEYS = {}
 const WIDTH = 768
 const HEIGHT = 480
 const NO_DEFAULT = [
@@ -16,13 +16,8 @@ const NO_DEFAULT = [
 ]
 
 document.addEventListener('keydown', (event) => {
-  KEYS[event.key] = true
   if (event.key === ' ') scene.on = !scene.on
   if (NO_DEFAULT.includes(event.key)) event.preventDefault()
-})
-
-document.addEventListener('keyup', (event) => {
-  KEYS[event.key] = false
 })
 
 class Goal extends Body {
