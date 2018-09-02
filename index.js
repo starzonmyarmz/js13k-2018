@@ -2,21 +2,12 @@ import KEYS from './src/keys.js'
 import levels from './src/levels.js'
 import sleep from './src/sleep.js'
 import Body from './src/body.js'
+import Goal from './src/goal.js'
 import {GOAL_FX, JUMP_FX, DEATH_FX} from './src/sound.js'
 
 const svg = document.querySelector('svg')
 const WIDTH = 768
 const HEIGHT = 480
-
-class Goal extends Body {
-  constructor () {
-    super(document.getElementById('goal'))
-    this.x = 0
-    this.y = 0
-    this.width = 22
-    this.height = 20
-  }
-}
 
 class Guy extends Body {
   constructor (x, y) {
