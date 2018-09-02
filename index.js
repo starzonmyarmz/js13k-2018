@@ -3,38 +3,12 @@ import levels from './src/levels.js'
 import sleep from './src/sleep.js'
 import Body from './src/body.js'
 import Goal from './src/goal.js'
+import Guy from './src/guy.js'
 import {GOAL_FX, JUMP_FX, DEATH_FX} from './src/sound.js'
 
 const svg = document.querySelector('svg')
 const WIDTH = 768
 const HEIGHT = 480
-
-class Guy extends Body {
-  constructor (x, y) {
-    super(document.getElementById('guy'))
-    this.x = x
-    this.y = y
-    this.height = 48
-    this.width = 26
-    this.speed = 7
-    this.vx = 0
-    this.vy = 0
-  }
-
-  tick () {
-    if (KEYS.ArrowLeft && !KEYS.ArrowRight) {
-      this.vx = -this.speed
-      this.element.classList.add('left')
-    } else if (KEYS.ArrowRight && !KEYS.ArrowLeft) {
-      this.vx = this.speed
-      this.element.classList.remove('left')
-    } else {
-      this.vx = 0
-    }
-
-    this.element.classList.toggle('walk', KEYS.ArrowLeft || KEYS.ArrowRight)
-  }
-}
 
 class Bar extends Body {
   constructor (x, y, width, height, on, spike) {
