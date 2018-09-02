@@ -4,32 +4,12 @@ import sleep from './src/sleep.js'
 import Body from './src/body.js'
 import Goal from './src/goal.js'
 import Guy from './src/guy.js'
+import Bar from './src/bar.js'
 import {GOAL_FX, JUMP_FX, DEATH_FX} from './src/sound.js'
+import svg from './src/svg.js'
 
-const svg = document.querySelector('svg')
 const WIDTH = 768
 const HEIGHT = 480
-
-class Bar extends Body {
-  constructor (x, y, width, height, on, spike) {
-    super(document.createElementNS(svg.namespaceURI, 'rect'))
-    this.x = x
-    this.y = y
-    this.width = width
-    this.height = height
-    this.on = on
-    this.spike = spike
-    this.element.setAttribute('x', this.x)
-    this.element.setAttribute('y', this.y)
-    this.element.setAttribute('width', this.width)
-    this.element.setAttribute('height', this.height)
-    this.element.classList.toggle('light', on)
-    this.element.classList.toggle('dark', !on)
-    if (this.spike) {
-      this.element.setAttribute('fill', `url(#spike-${this.spike})`)
-    }
-  }
-}
 
 class Scene {
   constructor (levels) {
