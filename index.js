@@ -7,17 +7,9 @@ import {GOAL_FX, JUMP_FX, DEATH_FX} from './src/sound.js'
 const svg = document.querySelector('svg')
 const WIDTH = 768
 const HEIGHT = 480
-const NO_DEFAULT = [
-  ' ',
-  'ArrowUp',
-  'ArrowDown',
-  'ArrowLeft',
-  'ArrowRight'
-]
 
 document.addEventListener('keydown', (event) => {
   if (event.key === ' ') scene.on = !scene.on
-  if (NO_DEFAULT.includes(event.key)) event.preventDefault()
 })
 
 class Goal extends Body {
