@@ -6,7 +6,7 @@
   "scripts": {
     "build": "./bin/build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "http-server -p 1313 ."
+    "server": "http-server -op 1313 ."
   },
   "repository": {
     "type": "git",
