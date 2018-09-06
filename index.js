@@ -5,7 +5,7 @@ import Body from './src/body.js'
 import Goal from './src/goal.js'
 import Guy from './src/guy.js'
 import Bar from './src/bar.js'
-import {GOAL_FX, JUMP_FX, DEATH_FX} from './src/sound.js'
+import {GOAL_FX, JUMP_FX, DEATH_FX, ON_FX, OFF_FX} from './src/sound.js'
 import svg from './src/svg.js'
 
 const WIDTH = 768
@@ -163,7 +163,12 @@ class Scene {
 const scene = new Scene(levels)
 
 document.addEventListener('keydown', ({key}) => {
-  if (key === ' ') scene.on = !scene.on
+  if (key === ' ') {
+    scene.on = !scene.on
+
+    if (scene.on) OFF_FX.play()
+    if (!scene.on) ON_FX.play()
+  }
 })
 
 requestAnimationFrame(function tick () {
