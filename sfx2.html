@@ -23,10 +23,23 @@ music_low1 = new TinyMusic.Sequence(ac, 100, [
   '- q',
   'Gb3 q',
   'B2 q',
-  '- w',
-  '- w',
-  '- w',
-  '- w'
+  'B2 q',
+  '- q',
+  'Db3 q',
+  '- q',
+  'D3 q',
+  '- q',
+  'Gb3 q',
+  'Bb3 q',
+  'B2 q',
+  '- q',
+  'Db3 q',
+  '- q',
+  'D3 q',
+  '- q',
+  'Gb3 q',
+  'B2 q',
+  '- 32'
 ]);
 
 music_mid1 = new TinyMusic.Sequence(ac, 100, [
@@ -39,9 +52,14 @@ music_mid1 = new TinyMusic.Sequence(ac, 100, [
   'D3 q',
   'Gb3 q',
   '- w',
+  '- h',
+  'D3 q',
+  'Db3 q',
   '- w',
-  '- w',
-  '- w'
+  '- h',
+  'D3 q',
+  'Gb3 q',
+  '- 32'
 ]);
 
 music_hig1 = new TinyMusic.Sequence(ac, 100, [
@@ -81,10 +99,43 @@ music_hig1 = new TinyMusic.Sequence(ac, 100, [
   'Db4 e',
   'B3 e',
   '- e',
-  '- w',
-  '- w',
-  '- w',
-  '- w'
+  'B4 e',
+  '- e',
+  'Bb4 e',
+  '- e',
+  'A4 s',
+  'A4 s',
+  'Ab4 e',
+  'G4 e',
+  '- e',
+  'Gb4 s',
+  'B4 s',
+  'Gb4 e',
+  'D4 e',
+  'B3 e',
+  'D4 e',
+  '- e',
+  'Db4 e',
+  '- e',
+  'B4 e',
+  '- e',
+  'Bb4 e',
+  '- e',
+  'A4 s',
+  'A4 s',
+  'Ab4 e',
+  'G4 e',
+  '- e',
+  'Gb4 s',
+  'B4 s',
+  'Gb4 e',
+  'D4 e',
+  'B3 e',
+  'D4 e',
+  'Db4 e',
+  'B3 e',
+  '- e',
+  '- 32'
 ]);
 
 music_low1.loop = true
@@ -102,10 +153,39 @@ music_hig1.staccato = 0.5
 music_hig1.gain.gain.value = 0.4
 
 music_low2 = new TinyMusic.Sequence(ac, 100, [
-  '- w',
-  '- w',
-  '- w',
-  '- w',
+  '- 32',
+  'G3 e',
+  'E3 e',
+  'D3 e',
+  'C3 e',
+  'A2 e',
+  'G2 e',
+  'C2 e',
+  'Bb2 e',
+  'B2 e',
+  'Db3 e',
+  'D3 e',
+  'E3 e',
+  'Gb3 e',
+  'G3 e',
+  'Gb3 e',
+  'Bb2 e',
+  'G3 e',
+  'E3 e',
+  'D3 e',
+  'C3 e',
+  'A2 e',
+  'G2 e',
+  'C2 e',
+  'Bb2 e',
+  'B2 e',
+  'Db3 e',
+  'D3 e',
+  'E3 e',
+  'D3 e',
+  'Db3 e',
+  'B2 e',
+  '- e',
   'G3 e',
   'E3 e',
   'D3 e',
@@ -141,69 +221,61 @@ music_low2 = new TinyMusic.Sequence(ac, 100, [
 ]);
 
 music_mid2 = new TinyMusic.Sequence(ac, 100, [
-  '- w',
-  '- w',
-  '- w',
-  '- w',
+  '- 32',
   'G4 w',
   'Gb4 w',
   'G4 w',
-  'Gb4 h',
-  'Gb4 q',
-  '- q'
+  'Gb4 w',
+  'G4 w',
+  'Gb4 w',
+  'G4 w',
+  'Gb4 w'
 ]);
 
 music_hig2 = new TinyMusic.Sequence(ac, 100, [
-  '- w',
-  '- w',
-  '- w',
-  '- w',
+  '- 32',
   'C4 w',
   'D4 w',
   'C4 w',
-  'D4 h',
-  'D4 q',
-  '- q',
+  'D4 w',
+  'C4 w',
+  'D4 w',
+  'C4 w',
+  'D4 w'
 ]);
 
-music_low2.loop = true
 music_low2.gain.gain.value = 0.6
 music_low2.staccato = 0.5
 music_low2.waveType = 'sine'
 
-music_mid2.loop = true
-// music_mid2.gain.gain.value = 0.05
-// music_mid2.waveType = 'sine'
+music_mid2.gain.gain.value = 0
+music_hig2.gain.gain.value = 0
 
-music_hig2.loop = true
-// music_hig2.gain.gain.value = 0.05
-// music_hig2.waveType = 'sine'
-
-fade = 0
+fade = 1
 direction = 'up'
 
 setInterval(function() {
   if (direction === 'up') {
     fade += 1;
-    if (fade > 6) {
+    if (fade > 9) {
       direction = 'down'
+      fade -= 1;
     }
-
   }
 
   if (direction === 'down') {
     fade -= 1;
     if (fade < 1) {
       direction = 'up'
+      fade += 2;
     }
-
   }
 
-  music_mid2.gain.gain.value = fade * .01
-  music_hig2.gain.gain.value = fade * .01
+  console.log(fade)
 
-  console.log(music_mid2.gain.gain.value)
-}, 240)
+  music_mid2.gain.gain.value = fade * 0.01
+  music_hig2.gain.gain.value = fade * 0.01
+}, 300)
 
 music_low1.play()
 music_mid1.play()
