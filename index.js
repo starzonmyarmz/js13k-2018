@@ -134,10 +134,10 @@ class Scene {
     return bounds
   }
 
-  tick () {
+  tick (scale) {
     if (this.paused) return
 
-    this.guy.tick()
+    this.guy.tick(scale)
 
     const {left, right} = this.setBounds(this.guy)
     this.guy.x += Math.min(right, Math.max(left, this.guy.vx))
@@ -146,10 +146,10 @@ class Scene {
     this.guy.y += Math.min(bottom, Math.max(top, this.guy.vy))
 
     if (bottom === 0) {
-      this.guy.vy = KEYS.ArrowUp ? -21 : 0
+      this.guy.vy = KEYS.ArrowUp ? -scale(1200) : 0
       if (KEYS.ArrowUp) JUMP_FX.play()
     } else {
-      this.guy.vy = Math.min(10, this.guy.vy + 2)
+      this.guy.vy = Math.min(scale(600), this.guy.vy + scale(120))
     }
 
     if (this.lost()) {
@@ -171,7 +171,10 @@ document.addEventListener('keydown', ({key}) => {
   }
 })
 
-requestAnimationFrame(function tick () {
-  scene.tick()
+let previous = 0
+requestAnimationFrame(function tick (time) {
+  const duration = time - previous
+  scene.tick((value) => Math.round(value * duration / 1000))
+  previous = time
   requestAnimationFrame(tick)
 })
