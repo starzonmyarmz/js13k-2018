@@ -173,6 +173,8 @@ document.addEventListener('keydown', ({key}) => {
 
 let previous = 0
 requestAnimationFrame(function tick (time) {
+  // To deal with different frame rates, we define per-second speeds and adjust
+  // them according to the time since the last frame was rendered.
   const duration = time - previous
   scene.tick((value) => Math.round(value * duration / 1000))
   previous = time
