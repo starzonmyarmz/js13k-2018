@@ -20,6 +20,7 @@
   "homepage": "https://github.com/starzonmyarmz/js13k-2018#readme",
   "dependencies": {
     "cssnano": "4.1.0",
+    "html-minifier": "3.5.20",
     "http-server": "0.11.1",
     "postcss-cli": "6.0.0",
     "rollup": "0.65.0",
