@@ -1,4 +1,4 @@
-import KEYS from './keys.js'
+import {leftKey, rightKey} from './keys.js'
 import Body from './body.js'
 
 export default class Guy extends Body {
@@ -14,16 +14,16 @@ export default class Guy extends Body {
   }
 
   tick (scale) {
-    if (KEYS.ArrowLeft && !KEYS.ArrowRight) {
+    if (leftKey && !rightKey) {
       this.vx = -scale(this.speed)
       this.element.classList.add('left')
-    } else if (KEYS.ArrowRight && !KEYS.ArrowLeft) {
+    } else if (rightKey && !leftKey) {
       this.vx = scale(this.speed)
       this.element.classList.remove('left')
     } else {
       this.vx = 0
     }
 
-    this.element.classList.toggle('walk', KEYS.ArrowLeft || KEYS.ArrowRight)
+    this.element.classList.toggle('walk', leftKey || rightKey)
   }
 }

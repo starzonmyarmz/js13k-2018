@@ -1,4 +1,4 @@
-import KEYS from './src/keys.js'
+import {upKey} from './src/keys.js'
 import levels from './src/levels.js'
 import sleep from './src/sleep.js'
 import Body from './src/body.js'
@@ -146,8 +146,8 @@ class Scene {
     this.guy.y += Math.min(bottom, Math.max(top, this.guy.vy))
 
     if (bottom === 0) {
-      this.guy.vy = KEYS.ArrowUp ? -scale(1200) : 0
-      if (KEYS.ArrowUp) JUMP_FX.play()
+      this.guy.vy = upKey ? -scale(1200) : 0
+      if (upKey) JUMP_FX.play()
     } else {
       this.guy.vy = Math.min(scale(600), this.guy.vy + scale(120))
     }
