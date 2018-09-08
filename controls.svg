@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="768px" height="480px" viewBox="0 0 768 480" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>controls</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="controls" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="#444444" fill-rule="nonzero" x="0" y="240" width="768" height="240"></rect>
+        <path d="M264,362 L234,362 L234,392 L264,392 L264,362 Z" id="Rectangle-14-Copy-5" stroke="#FFFFFF" stroke-width="2" opacity="0.2" fill-rule="nonzero"></path>
+        <path d="M300,362 L270,362 L270,392 L300,392 L300,362 Z" id="Rectangle-14-Copy-12" stroke="#FFFFFF" stroke-width="2" opacity="0.2" fill-rule="nonzero"></path>
+        <path d="M592,362 L466,362 L466,392 L592,392 L592,362 Z" id="Rectangle-14-Copy-9" stroke="#FFFFFF" stroke-width="2" opacity="0.2" fill-rule="nonzero"></path>
+        <polygon id="Rectangle-14-Copy-8" fill="#FFFFFF" fill-rule="nonzero" points="301 325 301 357 269 357 269 325"></polygon>
+        <path d="M336,362 L306,362 L306,392 L336,392 L336,362 Z" id="Rectangle-14-Copy-7" stroke="#FFFFFF" stroke-width="2" opacity="0.2" fill-rule="nonzero"></path>
+        <rect id="Rectangle-8-Copy-223" fill="#FFFFFF" fill-rule="nonzero" x="298" y="299" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-224" fill="#FFFFFF" fill-rule="nonzero" x="286" y="299" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-225" fill="#FFFFFF" fill-rule="nonzero" x="268" y="301" width="4" height="12"></rect>
+        <rect id="Rectangle-8-Copy-226" fill="#FFFFFF" fill-rule="nonzero" x="262" y="306" width="2" height="9"></rect>
+        <rect id="Rectangle-8-Copy-227" fill="#FFFFFF" fill-rule="nonzero" x="306" y="299" width="2" height="9"></rect>
+        <rect id="Rectangle-8-Copy-228" fill="#FFFFFF" fill-rule="nonzero" x="294" y="299" width="2" height="16"></rect>
+        <rect id="Rectangle-8-Copy-229" fill="#FFFFFF" fill-rule="nonzero" x="291" y="301" width="2" height="14"></rect>
+        <polygon id="Rectangle-8-Copy-230" fill="#FFFFFF" fill-rule="nonzero" points="272 299 272 301 262 301 262 299"></polygon>
+        <polygon id="Rectangle-8-Copy-231" fill="#FFFFFF" fill-rule="nonzero" points="272 313 272 315 264 315 264 313"></polygon>
+        <polygon id="Rectangle-8-Copy-232" fill="#FFFFFF" fill-rule="nonzero" points="306 299 306 301 302 301 302 299"></polygon>
+        <polygon id="Rectangle-8-Copy-233" fill="#FFFFFF" fill-rule="nonzero" points="294 299 294 301 290 301 290 299"></polygon>
+        <rect id="Rectangle-8-Copy-234" fill="#FFFFFF" fill-rule="nonzero" transform="translate(276.000000, 307.000000) scale(1, -1) translate(-276.000000, -307.000000) " x="274" y="299" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-235" fill="#FFFFFF" fill-rule="nonzero" transform="translate(283.000000, 307.000000) scale(1, -1) translate(-283.000000, -307.000000) " x="282" y="299" width="2" height="16"></rect>
+        <polygon id="Rectangle-8-Copy-236" fill="#FFFFFF" fill-rule="nonzero" transform="translate(280.000000, 314.000000) scale(1, -1) translate(-280.000000, -314.000000) " points="282 313 282 315 278 315 278 313"></polygon>
+        <polygon id="Rectangle-8-Copy-237" fill="#FFFFFF" fill-rule="nonzero" points="306 306 306 308 302 308 302 306"></polygon>
+        <rect id="Rectangle-8-Copy-91" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="316" y="369" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-92" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="324" y="369" width="2" height="16"></rect>
+        <polygon id="Rectangle-8-Copy-93" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="324 383 324 385 320 385 320 383"></polygon>
+        <polygon id="Rectangle-8-Copy-94" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="324 369 324 371 320 371 320 369"></polygon>
+        <rect id="Rectangle-8-Copy-173" fill="#444444" fill-rule="nonzero" x="280" y="333" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-174" fill="#444444" fill-rule="nonzero" x="288" y="333" width="2" height="16"></rect>
+        <rect id="Rectangle-8-Copy-175" fill="#444444" fill-rule="nonzero" x="285" y="333" width="2" height="14"></rect>
+        <polygon id="Rectangle-8-Copy-176" fill="#444444" fill-rule="nonzero" points="288 347 288 349 284 349 284 347"></polygon>
+        <rect id="Rectangle-8-Copy-73" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="244" y="369" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-76" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="252" y="369" width="2" height="16"></rect>
+        <polygon id="Rectangle-8-Copy-80" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="252 369 252 371 248 371 248 369"></polygon>
+        <polygon id="Rectangle-8-Copy-82" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="252 376 252 378 248 378 248 376"></polygon>
+        <rect id="Rectangle-8-Copy-189" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="536" y="369" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-192" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="548" y="369" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-181" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="512" y="369" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-185" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="524" y="369" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-176" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="500" y="371" width="4" height="5"></rect>
+        <rect id="Rectangle-8-Copy-182" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="520" y="369" width="2" height="9"></rect>
+        <rect id="Rectangle-8-Copy-186" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="532" y="369" width="2" height="16"></rect>
+        <rect id="Rectangle-8-Copy-177" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="508" y="378" width="2" height="5"></rect>
+        <polygon id="Rectangle-8-Copy-190" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="546 383 546 385 540 385 540 383"></polygon>
+        <polygon id="Rectangle-8-Copy-191" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="546 369 546 371 540 371 540 369"></polygon>
+        <polygon id="Rectangle-8-Copy-193" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="558 369 558 371 552 371 552 369"></polygon>
+        <polygon id="Rectangle-8-Copy-178" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="510 369 510 371 500 371 500 369"></polygon>
+        <polygon id="Rectangle-8-Copy-179" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="510 376 510 378 500 378 500 376"></polygon>
+        <polygon id="Rectangle-8-Copy-180" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="510 383 510 385 500 385 500 383"></polygon>
+        <polygon id="Rectangle-8-Copy-183" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="520 369 520 371 516 371 516 369"></polygon>
+        <polygon id="Rectangle-8-Copy-187" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="532 369 532 371 528 371 528 369"></polygon>
+        <polygon id="Rectangle-8-Copy-194" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="558 383 558 385 552 385 552 383"></polygon>
+        <polygon id="Rectangle-8-Copy-195" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="556 376 556 378 552 378 552 376"></polygon>
+        <polygon id="Rectangle-8-Copy-184" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="520 376 520 378 516 378 516 376"></polygon>
+        <polygon id="Rectangle-8-Copy-188" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="532 376 532 378 528 378 528 376"></polygon>
+        <rect id="Rectangle-8-Copy-225" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="506" y="405" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-223" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="497" y="407" width="4" height="14"></rect>
+        <polygon id="Rectangle-8-Copy-227" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="514 419 514 421 510 421 510 419"></polygon>
+        <polygon id="Rectangle-8-Copy-228" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="514 405 514 407 510 407 510 405"></polygon>
+        <polygon id="Rectangle-8-Copy-224" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="504 405 504 407 494 407 494 405"></polygon>
+        <rect id="Rectangle-8-Copy-229" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="518" y="405" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-234" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="530" y="405" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-239" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="542" y="405" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-241" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="554" y="405" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-226" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="514" y="405" width="2" height="16"></rect>
+        <rect id="Rectangle-8-Copy-230" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="526" y="414" width="2" height="7"></rect>
+        <rect id="Rectangle-8-Copy-235" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="538" y="414" width="2" height="7"></rect>
+        <polygon id="Rectangle-8-Copy-231" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="526 419 526 421 522 421 522 419"></polygon>
+        <polygon id="Rectangle-8-Copy-236" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="538 419 538 421 534 421 534 419"></polygon>
+        <polygon id="Rectangle-8-Copy-240" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="552 419 552 421 546 421 546 419"></polygon>
+        <polygon id="Rectangle-8-Copy-232" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="528 405 528 407 522 407 522 405"></polygon>
+        <polygon id="Rectangle-8-Copy-237" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="540 405 540 407 534 407 534 405"></polygon>
+        <polygon id="Rectangle-8-Copy-242" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="564 405 564 407 558 407 558 405"></polygon>
+        <polygon id="Rectangle-8-Copy-243" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="564 419 564 421 558 421 558 419"></polygon>
+        <polygon id="Rectangle-8-Copy-244" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="562 412 562 414 558 414 558 412"></polygon>
+        <polygon id="Rectangle-8-Copy-233" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="528 412 528 414 524 414 524 412"></polygon>
+        <polygon id="Rectangle-8-Copy-238" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="540 412 540 414 536 414 536 412"></polygon>
+        <g id="Group" transform="translate(554.000000, 127.000000)" fill="#444444" fill-rule="nonzero">
+            <rect id="Rectangle-8-Copy-246" x="12" y="0" width="4" height="16"></rect>
+            <rect id="Rectangle-8-Copy-247" x="3" y="2" width="4" height="14"></rect>
+            <polygon id="Rectangle-8-Copy-248" points="20 14 20 16 16 16 16 14"></polygon>
+            <polygon id="Rectangle-8-Copy-249" points="20 0 20 2 16 2 16 0"></polygon>
+            <polygon id="Rectangle-8-Copy-250" points="10 0 10 2 0 2 0 0"></polygon>
+            <rect id="Rectangle-8-Copy-251" x="24" y="0" width="4" height="16"></rect>
+            <rect id="Rectangle-8-Copy-252" x="36" y="0" width="4" height="16"></rect>
+            <rect id="Rectangle-8-Copy-253" x="48" y="0" width="4" height="16"></rect>
+            <rect id="Rectangle-8-Copy-254" x="60" y="0" width="4" height="16"></rect>
+            <rect id="Rectangle-8-Copy-255" x="20" y="0" width="2" height="16"></rect>
+            <rect id="Rectangle-8-Copy-256" x="32" y="9" width="2" height="7"></rect>
+            <rect id="Rectangle-8-Copy-257" x="44" y="9" width="2" height="7"></rect>
+            <polygon id="Rectangle-8-Copy-258" points="32 14 32 16 28 16 28 14"></polygon>
+            <polygon id="Rectangle-8-Copy-259" points="44 14 44 16 40 16 40 14"></polygon>
+            <polygon id="Rectangle-8-Copy-260" points="58 14 58 16 52 16 52 14"></polygon>
+            <polygon id="Rectangle-8-Copy-261" points="34 0 34 2 28 2 28 0"></polygon>
+            <polygon id="Rectangle-8-Copy-262" points="46 0 46 2 40 2 40 0"></polygon>
+            <polygon id="Rectangle-8-Copy-263" points="70 0 70 2 64 2 64 0"></polygon>
+            <polygon id="Rectangle-8-Copy-264" points="70 14 70 16 64 16 64 14"></polygon>
+            <polygon id="Rectangle-8-Copy-265" points="68 7 68 9 64 9 64 7"></polygon>
+            <polygon id="Rectangle-8-Copy-266" points="34 7 34 9 30 9 30 7"></polygon>
+            <polygon id="Rectangle-8-Copy-267" points="46 7 46 9 42 9 42 7"></polygon>
+        </g>
+        <rect id="Rectangle-8-Copy-217" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="175" y="369" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-219" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="187" y="369" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-223" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="199" y="369" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-226" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="214" y="371" width="4" height="14"></rect>
+        <polygon id="Rectangle-8-Copy-218" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="185 383 185 385 179 385 179 383"></polygon>
+        <polygon id="Rectangle-8-Copy-220" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="197 369 197 371 191 371 191 369"></polygon>
+        <polygon id="Rectangle-8-Copy-224" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="209 369 209 371 203 371 203 369"></polygon>
+        <polygon id="Rectangle-8-Copy-227" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="221 369 221 371 211 371 211 369"></polygon>
+        <polygon id="Rectangle-8-Copy-221" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="197 383 197 385 191 385 191 383"></polygon>
+        <polygon id="Rectangle-8-Copy-222" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="195 376 195 378 191 378 191 376"></polygon>
+        <polygon id="Rectangle-8-Copy-225" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="207 376 207 378 203 378 203 376"></polygon>
+        <rect id="Rectangle-8-Copy-236" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="373" y="369" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-241" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="385" y="369" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-228" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="349" y="369" width="4" height="16"></rect>
+        <rect id="Rectangle-8-Copy-244" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="400" y="371" width="4" height="14"></rect>
+        <rect id="Rectangle-8-Copy-233" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="364" y="371" width="4" height="12"></rect>
+        <rect id="Rectangle-8-Copy-240" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="381" y="378" width="2" height="7"></rect>
+        <rect id="Rectangle-8-Copy-242" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="393" y="369" width="2" height="16"></rect>
+        <rect id="Rectangle-8-Copy-229" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="357" y="369" width="2" height="9"></rect>
+        <rect id="Rectangle-8-Copy-230" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" x="355" y="378" width="2" height="7"></rect>
+        <polygon id="Rectangle-8-Copy-237" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="381 383 381 385 377 385 377 383"></polygon>
+        <polygon id="Rectangle-8-Copy-238" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="383 369 383 371 377 371 377 369"></polygon>
+        <polygon id="Rectangle-8-Copy-245" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="407 369 407 371 397 371 397 369"></polygon>
+        <polygon id="Rectangle-8-Copy-234" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="371 369 371 371 361 371 361 369"></polygon>
+        <polygon id="Rectangle-8-Copy-235" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="371 383 371 385 361 385 361 383"></polygon>
+        <polygon id="Rectangle-8-Copy-231" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="357 369 357 371 353 371 353 369"></polygon>
+        <polygon id="Rectangle-8-Copy-239" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="383 376 383 378 379 378 379 376"></polygon>
+        <polygon id="Rectangle-8-Copy-243" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="393 376 393 378 389 378 389 376"></polygon>
+        <polygon id="Rectangle-8-Copy-232" fill="#FFFFFF" fill-rule="nonzero" opacity="0.2" points="357 376 357 378 353 378 353 376"></polygon>
+        <rect id="Rectangle-13" fill="#DADADA" fill-rule="nonzero" x="238" y="41" width="292" height="158"></rect>
+        <rect id="Rectangle-13-Copy" fill="#FFFFFF" fill-rule="nonzero" x="246" y="57" width="276" height="134"></rect>
+        <path d="M325,82 L299,82 L299,111 L270,111 L270,137 L299,137 L299,166 L325,166 L325,137 L354,137 L354,111 L325,111 L325,82 Z" id="Combined-Shape" stroke="#444444" stroke-width="2" opacity="0.2" fill-rule="nonzero"></path>
+        <path d="M453,118 L419,118 L419,152 L453,152 L453,118 Z" id="Rectangle-14-Copy-2" stroke="#444444" stroke-width="2" opacity="0.2" fill-rule="nonzero"></path>
+        <polygon id="Rectangle-14-Copy-3" fill="#444444" fill-rule="nonzero" points="498 117 498 153 462 153 462 117"></polygon>
+        <rect id="Rectangle-17" fill="#DADADA" fill-rule="nonzero" x="380" y="-158" width="8" height="197"></rect>
+        <g id="Group-2" transform="translate(24.000000, 24.000000)" fill="#444444" fill-rule="nonzero" opacity="0.2">
+            <rect id="Rectangle-8-Copy-323" x="68" y="0" width="4" height="16"></rect>
+            <rect id="Rectangle-8-Copy-305" x="0" y="0" width="4" height="16"></rect>
+            <rect id="Rectangle-8-Copy-317" x="36" y="0" width="4" height="16"></rect>
+            <rect id="Rectangle-8-Copy-314" x="24" y="0" width="4" height="16"></rect>
+            <rect id="Rectangle-8-Copy-331" x="100" y="0" width="4" height="16"></rect>
+            <rect id="Rectangle-8-Copy-310" x="12" y="0" width="4" height="16"></rect>
+            <rect id="Rectangle-8-Copy-327" x="88" y="0" width="4" height="16"></rect>
+            <rect id="Rectangle-8-Copy-335" x="112" y="0" width="4" height="16"></rect>
+            <rect id="Rectangle-8-Copy-321" x="59" y="2" width="4" height="14"></rect>
+            <rect id="Rectangle-8-Copy-324" x="76" y="0" width="2" height="16"></rect>
+            <rect id="Rectangle-8-Copy-306" x="8" y="0" width="2" height="16"></rect>
+            <rect id="Rectangle-8-Copy-318" x="44" y="0" width="2" height="7"></rect>
+            <rect id="Rectangle-8-Copy-319" x="44" y="9" width="2" height="7"></rect>
+            <rect id="Rectangle-8-Copy-311" x="20" y="0" width="2" height="16"></rect>
+            <rect id="Rectangle-8-Copy-328" x="96" y="0" width="2" height="16"></rect>
+            <rect id="Rectangle-8-Copy-336" x="120" y="0" width="2" height="16"></rect>
+            <rect id="Rectangle-8-Copy-329" x="93" y="2" width="2" height="14"></rect>
+            <polygon id="Rectangle-8-Copy-325" points="76 14 76 16 72 16 72 14"></polygon>
+            <polygon id="Rectangle-8-Copy-307" points="8 14 8 16 4 16 4 14"></polygon>
+            <polygon id="Rectangle-8-Copy-315" points="34 14 34 16 28 16 28 14"></polygon>
+            <polygon id="Rectangle-8-Copy-326" points="76 0 76 2 72 2 72 0"></polygon>
+            <polygon id="Rectangle-8-Copy-308" points="8 0 8 2 4 2 4 0"></polygon>
+            <polygon id="Rectangle-8-Copy-316" points="34 0 34 2 28 2 28 0"></polygon>
+            <polygon id="Rectangle-8-Copy-332" points="110 0 110 2 104 2 104 0"></polygon>
+            <polygon id="Rectangle-8-Copy-322" points="66 0 66 2 56 2 56 0"></polygon>
+            <polygon id="Rectangle-8-Copy-312" points="20 0 20 2 16 2 16 0"></polygon>
+            <polygon id="Rectangle-8-Copy-330" points="96 0 96 2 92 2 92 0"></polygon>
+            <polygon id="Rectangle-8-Copy-337" points="120 0 120 2 116 2 116 0"></polygon>
+            <rect id="Rectangle-8-Copy-338" transform="translate(126.000000, 8.000000) scale(1, -1) translate(-126.000000, -8.000000) " x="124" y="0" width="4" height="16"></rect>
+            <rect id="Rectangle-8-Copy-339" transform="translate(133.000000, 8.000000) scale(1, -1) translate(-133.000000, -8.000000) " x="132" y="0" width="2" height="16"></rect>
+            <polygon id="Rectangle-8-Copy-340" transform="translate(130.000000, 15.000000) scale(1, -1) translate(-130.000000, -15.000000) " points="132 14 132 16 128 16 128 14"></polygon>
+            <polygon id="Rectangle-8-Copy-333" points="110 14 110 16 104 16 104 14"></polygon>
+            <polygon id="Rectangle-8-Copy-334" points="108 7 108 9 104 9 104 7"></polygon>
+            <polygon id="Rectangle-8-Copy-309" points="8 7 8 9 4 9 4 7"></polygon>
+            <polygon id="Rectangle-8-Copy-320" points="44 7 44 9 40 9 40 7"></polygon>
+            <polygon id="Rectangle-8-Copy-313" points="20 7 20 9 16 9 16 7"></polygon>
+        </g>
+    </g>
+</svg>
