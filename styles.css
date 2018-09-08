@@ -161,3 +161,7 @@ svg {
 [hidden] {
   display: none !important;
 }
+
+.smooth {
+  shape-rendering: auto;
+}
