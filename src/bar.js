@@ -1,9 +1,9 @@
-import {game} from './elements.js'
+import create from './create.js'
 import Body from './body.js'
 
 export default class Bar extends Body {
   constructor (x, y, width, height, on, spike) {
-    super(document.createElementNS(game.namespaceURI, 'rect'))
+    super(create('rect'))
     this.x = x
     this.y = y
     this.width = width
