@@ -14,7 +14,7 @@ const HEIGHT = 480
 
 class Scene extends Body {
   constructor (levels) {
-    super(game)
+    super(document.getElementById('game'))
     this.index = 0
     this.deaths = 0
     this.paused = false
@@ -88,7 +88,7 @@ class Scene extends Body {
     this.goal.y = y
     if (this.bars) for (const bar of this.bars) bar.element.remove()
     this.bars = bars.map((args) => new Bar(...args))
-    for (const bar of this.bars) game.appendChild(bar.element)
+    for (const bar of this.bars) this.element.appendChild(bar.element)
     this.on = true
     this.reset()
   }
