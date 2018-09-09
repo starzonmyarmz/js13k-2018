@@ -33,6 +33,21 @@ svg {
   transform-origin: 50% 75%;
 }
 
+#menu .item .text {
+  opacity: 0.1;
+}
+
+#menu .item.selected .text {
+  opacity: 1;
+}
+
+#menu .item .stars {
+  display: none;
+}
+
+#menu .item.selected .stars {
+  display: block;
+}
 
 
 /*  Guy  */

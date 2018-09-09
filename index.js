@@ -5,14 +5,16 @@ import Body from './src/body.js'
 import Goal from './src/goal.js'
 import Guy from './src/guy.js'
 import Bar from './src/bar.js'
+import Title from './src/title.js'
 import {GOAL_FX, JUMP_FX, DEATH_FX, ON_FX, OFF_FX} from './src/sound.js'
-import svg from './src/svg.js'
+import {game} from './src/elements.js'
 
 const WIDTH = 768
 const HEIGHT = 480
 
-class Scene {
+class Scene extends Body {
   constructor (levels) {
+    super(game)
     this.index = 0
     this.deaths = 0
     this.paused = false
@@ -42,7 +44,7 @@ class Scene {
     counter.innerHTML = ''
     let s = value.toString()
     for (let i = 0; i < s.length; i++) {
-      const rect = document.createElementNS(svg.namespaceURI, 'rect')
+      const rect = document.createElementNS(game.namespaceURI, 'rect')
       rect.setAttribute('fill', `url(#n${s[i]})`)
       rect.setAttribute('width', 10)
       rect.setAttribute('height', 16)
@@ -86,7 +88,7 @@ class Scene {
     this.goal.y = y
     if (this.bars) for (const bar of this.bars) bar.element.remove()
     this.bars = bars.map((args) => new Bar(...args))
-    for (const bar of this.bars) svg.appendChild(bar.element)
+    for (const bar of this.bars) game.appendChild(bar.element)
     this.on = true
     this.reset()
   }
@@ -135,7 +137,7 @@ class Scene {
   }
 
   tick (scale) {
-    if (this.paused) return
+    if (this.paused || this.hidden) return
 
     this.guy.tick(scale)
 
@@ -168,6 +170,13 @@ document.addEventListener('keydown', ({key}) => {
 
     if (scene.on) OFF_FX.play()
     if (!scene.on) ON_FX.play()
+  }
+})
+
+const title = new Title({
+  start: () => {
+    title.hidden = true
+    scene.hidden = false
   }
 })
 

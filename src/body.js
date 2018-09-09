@@ -4,6 +4,14 @@ export default class Body {
     this.bounds = {}
   }
 
+  get hidden () {
+    return this.element.hasAttribute('hidden')
+  }
+
+  set hidden (value) {
+    this.element.toggleAttribute('hidden', !!value)
+  }
+
   get x () {
     return this._x
   }
