@@ -7,7 +7,7 @@ import Guy from './src/guy.js'
 import Bar from './src/bar.js'
 import Title from './src/title.js'
 import {GOAL_FX, JUMP_FX, DEATH_FX, ON_FX, OFF_FX} from './src/sound.js'
-import {game} from './src/elements.js'
+import create from './src/create.js'
 
 const WIDTH = 768
 const HEIGHT = 480
@@ -44,7 +44,7 @@ class Scene extends Body {
     counter.innerHTML = ''
     let s = value.toString()
     for (let i = 0; i < s.length; i++) {
-      const rect = document.createElementNS(game.namespaceURI, 'rect')
+      const rect = create('rect')
       rect.setAttribute('fill', `url(#n${s[i]})`)
       rect.setAttribute('width', 10)
       rect.setAttribute('height', 16)
