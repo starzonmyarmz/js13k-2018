@@ -1,9 +1,24 @@
 import {leftKey, rightKey} from './keys.js'
 import Body from './body.js'
+import create from './create.js'
 
 export default class Guy extends Body {
   constructor (x, y) {
-    super(document.getElementById('guy'))
+    super(create('svg'))
+    this.element.innerHTML = `
+    <svg id="guy">
+      <g id="inner-guy">
+        <rect class="accent" x="0" y="17" width="24" height="21"/>
+        <rect id="left_foot" class="accent" x="4" y="38" width="6" height="10"/>
+        <rect id="right_foot" class="accent" x="14" y="38" width="6" height="10"/>
+        <g id="head">
+          <rect class="accent" x="0" y="0" width="26" height="19"/>
+          <rect id="face" x="4" y="3" width="20" height="14"/>
+          <rect class="accent" x="9" y="7" width="4" height="4"/>
+          <rect class="accent" x="17" y="7" width="4" height="4"/>
+        </g>
+      </g>
+    </svg>`
     this.x = x
     this.y = y
     this.height = 48
@@ -25,5 +40,9 @@ export default class Guy extends Body {
     }
 
     this.element.classList.toggle('walk', leftKey || rightKey)
+  }
+
+  toJSON () {
+    return [Math.round(this.x), Math.round(this.y)]
   }
 }

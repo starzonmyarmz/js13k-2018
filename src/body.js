@@ -17,7 +17,8 @@ export default class Body {
   }
 
   set x (value) {
-    this.element.setAttribute('x', this._x = value || 0)
+    this._x = value || 0
+    this.element.setAttribute('x', this.x)
   }
 
   get y () {
@@ -25,7 +26,26 @@ export default class Body {
   }
 
   set y (value) {
-    this.element.setAttribute('y', this._y = value || 0)
+    this._y = value || 0
+    this.element.setAttribute('y', this.y)
+  }
+
+  get width () {
+    return this._width
+  }
+
+  set width (value) {
+    this._width = Math.max(0, value || 0)
+    this.element.setAttribute('width', this.width)
+  }
+
+  get height () {
+    return this._height
+  }
+
+  set height (value) {
+    this._height = Math.max(0, value || 0)
+    this.element.setAttribute('height', this.height)
   }
 
   get top () {
@@ -36,12 +56,20 @@ export default class Body {
     return this.y + this.height
   }
 
+  set bottom (value) {
+    this.y = (value || 0) - this.height
+  }
+
   get left () {
     return this.x
   }
 
   get right () {
     return this.x + this.width
+  }
+
+  set right (value) {
+    this.x = (value || 0) - this.width
   }
 
   set bottom (value) {
@@ -69,5 +97,9 @@ export default class Body {
     this.right > other.left &&
     this.top < other.bottom &&
     this.bottom > other.top
+  }
+
+  remove () {
+    this.element.remove()
   }
 }

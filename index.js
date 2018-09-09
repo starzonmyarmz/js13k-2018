@@ -8,9 +8,7 @@ import Bar from './src/bar.js'
 import Title from './src/title.js'
 import {GOAL_FX, JUMP_FX, DEATH_FX, ON_FX, OFF_FX} from './src/sound.js'
 import create from './src/create.js'
-
-const WIDTH = 768
-const HEIGHT = 480
+import {WIDTH, HEIGHT} from './src/dimensions.js'
 
 class Scene extends Body {
   constructor (levels) {
@@ -19,7 +17,9 @@ class Scene extends Body {
     this.deaths = 0
     this.paused = false
     this.guy = new Guy
+    this.element.appendChild(this.guy.element)
     this.goal = new Goal
+    this.element.appendChild(this.goal.element)
     this.levels = levels
     this.load(...levels[this.index])
   }
