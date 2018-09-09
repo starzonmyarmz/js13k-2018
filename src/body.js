@@ -9,7 +9,11 @@ export default class Body {
   }
 
   set hidden (value) {
-    this.element.toggleAttribute('hidden', !!value)
+    if (this.hidden) {
+      this.element.removeAttribute('hidden')
+    } else {
+      this.element.setAttribute('hidden', '')
+    }
   }
 
   get x () {

@@ -22,9 +22,9 @@ const update = () => {
   rightKey = DOWN.has('d') || DOWN.has('ArrowRight')
 }
 
-document.addEventListener('keydown', ({key}) => {
-  DOWN.add(key)
-  if (NO_DEFAULT.has(key)) event.preventDefault()
+document.addEventListener('keydown', (event) => {
+  DOWN.add(event.key)
+  if (NO_DEFAULT.has(event.key)) event.preventDefault()
   update()
 })
 
