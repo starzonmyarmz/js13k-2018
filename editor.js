@@ -172,9 +172,9 @@ class Editor extends Body {
     super(document.getElementById('editor'))
     this.bars = []
     this.guy = new EditableGuy
-    this.element.appendChild(this.guy.element)
+    this.append(this.guy)
     this.goal = new EditableGoal
-    this.element.appendChild(this.goal.element)
+    this.append(this.goal)
     this.level = 0
     document.addEventListener('keydown', this.keydown.bind(this))
   }
@@ -195,7 +195,7 @@ class Editor extends Body {
     for (const bargs of bars) {
       const bar = new EditableBar(...bargs)
       this.bars.push(bar)
-      this.element.appendChild(bar.element)
+      this.append(bar)
     }
   }
 
@@ -210,7 +210,7 @@ class Editor extends Body {
       case 'b':
         const bar = new EditableBar(0, 0, 100, 100, true)
         this.bars.push(bar)
-        this.element.appendChild(bar.element)
+        this.append(bar)
         break
       case 'c':
         navigator.clipboard.writeText(JSON.stringify(this))

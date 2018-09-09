@@ -99,6 +99,10 @@ export default class Body {
     this.bottom > other.top
   }
 
+  append ({element}) {
+    this.element.appendChild(element)
+  }
+
   remove () {
     this.element.remove()
   }

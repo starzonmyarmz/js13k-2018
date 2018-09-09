@@ -17,9 +17,9 @@ class Scene extends Body {
     this.deaths = 0
     this.paused = false
     this.guy = new Guy
-    this.element.appendChild(this.guy.element)
+    this.append(this.guy)
     this.goal = new Goal
-    this.element.appendChild(this.goal.element)
+    this.append(this.goal)
     this.levels = levels
     this.load(...levels[this.index])
   }
@@ -88,7 +88,7 @@ class Scene extends Body {
     this.goal.y = y
     if (this.bars) for (const bar of this.bars) bar.element.remove()
     this.bars = bars.map((args) => new Bar(...args))
-    for (const bar of this.bars) this.element.appendChild(bar.element)
+    for (const bar of this.bars) this.append(bar)
     this.on = true
     this.reset()
   }
