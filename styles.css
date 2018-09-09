@@ -33,21 +33,23 @@ svg {
   transform-origin: 50% 75%;
 }
 
-#menu .item .text {
+#menu .text {
   opacity: 0.1;
 }
 
-#menu .item.selected .text {
+#menu .selected .text {
   opacity: 1;
 }
 
-#menu .item .stars {
+#menu .stars {
   display: none;
+  shape-rendering: auto;
 }
 
-#menu .item.selected .stars {
+#menu .selected .stars {
   display: block;
 }
+
 
 
 /*  Guy  */
@@ -175,8 +177,4 @@ svg {
 
 [hidden] {
   display: none !important;
-}
-
-.smooth {
-  shape-rendering: auto;
 }
