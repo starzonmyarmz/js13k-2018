@@ -26,13 +26,6 @@ svg {
 
 /*  Title  */
 
-#letsgo {
-  animation: pulse 2s infinite;
-  fill: var(--accent);
-  opacity: 0.2;
-  transform-origin: 50% 75%;
-}
-
 #menu .text {
   opacity: 0.1;
 }
