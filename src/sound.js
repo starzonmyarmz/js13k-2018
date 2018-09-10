@@ -293,11 +293,10 @@ export const OFF_FX = new TinyMusic.Sequence(ac, 400, [
 ])
 
 export const GOAL_FX = new TinyMusic.Sequence(ac, 280, [
-  'Eb4 0.125',
-  'E4 0.125',
-  'F4 0.125',
-  'Gb4 0.125',
-  'G4 h'])
+  'C4 s',
+  'G4 s',
+  'C5 h'
+])
 
 export const DEATH_FX = new TinyMusic.Sequence(ac, 280, [
   'Bb3 e',
