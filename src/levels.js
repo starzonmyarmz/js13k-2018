@@ -1,4 +1,10 @@
-// 18
+// 20
+
+const getRandomInt = function(min, max) {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min)) + min
+}
 
 export default [
   [[24, 200], [724, 244], [
@@ -62,6 +68,9 @@ export default [
     [288, 320, 64, 160, false],
     [416, 224, 64, 256, false]
   ]],
+  [[24, 64], [724, 216],
+    [0, 1, 2, 3, 4, 5, 6, 7].map((x) => [x * 96, getRandomInt(240, 300), getRandomInt(24, 72), getRandomInt(24, 180), getRandomInt(0, 2)])
+  ],
   [[48, 350], [696, 384], [
     [48, 432, 24, 24, true],
     [156, 348, 24, 24, false],
@@ -99,6 +108,14 @@ export default [
     [0, 248, 448, 8, true],
     [0, 336, 528, 8, true, 'up'],
     [0, 344, 528, 8, true],
+  ]],
+  [[12, 312], [725, 307], [
+    [0, 176, 768, 72, true],
+    [0, 248, 768, 8, true, 'down'],
+    [0, 362, 64, 8, true],
+    [192, 362, 128, 8, true],
+    [448, 362, 128, 8, true],
+    [704, 362, 64, 8, true]
   ]],
   [[371, 20], [372, 404], [
     [320, 384, 128, 8, true],
