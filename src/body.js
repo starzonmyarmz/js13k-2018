@@ -22,7 +22,7 @@ export default class Body {
 
   set x (value) {
     this._x = value || 0
-    this.element.setAttribute('x', this.x)
+    this.element.setAttribute('x', Math.round(this.x))
   }
 
   get y () {
@@ -31,7 +31,7 @@ export default class Body {
 
   set y (value) {
     this._y = value || 0
-    this.element.setAttribute('y', this.y)
+    this.element.setAttribute('y', Math.round(this.y))
   }
 
   get width () {
@@ -40,7 +40,7 @@ export default class Body {
 
   set width (value) {
     this._width = Math.max(0, value || 0)
-    this.element.setAttribute('width', this.width)
+    this.element.setAttribute('width', Math.round(this.width))
   }
 
   get height () {
@@ -49,7 +49,7 @@ export default class Body {
 
   set height (value) {
     this._height = Math.max(0, value || 0)
-    this.element.setAttribute('height', this.height)
+    this.element.setAttribute('height', Math.round(this.height))
   }
 
   get top () {
