@@ -44,6 +44,12 @@ svg {
 }
 
 
+/*  HUD  */
+
+#hud {
+  opacity: 0.1;
+}
+
 
 /*  Guy  */
 
