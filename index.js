@@ -13,15 +13,14 @@ import {WIDTH, HEIGHT} from './src/dimensions.js'
 class Scene extends Body {
   constructor (levels) {
     super(document.getElementById('game'))
-    this.index = 0
+    this.bars = []
     this.deaths = 0
     this.paused = false
     this.guy = new Guy
     this.append(this.guy)
     this.goal = new Goal
     this.append(this.goal)
-    this.levels = levels
-    this.load(...levels[this.index])
+    this.index = 0
   }
 
   get on () {
@@ -32,6 +31,30 @@ class Scene extends Body {
     this._on = value
     document.body.classList.toggle('on', value)
     document.body.classList.toggle('off', !value)
+  }
+
+  get index () {
+    return this._index
+  }
+
+  set index (value) {
+    this._index = Math.min(levels.length - 1, Math.max(value || 0))
+
+    const [guy, goal, bars] = this.level
+    this.on = true
+    this.guy.load(...guy)
+    this.goal.load(...goal)
+
+    while (this.bars.length) this.bars.pop().remove()
+    for (const values of bars) {
+      const bar = new Bar(...values)
+      this.append(bar)
+      this.bars.push(bar)
+    }
+  }
+
+  get level () {
+    return levels[this.index]
   }
 
   get deaths () {
@@ -58,8 +81,7 @@ class Scene extends Body {
     this.paused = true
     document.body.classList.add('finish')
     await sleep(1000)
-    this.index = Math.min(this.index + 1, this.levels.length - 1)
-    this.load(...this.levels[this.index])
+    this.index += 1
     document.body.classList.remove('finish')
     await sleep(1000)
     this.paused = false
@@ -81,22 +103,8 @@ class Scene extends Body {
     this.paused = false
   }
 
-  load (guy, goal, bars) {
-    this.start = guy
-    const [x, y] = goal
-    this.goal.x = x
-    this.goal.y = y
-    if (this.bars) for (const bar of this.bars) bar.element.remove()
-    this.bars = bars.map((args) => new Bar(...args))
-    for (const bar of this.bars) this.append(bar)
-    this.on = true
-    this.reset()
-  }
-
   reset () {
-    const [x, y] = this.start
-    this.guy.x = x
-    this.guy.y = y
+    this.guy.load(...this.level[0])
   }
 
   lost () {

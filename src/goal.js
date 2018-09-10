@@ -10,6 +10,10 @@ export default class Goal extends Body {
     </g></g></svg>`
     this.width = 22
     this.height = 20
+    this.load(x, y)
+  }
+
+  load (x, y) {
     this.x = x
     this.y = y
   }

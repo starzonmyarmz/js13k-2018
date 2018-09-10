@@ -187,11 +187,9 @@ class Editor extends Body {
     this._level = Math.max(0, Math.min(levels.length - 1, value))
 
     const [guy, goal, bars] = levels[this.level]
-    this.guy.x = guy[0]
-    this.guy.y = guy[1]
-    this.goal.x = goal[0]
-    this.goal.y = goal[1]
-    for (const bar of this.bars) bar.remove()
+    this.guy.load(...guy)
+    this.goal.load(...goal)
+    while (this.bars.length) this.bars.pop().remove()
     for (const bargs of bars) {
       const bar = new EditableBar(...bargs)
       this.bars.push(bar)

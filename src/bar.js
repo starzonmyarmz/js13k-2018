@@ -4,12 +4,7 @@ import create from './create.js'
 export default class Bar extends Body {
   constructor (x, y, width, height, on, spike) {
     super(create('rect'))
-    this.width = width
-    this.height = height
-    this.x = x
-    this.y = y
-    this.on = on
-    this.spike = spike
+    this.load(x, y, width, height, on, spike)
     if (this.spike) {
       this.element.setAttribute('fill', `url(#spike-${this.spike})`)
     }
@@ -23,6 +18,15 @@ export default class Bar extends Body {
     this._on = !!value
     this.element.classList.toggle('light', this.on)
     this.element.classList.toggle('dark', !this.on)
+  }
+
+  load (x, y, width, height, on, spike) {
+    this.width = width
+    this.height = height
+    this.x = x
+    this.y = y
+    this.on = on
+    this.spike = spike
   }
 
   toJSON () {

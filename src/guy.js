@@ -19,8 +19,7 @@ export default class Guy extends Body {
         </g>
       </g>
     </svg>`
-    this.x = x
-    this.y = y
+    this.load(x, y)
     this.height = 48
     this.width = 26
     this.speed = 360
@@ -40,6 +39,11 @@ export default class Guy extends Body {
     }
 
     this.element.classList.toggle('walk', leftKey || rightKey)
+  }
+
+  load (x, y) {
+    this.x = x
+    this.y = y
   }
 
   toJSON () {
