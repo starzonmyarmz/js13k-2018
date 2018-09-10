@@ -1,5 +1,3 @@
-// 22
-
 const getRandomInt = function(min, max) {
   min = Math.ceil(min)
   max = Math.floor(max)
@@ -7,7 +5,7 @@ const getRandomInt = function(min, max) {
 }
 
 export default [
-  [[24, 200], [724, 244], [
+  [[24,230], [724, 244], [
     [0, 288, 330, 192, true],
     [438, 288, 330, 192, true]
   ]],

@@ -3,17 +3,14 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="styles.css">
   <style>
-  .grid {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="red"><rect width="1" height="7"/><rect width="8" height="1" y="7"/></svg>');
-    background-position: 50% 50%;
-    bottom: 0;
-    left: 0;
-    opacity: 0.1;
-    pointer-events: none;
-    position: fixed;
-    right: 0;
-    top: 0;
-  }
+    .grid {
+      left: 50%;
+      opacity: 0.1;
+      pointer-events: none;
+      position: fixed;
+      top: 50%;
+      transform: translate(-50%, -50%)
+    }
   </style>
   <script src="editor.js" type="module" defer></script>
 </head>
@@ -34,5 +31,14 @@
       </pattern>
     </defs>
   </svg>
-  <div class="grid"></div>
+
+  <svg viewBox="0 0 768 480" class="grid">
+    <defs>
+      <pattern id="grid" width="8" height="8" patternUnits="userSpaceOnUse">
+        <rect width="1" height="7" x="7" fill="red"/>
+        <rect width="8" height="1" y="7" fill="red"/>
+      </pattern>
+    </defs>
+    <rect x="0" y="0" width="768" height="480" fill="url(#grid)"/>
+  </svg>
 </body>
