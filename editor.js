@@ -208,7 +208,7 @@ class Editor extends Body {
         this.level -= 1
         break
       case 'b':
-        const bar = new EditableBar(0, 0, 100, 100, true)
+        const bar = new EditableBar(0, 0, 48, 48, true)
         this.bars.push(bar)
         this.append(bar)
         break
