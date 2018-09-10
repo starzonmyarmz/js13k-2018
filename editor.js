@@ -5,7 +5,7 @@ import Body from './src/body.js'
 import levels from './src/levels.js'
 import create from './src/create.js'
 
-const PADDING = 2
+const PADDING = 3
 
 const svg = document.getElementById('editor')
 const point = svg.createSVGPoint()
