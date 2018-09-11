@@ -226,24 +226,34 @@ export const MUSIC_HIGH_B = new TinyMusic.Sequence(ac, 100, [
 
 export const MUSIC_WINNING_LOW = new TinyMusic.Sequence(ac, 200, [
   'C3 q',
+  '- q',
+  'G3 q',
+  '- q',
+  'C3 q',
+  '- q',
+  'G3 q',
+  'G2 q',
+  'C3 q',
+  '- q',
+  'G3 q',
+  '- q',
+  'B2 q',
+  '- q',
+  'B2 q',
+  'A2 q',
+  'G2 q',
+  '- h',
+  '- q',
   'E3 q',
-  'C3 q',
+  '- h',
   '- q',
-  'G3 q',
-  '- q',
-  'C3 q',
-  '- q',
-  'G3 q',
-  '- q',
-  'C3 q',
-  '- q',
-  'G3 q',
-
+  'G2 q',
+  '- w',
+  '- h',
+  'B2 q'
 ])
 
 export const MUSIC_WINNING_HIGH = new TinyMusic.Sequence(ac, 200, [
-  'C4 q',
-  'E4 q',
   'G4 e',
   'Gb4 e',
   'G4 e',
@@ -259,20 +269,43 @@ export const MUSIC_WINNING_HIGH = new TinyMusic.Sequence(ac, 200, [
   'Gb4 e',
   'G4 q',
   'E4 q',
-  'F4 h'
+  'F4 h',
+  'D4 q',
+  'E4 q',
+  'F4 e',
+  'E4 e',
+  'F4 e',
+  'E4 e',
+  'F4 q',
+  'G4 q',
+  'E4 e',
+  'D4 e',
+  'E4 e',
+  'D4 e',
+  'E4 q',
+  'F4 q',
+  'G3 e',
+  'A3 e',
+  'B3 e',
+  'C4 e',
+  'D4 e',
+  'E4 e',
+  'F4 e',
+  'E4 e',
+  'D4 e',
+  'C4 e',
+  'B3 e',
+  'A3 e',
+  'G3 q',
+  'E4 q'
 ])
 
-
 MUSIC_WINNING_LOW.staccato = 0.5
-MUSIC_WINNING_LOW.loop = false
+MUSIC_WINNING_LOW.loop = true
 MUSIC_WINNING_LOW.waveType = 'sine'
 
 MUSIC_WINNING_HIGH.staccato = 0.5
-MUSIC_WINNING_HIGH.loop = false
-
-MUSIC_WINNING_LOW.play()
-MUSIC_WINNING_HIGH.play()
-
+MUSIC_WINNING_HIGH.loop = true
 
 MUSIC_LOW_A.staccato = 0.5
 MUSIC_LOW_B.staccato = 0.3
