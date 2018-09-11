@@ -28,17 +28,17 @@ export default class Guy extends Body {
   }
 
   tick (scale) {
-    if (leftKey && !rightKey) {
+    if (leftKey() && !rightKey()) {
       this.vx = -scale(this.speed)
       this.faceLeft = true
-    } else if (rightKey && !leftKey) {
+    } else if (rightKey() && !leftKey()) {
       this.vx = scale(this.speed)
       this.faceLeft = false
     } else {
       this.vx = 0
     }
 
-    this.walking = leftKey || rightKey
+    this.walking = leftKey() || rightKey()
   }
 
   get faceLeft () {

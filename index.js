@@ -152,8 +152,8 @@ class Scene extends Body {
     this.guy.y += Math.min(bottom, Math.max(top, this.guy.vy))
 
     if (bottom === 0) {
-      this.guy.vy = upKey ? -scale(1200) : 0
-      if (upKey) JUMP_FX.play()
+      this.guy.vy = upKey() ? -scale(1200) : 0
+      if (upKey()) JUMP_FX.play()
     } else {
       this.guy.vy = Math.min(scale(600), this.guy.vy + scale(120))
     }
