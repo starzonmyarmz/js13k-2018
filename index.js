@@ -168,16 +168,20 @@ class Scene extends Body {
 
 const scene = new Scene(levels)
 
-document.addEventListener('keydown', ({key}) => {
-  if (key === ' ') {
+document.addEventListener('keydown', (event) => {
+  if (!controls.hidden) controls.keydown(event)
+  else if (!title.hidden) title.keydown(event)
+  if (event.key === ' ') {
     scene.on = !scene.on
-
     if (scene.on) OFF_FX.play()
     if (!scene.on) ON_FX.play()
   }
 })
 
-const controls = new Controls(document.getElementById('controls'))
+const controls = new Controls(document.getElementById('controls'), () => {
+  controls.hidden = true
+  title.hidden = false
+})
 
 const title = new Title({
   start: () => {

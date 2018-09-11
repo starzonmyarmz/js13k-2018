@@ -11,16 +11,12 @@ export default class Title extends Body {
 
     this.controls = controls
     this.start = start
-    this.items = [].slice.call(this.element.querySelectorAll('#menu .item'))
+    this.items = [].slice.call(this.element.querySelectorAll('.menu .item'))
 
     this.selected = START
-
-    document.addEventListener('keydown', this.keydown.bind(this))
   }
 
   keydown ({key}) {
-    if (this.hidden) return
-
     switch (key) {
       case 'ArrowUp':
         this.selected -= 1

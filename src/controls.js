@@ -14,8 +14,9 @@ class Key extends Body {
 }
 
 export default class Controls extends Body {
-  constructor (element) {
+  constructor (element, back) {
     super(element)
+    this.back = back
     this.keys = [
       new Key('key-w', () => DOWN.has('w')),
       new Key('key-a', () => DOWN.has('a')),
@@ -24,7 +25,20 @@ export default class Controls extends Body {
     ]
   }
 
+  keydown ({key}) {
+    switch (key) {
+      case 'Enter':
+        this.back()
+        break
+      case 'ArrowUp':
+      case 'ArrowDown':
+        this.element.querySelector('.menu .item').classList.add('selected')
+        break
+    }
+  }
+
   tick () {
+    if (this.hidden) return
     for (const key of this.keys) key.tick()
   }
 }

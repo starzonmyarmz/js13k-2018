@@ -26,20 +26,20 @@ svg {
 
 /*  Title  */
 
-#menu .text {
+.menu .text {
   opacity: 0.1;
 }
 
-#menu .selected .text {
+.menu .selected .text {
   opacity: 1;
 }
 
-#menu .stars {
+.menu .stars {
   display: none;
   shape-rendering: auto;
 }
 
-#menu .selected .stars {
+.menu .selected .stars {
   display: block;
 }
 
