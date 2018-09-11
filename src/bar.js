@@ -12,7 +12,7 @@ export default class Bar extends Body {
   }
 
   get on () {
-    return this._on
+    return !!this._on
   }
 
   set on (value) {

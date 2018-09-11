@@ -18,19 +18,19 @@ export default class Spikes extends Body {
     this.direction = direction
   }
 
-  get up () {
+  get isUp () {
     return this.direction === 'up'
   }
 
-  get down () {
+  get isDown () {
     return this.direction === 'down'
   }
 
-  get left () {
+  get isLeft () {
     return this.direction === 'left'
   }
 
-  get right () {
+  get isRight () {
     return this.direction === 'right'
   }
 
@@ -57,7 +57,7 @@ export default class Spikes extends Body {
   }
 
   get on () {
-    return this._on
+    return !!this._on
   }
 
   set on (value) {
@@ -79,8 +79,9 @@ export default class Spikes extends Body {
     return [
       Math.round(this.x),
       Math.round(this.y),
-      this.up || this.down ? Math.round(this.width / 16) * 16 : this.width,
-      this.left || this.right ? Math.round(this.height / 16) * 16 : this.height,
+      this.isUp || this.isDown ? Math.round(this.width / 16) * 16 : this.width,
+      this.isLeft || this.isRight ? Math.round(this.height / 16) * 16 : this.height,
+      Number(this.on),
       this.direction
     ]
   }

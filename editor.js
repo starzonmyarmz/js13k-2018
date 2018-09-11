@@ -195,7 +195,7 @@ class EditableSpikes extends Spikes {
     x -= this.x
     y -= this.y
 
-    if (this.up || this.down) {
+    if (this.isUp || this.isDown) {
       if (x <= PADDING) return 'w'
       else if (x < this.width - PADDING) return 'm'
       else return 'e'
