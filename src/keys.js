@@ -1,4 +1,4 @@
-const DOWN = new Set
+export const DOWN = new Set
 
 const NO_DEFAULT = new Set([
   'w',

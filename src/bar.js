@@ -2,12 +2,13 @@ import Body from './body.js'
 import create from './create.js'
 
 export default class Bar extends Body {
-  constructor (x, y, width, height, on, spike) {
+  constructor (x, y, width, height, on) {
     super(create('rect'))
-    this.load(x, y, width, height, on, spike)
-    if (this.spike) {
-      this.element.setAttribute('fill', `url(#spike-${this.spike})`)
-    }
+    this.width = width
+    this.height = height
+    this.x = x
+    this.y = y
+    this.on = on
   }
 
   get on () {
@@ -20,23 +21,13 @@ export default class Bar extends Body {
     this.element.classList.toggle('dark', !this.on)
   }
 
-  load (x, y, width, height, on, spike) {
-    this.width = width
-    this.height = height
-    this.x = x
-    this.y = y
-    this.on = on
-    this.spike = spike
-  }
-
   toJSON () {
     return [
       Math.round(this.x),
       Math.round(this.y),
       Math.round(this.width),
       Math.round(this.height),
-      this.on,
-      this.spike
+      Number(this.on)
     ]
   }
 }

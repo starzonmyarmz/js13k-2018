@@ -10,6 +10,7 @@ import {GOAL_FX, JUMP_FX, DEATH_FX, ON_FX, OFF_FX} from './src/sound.js'
 import create from './src/create.js'
 import {WIDTH, HEIGHT} from './src/dimensions.js'
 import Counter from './src/counter.js'
+import Spikes from './src/spikes.js'
 
 class Scene extends Body {
   constructor (levels) {
@@ -17,6 +18,7 @@ class Scene extends Body {
     this.deaths = new Counter(document.getElementById('death-counter'))
     this.stars = new Counter(document.getElementById('level-counter'))
     this.bars = []
+    this.spikes = []
     this.paused = false
     this.guy = new Guy
     this.append(this.guy)
@@ -43,7 +45,7 @@ class Scene extends Body {
     this._index = Math.min(levels.length - 1, Math.max(value || 0))
     this.stars.value = this.index
 
-    const [guy, goal, bars] = this.level
+    const [guy, goal, bars, spikes] = this.level
     this.on = true
     this.guy.load(...guy)
     this.goal.load(...goal)
@@ -53,6 +55,13 @@ class Scene extends Body {
       const bar = new Bar(...values)
       this.append(bar)
       this.bars.push(bar)
+    }
+
+    while (this.spikes.length) this.spikes.pop().remove()
+    for (const values of spikes) {
+      const spike = new Spikes(...values)
+      this.append(spike)
+      this.spikes.push(spike)
     }
   }
 
@@ -94,6 +103,8 @@ class Scene extends Body {
   lost () {
     return this.guy.bottom > HEIGHT || this.bars.some((bar) =>
       bar.on === this.on && bar.overlaps(this.guy)
+    ) || this.spikes.some((spike) =>
+      spike.on === this.on && spike.overlaps(this.guy)
     )
   }
 
@@ -106,7 +117,7 @@ class Scene extends Body {
     bounds.bottom = HEIGHT - body.bottom + 1
 
     for (const bar of this.bars) {
-      if (bar.spike || bar.on !== this.on) continue
+      if (bar.on !== this.on) continue
 
       if (bar.top < body.bottom && bar.bottom > body.top) {
         if (bar.isRightOf(body)) {

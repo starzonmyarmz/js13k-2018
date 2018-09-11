@@ -4,6 +4,8 @@ import Goal from './src/goal.js'
 import Body from './src/body.js'
 import levels from './src/levels.js'
 import create from './src/create.js'
+import Spikes from './src/spikes.js'
+import {DOWN} from './src/keys.js'
 
 const PADDING = 3
 
@@ -13,18 +15,6 @@ const translate = ({clientX, clientY}) => {
   point.x = clientX
   point.y = clientY
   return point.matrixTransform(svg.getScreenCTM().inverse())
-}
-
-const CURSOR = {
-  n: 'ns-resize',
-  s: 'ns-resize',
-  e: 'ew-resize',
-  w: 'ew-resize',
-  nw: 'nwse-resize',
-  se: 'nwse-resize',
-  ne: 'nesw-resize',
-  sw: 'nesw-resize',
-  m: 'move',
 }
 
 let drag = null
@@ -63,7 +53,7 @@ class EditableBar extends Bar {
 
   mousemove (event) {
     const {x, y} = translate(event)
-    this.element.style.cursor = CURSOR[this.region(x, y)]
+    this.element.style.cursor = this.cursor(this.region(x, y))
   }
 
   mousedown (event) {
@@ -133,6 +123,103 @@ class EditableBar extends Bar {
       else return 'se'
     }
   }
+
+  cursor (region) {
+    switch (region) {
+      case 'n':
+      case 's':
+        return 'ns-resize'
+      case 'e':
+      case 'w':
+        return 'ew-resize'
+      case 'nw':
+      case 'se':
+        return 'nwse-resize'
+      case 'ne':
+      case 'sw':
+        return 'nesw-resize'
+      case 'm':
+        return 'move'
+    }
+  }
+}
+
+class EditableSpikes extends Spikes {
+  constructor (...args) {
+    super(...args)
+    this.element.style.cursor = 'move'
+    this.element.addEventListener('dblclick', this.dblclick.bind(this))
+    this.element.addEventListener('mousedown', this.mousedown.bind(this))
+    this.element.addEventListener('mousemove', this.mousemove.bind(this))
+  }
+
+  dblclick () {
+    this.on = !this.on
+  }
+
+  mousemove (event) {
+    const {x, y} = translate(event)
+    this.element.style.cursor = this.cursor(this.region(x, y))
+  }
+
+  mousedown (event) {
+    if (event.button !== 0) return
+    const {x, y} = translate(event)
+    drag = this.resize.bind(this, this.region(x, y))
+  }
+
+  resize (region, {x, y}) {
+    switch (region) {
+      case 'n':
+        this.y += y
+        this.height -= y
+        break
+      case 's':
+        this.height += y
+        break
+      case 'e':
+        this.width += x
+        break
+      case 'w':
+        this.x += x
+        this.width -= x
+        break
+      case 'm':
+        this.x += x
+        this.y += y
+        break
+    }
+  }
+
+  region (x, y) {
+    x -= this.x
+    y -= this.y
+
+    if (this.up || this.down) {
+      if (x <= PADDING) return 'w'
+      else if (x < this.width - PADDING) return 'm'
+      else return 'e'
+    }
+
+    else {
+      if (y <= PADDING) return 'n'
+      else if (y < this.height - PADDING) return 'm'
+      else return 's'
+    }
+  }
+
+  cursor (region) {
+    switch (region) {
+      case 'n':
+      case 's':
+        return 'ns-resize'
+      case 'e':
+      case 'w':
+        return 'ew-resize'
+      case 'm':
+        return 'move'
+    }
+  }
 }
 
 class EditableGuy extends Guy {
@@ -171,12 +258,33 @@ class Editor extends Body {
   constructor () {
     super(document.getElementById('editor'))
     this.bars = []
+    this.spikes = []
     this.guy = new EditableGuy
     this.append(this.guy)
     this.goal = new EditableGoal
     this.append(this.goal)
     this.level = 0
     document.addEventListener('keydown', this.keydown.bind(this))
+  }
+
+  addBar (bar) {
+    this.bars.push(bar)
+    this.append(bar)
+    bar.element.addEventListener('click', ({shiftKey}) => {
+      if (!shiftKey) return
+      bar.remove()
+      this.bars = this.bars.filter((other) => other === bar)
+    })
+  }
+
+  addSpike (spike) {
+    this.spikes.push(spike)
+    this.append(spike)
+    spike.element.addEventListener('click', ({shiftKey}) => {
+      if (!shiftKey) return
+      spike.remove()
+      this.spikes = this.spikes.filter((other) => other === spike)
+    })
   }
 
   get level () {
@@ -186,14 +294,16 @@ class Editor extends Body {
   set level (value) {
     this._level = Math.max(0, Math.min(levels.length - 1, value))
 
-    const [guy, goal, bars] = levels[this.level]
+    const [guy, goal, bars, spikes] = levels[this.level]
     this.guy.load(...guy)
     this.goal.load(...goal)
     while (this.bars.length) this.bars.pop().remove()
-    for (const bargs of bars) {
-      const bar = new EditableBar(...bargs)
-      this.bars.push(bar)
-      this.append(bar)
+    for (const args of bars) {
+      this.addBar(new EditableBar(...args))
+    }
+    while (this.spikes.length) this.spikes.pop().remove()
+    for (const args of spikes) {
+      this.addSpike(new EditableSpikes(...args))
     }
   }
 
@@ -206,18 +316,26 @@ class Editor extends Body {
         this.level -= 1
         break
       case 'b':
-        const bar = new EditableBar(0, 0, 48, 48, true)
-        this.bars.push(bar)
-        this.append(bar)
+        this.addBar(new EditableBar(0, 0, 48, 48, true))
         break
       case 'c':
         navigator.clipboard.writeText(JSON.stringify(this))
+        break
+      case 'u':
+      case 'd':
+      case 'l':
+      case 'r':
+        if (!DOWN.has('s')) return
+        this.addSpike(key === 'u' || key === 'd'
+          ? new EditableSpikes(0, 0, 64, 8, true, key === 'u' ? 'up' : 'down')
+          : new EditableSpikes(0, 0, 8, 64, true, key === 'l' ? 'left' : 'right')
+        )
         break
     }
   }
 
   toJSON () {
-    return [this.guy, this.goal, this.bars]
+    return [this.guy, this.goal, this.bars, this.spikes]
   }
 }
 
