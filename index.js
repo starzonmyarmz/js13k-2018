@@ -1,4 +1,4 @@
-import {checkButtons, upKey} from './src/keys.js'
+import {onPress, upKey} from './src/keys.js'
 import levels from './src/levels.js'
 import sleep from './src/sleep.js'
 import Body from './src/body.js'
@@ -168,15 +168,20 @@ class Scene extends Body {
 
 const scene = new Scene(levels)
 
+const toggle = () => {
+  scene.on = !scene.on
+  if (scene.on) OFF_FX.play()
+  if (!scene.on) ON_FX.play()
+}
+
 document.addEventListener('keydown', (event) => {
   if (!controls.hidden) controls.keydown(event)
   else if (!title.hidden) title.keydown(event)
-  if (event.key === ' ') {
-    scene.on = !scene.on
-    if (scene.on) OFF_FX.play()
-    if (!scene.on) ON_FX.play()
-  }
+
+  if (event.key === ' ') toggle()
 })
+
+onPress(1, toggle)
 
 const controls = new Controls(document.getElementById('controls'), () => {
   controls.hidden = true
@@ -199,7 +204,6 @@ requestAnimationFrame(function tick (time) {
   // To deal with different frame rates, we define per-second speeds and adjust
   // them according to the time since the last frame was rendered.
   const duration = time - previous
-  checkButtons()
   scene.tick((value) => Math.round(value * duration / 1000))
   controls.tick()
   previous = time
