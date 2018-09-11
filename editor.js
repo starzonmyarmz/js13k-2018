@@ -39,6 +39,10 @@ document.addEventListener('mousemove', (event) => {
   previous = {x, y}
 })
 
+document.getElementById('close-dialog').addEventListener('click', () => {
+  document.getElementById('dialog').hidden = true
+})
+
 class EditableBar extends Bar {
   constructor (...args) {
     super(...args)
@@ -331,6 +335,8 @@ class Editor extends Body {
           : new EditableSpikes(0, 0, 8, 64, true, key === 'l' ? 'left' : 'right')
         )
         break
+      case 'h':
+        document.getElementById('dialog').hidden = !document.getElementById('dialog').hidden
     }
   }
 

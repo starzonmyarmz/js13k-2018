@@ -2,16 +2,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .grid {
-      left: 50%;
-      opacity: 0.1;
-      pointer-events: none;
-      position: fixed;
-      top: 50%;
-      transform: translate(-50%, -50%)
-    }
-  </style>
+  <link rel="stylesheet" href="editor.css">
   <script src="editor.js" type="module" defer></script>
 </head>
 <body class="on">
@@ -41,4 +32,21 @@
     </defs>
     <rect x="0" y="0" width="768" height="480" fill="url(#grid)"/>
   </svg>
+
+  <div id="dialog">
+    <h3>Instructions</h3>
+    <ul>
+      <li><kbd>H</kbd> <span>Show these instructions</span></li>
+      <li><kbd><</kbd> + <kbd>></kbd> <span>Cycle pre-built levels</span></li>
+      <li><kbd>B</kbd> <span>Create new platform</span></li>
+      <li><kbd>S</kbd> + <kbd>U</kbd> <span>Create new up spike</span></li>
+      <li><kbd>S</kbd> + <kbd>D</kbd> <span>Create new down spike</span></li>
+      <li><kbd>S</kbd> + <kbd>L</kbd> <span>Create new left spike</span></li>
+      <li><kbd>S</kbd> + <kbd>R</kbd> <span>Create new right spike</span></li>
+      <li><kbd>SHIFT</kbd> + <code>Click</code> <span>Remove platform/spike</span></li>
+      <li><code>Double Click</code> <span>Toggle platform layer</span></li>
+    </ul>
+
+    <button type="button" id="close-dialog">Close instructions</button>
+  </div>
 </body>
