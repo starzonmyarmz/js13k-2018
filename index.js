@@ -63,7 +63,7 @@ class Scene extends Body {
 
   set deaths (value) {
     this._deaths = value
-    const counter = document.getElementById('counter')
+    const counter = document.getElementById('death_counter')
     counter.innerHTML = ''
     let s = value.toString()
     for (let i = 0; i < s.length; i++) {
