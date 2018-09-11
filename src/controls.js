@@ -1,5 +1,5 @@
 import Body from './body.js'
-import {DOWN} from './keys.js'
+import {DOWN, PRESSED} from './keys.js'
 
 class Key extends Body {
   constructor (id, pressed) {
@@ -22,6 +22,10 @@ export default class Controls extends Body {
       new Key('key-a', () => DOWN.has('a')),
       new Key('key-d', () => DOWN.has('d')),
       new Key('key-space', () => DOWN.has(' ')),
+      new Key('button-toggle', () => PRESSED.has(1)),
+      new Key('button-jump', () => PRESSED.has(0)),
+      new Key('button-left', () => PRESSED.has(14)),
+      new Key('button-right', () => PRESSED.has(15)),
     ]
   }
 

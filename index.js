@@ -1,4 +1,4 @@
-import {upKey} from './src/keys.js'
+import {checkButtons, upKey} from './src/keys.js'
 import levels from './src/levels.js'
 import sleep from './src/sleep.js'
 import Body from './src/body.js'
@@ -199,6 +199,7 @@ requestAnimationFrame(function tick (time) {
   // To deal with different frame rates, we define per-second speeds and adjust
   // them according to the time since the last frame was rendered.
   const duration = time - previous
+  checkButtons()
   scene.tick((value) => Math.round(value * duration / 1000))
   controls.tick()
   previous = time
