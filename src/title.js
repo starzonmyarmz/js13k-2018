@@ -2,7 +2,8 @@ import Body from './body.js'
 
 const START = 0
 const CONTROLS = 1
-const ITEMS = [START, CONTROLS]
+const EDITOR = 2
+const ITEMS = [START, CONTROLS, EDITOR]
 
 export default class Title extends Body {
   constructor ({start}) {
@@ -37,6 +38,8 @@ export default class Title extends Body {
       case START:
         this.start()
         break
+      case EDITOR:
+        window.location = window.location.origin + '/editor.html'
     }
   }
 
