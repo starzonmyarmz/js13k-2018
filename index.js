@@ -11,6 +11,7 @@ import create from './src/create.js'
 import {WIDTH, HEIGHT} from './src/dimensions.js'
 import Counter from './src/counter.js'
 import Spikes from './src/spikes.js'
+import Controls from './src/controls.js'
 
 class Scene extends Body {
   constructor (levels) {
@@ -176,10 +177,16 @@ document.addEventListener('keydown', ({key}) => {
   }
 })
 
+const controls = new Controls(document.getElementById('controls'))
+
 const title = new Title({
   start: () => {
     title.hidden = true
     scene.hidden = false
+  },
+  controls: () => {
+    title.hidden = true
+    controls.hidden = false
   }
 })
 
@@ -189,6 +196,7 @@ requestAnimationFrame(function tick (time) {
   // them according to the time since the last frame was rendered.
   const duration = time - previous
   scene.tick((value) => Math.round(value * duration / 1000))
+  controls.tick()
   previous = time
   requestAnimationFrame(tick)
 })
