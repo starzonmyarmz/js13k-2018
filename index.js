@@ -9,12 +9,14 @@ import Title from './src/title.js'
 import {GOAL_FX, JUMP_FX, DEATH_FX, ON_FX, OFF_FX} from './src/sound.js'
 import create from './src/create.js'
 import {WIDTH, HEIGHT} from './src/dimensions.js'
+import Counter from './src/counter.js'
 
 class Scene extends Body {
   constructor (levels) {
     super(document.getElementById('game'))
+    this.deaths = new Counter(document.getElementById('death-counter'))
+    this.stars = new Counter(document.getElementById('level-counter'))
     this.bars = []
-    this.deaths = 0
     this.paused = false
     this.guy = new Guy
     this.append(this.guy)
@@ -39,6 +41,7 @@ class Scene extends Body {
 
   set index (value) {
     this._index = Math.min(levels.length - 1, Math.max(value || 0))
+    this.stars.value = this.index
 
     const [guy, goal, bars] = this.level
     this.on = true
@@ -57,25 +60,6 @@ class Scene extends Body {
     return levels[this.index]
   }
 
-  get deaths () {
-    return this._deaths
-  }
-
-  set deaths (value) {
-    this._deaths = value
-    const counter = document.getElementById('death_counter')
-    counter.innerHTML = ''
-    let s = value.toString()
-    for (let i = 0; i < s.length; i++) {
-      const rect = create('rect')
-      rect.setAttribute('fill', `url(#n${s[i]})`)
-      rect.setAttribute('width', 10)
-      rect.setAttribute('height', 16)
-      rect.setAttribute('x', 12 * i)
-      counter.appendChild(rect)
-    }
-  }
-
   async advance () {
     GOAL_FX.play()
     this.paused = true
@@ -89,7 +73,7 @@ class Scene extends Body {
 
   async death () {
     DEATH_FX.play()
-    this.deaths += 1
+    this.deaths.value += 1
     this.paused = true
     const death = document.getElementById('death')
     death.setAttribute('x', this.guy.x - 32 + this.guy.width / 2)
