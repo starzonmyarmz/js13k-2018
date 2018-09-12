@@ -212,6 +212,7 @@ const editor = new Editor([[[100, 300], [500, 300], [[84,361,362,48,1]], [[446,4
 const title = new Title({
   start: () => {
     title.hidden = true
+    scene.index = 0
     scene.hidden = false
   },
   controls: () => {
@@ -229,7 +230,6 @@ const level = new URL(window.location).searchParams.get('level')
 if (level) {
   try {
     scene.levels = [JSON.parse(level)]
-    scene.index = 0
     title.start()
   } catch (error) {}
 }
