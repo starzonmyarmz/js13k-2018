@@ -12,6 +12,7 @@ import {WIDTH, HEIGHT} from './src/dimensions.js'
 import Counter from './src/counter.js'
 import Spikes from './src/spikes.js'
 import Controls from './src/controls.js'
+import Editor from './src/editor.js'
 
 class Scene extends Body {
   constructor (levels) {
@@ -19,6 +20,7 @@ class Scene extends Body {
     this.deaths = new Counter(document.getElementById('death-counter'))
     this.stars = new Counter(document.getElementById('level-counter'))
     this.congrats = new Body(document.getElementById('congrats'))
+    this.levels = levels
     this.bars = []
     this.spikes = []
     this.paused = false
@@ -44,7 +46,7 @@ class Scene extends Body {
   }
 
   set index (value) {
-    this._index = Math.min(levels.length, Math.max(value || 0))
+    this._index = Math.min(this.levels.length, Math.max(value || 0))
 
     this.on = true
     this.stars.value = this.index
@@ -71,11 +73,11 @@ class Scene extends Body {
   }
 
   get level () {
-    return levels[this.index]
+    return this.levels[this.index]
   }
 
   get finished () {
-    return this.index >= levels.length
+    return this.index >= this.levels.length
   }
 
   async advance () {
@@ -204,6 +206,9 @@ const controls = new Controls(document.getElementById('controls'), () => {
   title.hidden = false
 })
 
+const dialog = document.getElementById('dialog')
+const editor = new Editor([[[100, 300], [500, 300], [], []]])
+
 const title = new Title({
   start: () => {
     title.hidden = true
@@ -212,8 +217,21 @@ const title = new Title({
   controls: () => {
     title.hidden = true
     controls.hidden = false
+  },
+  edit: () => {
+    title.hidden = true
+    editor.hidden = false
+    dialog.hidden = false
   }
 })
+
+const level = new URL(window.location).searchParams.get('level')
+if (level) {
+  try {
+    scene.levels = [JSON.parse(level)]
+    scene.index = 0
+  } catch (error) {}
+}
 
 let previous = 0
 requestAnimationFrame(function tick (time) {

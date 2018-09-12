@@ -40,7 +40,7 @@ export default class Spikes extends Body {
 
   set width (value) {
     super.width = value
-    if (this.up || this.down) {
+    if (this.isUp || this.isDown) {
       this.element.setAttribute('width', Math.round(this.width / 16) * 16)
     }
   }
@@ -51,7 +51,7 @@ export default class Spikes extends Body {
 
   set height (value) {
     super.height = value
-    if (this.left || this.right) {
+    if (this.isLeft || this.isRight) {
       this.element.setAttribute('height', Math.round(this.height / 16) * 16)
     }
   }

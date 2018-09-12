@@ -146,4 +146,43 @@
       <rect x="14" y="36" width="4" height="4" style="transform-origin: 30px 55px"/>
     </svg>
   </svg>
+
+  <svg id="editor" viewBox="0 0 768 480" hidden>
+    <defs>
+      <pattern id="edit-spike-up" width="16" height="10" patternUnits="userSpaceOnUse">
+        <polygon points="8 0 16 8 0 8"/>
+      </pattern>
+      <pattern id="edit-spike-down" width="16" height="10" patternUnits="userSpaceOnUse">
+        <polygon points="0 0 16 0 8 8"/>
+      </pattern>
+      <pattern id="edit-spike-left" width="10" height="16" patternUnits="userSpaceOnUse">
+        <polygon points="8 0 8 16 0 8"/>
+      </pattern>
+      <pattern id="edit-spike-right" width="10" height="16" patternUnits="userSpaceOnUse">
+        <polygon points="0 0 8 8 0 16"/>
+      </pattern>
+      <pattern id="grid" width="8" height="8" patternUnits="userSpaceOnUse">
+        <rect width="1" height="7" x="7" fill="red"/>
+        <rect width="8" height="1" y="7" fill="red"/>
+      </pattern>
+    </defs>
+    <rect class="grid" x="0" y="0" width="100%" height="100%" fill="url(#grid)"/>
+  </svg>
+
+  <div id="dialog" hidden>
+    <h3>Instructions</h3>
+    <ul>
+      <li><kbd>H</kbd> <span>Show these instructions</span></li>
+      <li><kbd>P</kbd> <span>Create new platform</span></li>
+      <li><kbd>S</kbd> + <kbd>U</kbd> <span>Create new up spike</span></li>
+      <li><kbd>S</kbd> + <kbd>D</kbd> <span>Create new down spike</span></li>
+      <li><kbd>S</kbd> + <kbd>L</kbd> <span>Create new left spike</span></li>
+      <li><kbd>S</kbd> + <kbd>R</kbd> <span>Create new right spike</span></li>
+      <li><kbd>SHIFT</kbd> + <code>Click</code> <span>Remove platform/spike</span></li>
+      <li><kbd>G</kbd><span>Play this level</span></li>
+      <li><code>Double Click</code> <span>Toggle platform layer</span></li>
+    </ul>
+
+    <button type="button" id="close-dialog">Close instructions</button>
+  </div>
 </body>

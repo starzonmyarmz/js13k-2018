@@ -6,10 +6,11 @@ const EDITOR = 2
 const ITEMS = [START, CONTROLS, EDITOR]
 
 export default class Title extends Body {
-  constructor ({controls, start}) {
+  constructor ({controls, edit, start}) {
     super(document.getElementById('title'))
 
     this.controls = controls
+    this.edit = edit
     this.start = start
     this.items = [].slice.call(this.element.querySelectorAll('.menu .item'))
 
@@ -36,7 +37,8 @@ export default class Title extends Body {
         this.start()
         break
       case EDITOR:
-        window.location = window.location.origin + '/editor.html'
+        this.edit()
+        break
       case CONTROLS:
         this.controls()
         break
