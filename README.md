@@ -1,7 +1,7 @@
 ONOFF
 =====
 
-A game created for js13kGames 2008
+A game created for js13kGames 2018
 
 Navigate through 25 brain-teasing levels in this fast-paced, hand-crafted platformer. You'll dodge spikes, jump over pits, and toggle between dimensions.
 
