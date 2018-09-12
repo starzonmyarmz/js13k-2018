@@ -355,7 +355,16 @@ MUSIC_LOW_B.play()
 MUSIC_MID_B.play()
 MUSIC_HIGH_B.play()
 
-
+export const playWin = () => {
+  MUSIC_LOW_A.stop()
+  MUSIC_MID_A.stop()
+  MUSIC_HIGH_A.stop()
+  MUSIC_LOW_B.stop()
+  MUSIC_MID_B.stop()
+  MUSIC_HIGH_B.stop()
+  MUSIC_WINNING_LOW.play()
+  MUSIC_WINNING_HIGH.play()
+}
 
 //  Sound Effects
 

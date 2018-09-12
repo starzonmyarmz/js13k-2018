@@ -6,7 +6,7 @@ import Goal from './src/goal.js'
 import Guy from './src/guy.js'
 import Bar from './src/bar.js'
 import Title from './src/title.js'
-import {GOAL_FX, JUMP_FX, DEATH_FX, ON_FX, OFF_FX} from './src/sound.js'
+import {GOAL_FX, JUMP_FX, DEATH_FX, ON_FX, OFF_FX, playWin} from './src/sound.js'
 import create from './src/create.js'
 import {WIDTH, HEIGHT} from './src/dimensions.js'
 import Counter from './src/counter.js'
@@ -89,6 +89,7 @@ class Scene extends Body {
     if (this.finished) {
       this.guy.hidden = true
       this.congrats.hidden = false
+      playWin()
     }
     document.body.classList.remove('finish')
     await sleep(1000)
