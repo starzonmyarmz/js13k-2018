@@ -301,12 +301,14 @@ export const MUSIC_WINNING_HIGH = new Sequence(ac, 200, [
   'E4 q'
 ])
 
-MUSIC_WINNING_LOW.staccato = 0.5
-MUSIC_WINNING_LOW.loop = true
+MUSIC_WINNING_LOW.staccato = 0.3
+MUSIC_WINNING_HIGH.staccato = 0.5
+
 MUSIC_WINNING_LOW.waveType = 'sine'
 
-MUSIC_WINNING_HIGH.staccato = 0.5
-MUSIC_WINNING_HIGH.loop = true
+MUSIC_WINNING_LOW.gain.gain.value = 0.7
+MUSIC_WINNING_HIGH.gain.gain.value = 0.3
+
 
 MUSIC_LOW_A.staccato = 0.5
 MUSIC_LOW_B.staccato = 0.3
