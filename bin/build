@@ -14,3 +14,5 @@ html-minifier \
 rollup -f es index.js | uglifyjs -cm --toplevel > onoff/index.js
 zip onoff.zip onoff/*
 rm onoff/*
+unzip onoff.zip
+ls -lh onoff.zip
