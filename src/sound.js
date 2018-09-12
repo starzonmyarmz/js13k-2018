@@ -1,6 +1,7 @@
+import {Note, Sequence} from './tinymusic.js'
 const ac = new AudioContext()
 
-export const MUSIC_LOW_A = new TinyMusic.Sequence(ac, 100, [
+export const MUSIC_LOW_A = new Sequence(ac, 100, [
   'B2 q',
   '- q',
   'Db3 q',
@@ -36,7 +37,7 @@ export const MUSIC_LOW_A = new TinyMusic.Sequence(ac, 100, [
   '- 32'
 ])
 
-export const MUSIC_MID_A = new TinyMusic.Sequence(ac, 100, [
+export const MUSIC_MID_A = new Sequence(ac, 100, [
   '- w',
   '- h',
   'D3 q',
@@ -56,7 +57,7 @@ export const MUSIC_MID_A = new TinyMusic.Sequence(ac, 100, [
   '- 32'
 ])
 
-export const MUSIC_HIGH_A = new TinyMusic.Sequence(ac, 100, [
+export const MUSIC_HIGH_A = new Sequence(ac, 100, [
   'B4 e',
   '- e',
   'Bb4 e',
@@ -132,7 +133,7 @@ export const MUSIC_HIGH_A = new TinyMusic.Sequence(ac, 100, [
   '- 32'
 ])
 
-export const MUSIC_LOW_B = new TinyMusic.Sequence(ac, 100, [
+export const MUSIC_LOW_B = new Sequence(ac, 100, [
   '- 32',
   'G3 e',
   'E3 e',
@@ -200,7 +201,7 @@ export const MUSIC_LOW_B = new TinyMusic.Sequence(ac, 100, [
   '- e'
 ])
 
-export const MUSIC_MID_B = new TinyMusic.Sequence(ac, 100, [
+export const MUSIC_MID_B = new Sequence(ac, 100, [
   '- 32',
   'G4 w',
   'Gb4 w',
@@ -212,7 +213,7 @@ export const MUSIC_MID_B = new TinyMusic.Sequence(ac, 100, [
   'Gb4 w'
 ])
 
-export const MUSIC_HIGH_B = new TinyMusic.Sequence(ac, 100, [
+export const MUSIC_HIGH_B = new Sequence(ac, 100, [
   '- 32',
   'C4 w',
   'D4 w',
@@ -224,7 +225,7 @@ export const MUSIC_HIGH_B = new TinyMusic.Sequence(ac, 100, [
   'D4 w'
 ])
 
-export const MUSIC_WINNING_LOW = new TinyMusic.Sequence(ac, 200, [
+export const MUSIC_WINNING_LOW = new Sequence(ac, 200, [
   'C3 q',
   '- q',
   'G3 q',
@@ -253,7 +254,7 @@ export const MUSIC_WINNING_LOW = new TinyMusic.Sequence(ac, 200, [
   'B2 q'
 ])
 
-export const MUSIC_WINNING_HIGH = new TinyMusic.Sequence(ac, 200, [
+export const MUSIC_WINNING_HIGH = new Sequence(ac, 200, [
   'G4 e',
   'Gb4 e',
   'G4 e',
@@ -358,29 +359,29 @@ MUSIC_HIGH_B.play()
 
 //  Sound Effects
 
-export const JUMP_FX = new TinyMusic.Sequence(ac, 320, [
+export const JUMP_FX = new Sequence(ac, 320, [
   'Bb3 e',
   'G5 e',
   'Bb4 e'
 ])
 
-export const ON_FX = new TinyMusic.Sequence(ac, 400, [
+export const ON_FX = new Sequence(ac, 400, [
   'Bb6 e',
   'D6 e'
 ])
 
-export const OFF_FX = new TinyMusic.Sequence(ac, 400, [
+export const OFF_FX = new Sequence(ac, 400, [
   'D6 e',
   'Bb6 e'
 ])
 
-export const GOAL_FX = new TinyMusic.Sequence(ac, 280, [
+export const GOAL_FX = new Sequence(ac, 280, [
   'C4 s',
   'G4 s',
   'C5 h'
 ])
 
-export const DEATH_FX = new TinyMusic.Sequence(ac, 280, [
+export const DEATH_FX = new Sequence(ac, 280, [
   'Bb3 e',
   'Bb2 q'
 ])
