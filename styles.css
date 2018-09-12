@@ -3,6 +3,10 @@
   --secondary: #fff;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   height: 100%;
 }
@@ -11,6 +15,7 @@ body {
   background: #e5e5e5;
   align-items: center;
   display: flex;
+  line-height: 1.4;
   margin: 0;
 }
 
@@ -178,20 +183,9 @@ svg {
   display: none !important;
 }
 
+
+
 /* Editor */
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  line-height: 1.4;
-}
-
-.grid {
-  opacity: 0.1;
-  pointer-events: none;
-}
 
 #dialog {
   background: #fff;
@@ -206,7 +200,7 @@ body {
 }
 
 h3 {
-  margin: 0 0 15px
+  margin: 0 0 15px;
 }
 
 ul {
@@ -217,10 +211,6 @@ ul {
 
 li {
   margin-bottom: 10px;
-}
-
-li:last-child {
-  margin-bottom: 0;
 }
 
 kbd {
