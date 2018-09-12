@@ -20,6 +20,7 @@ class Scene extends Body {
     this.deaths = new Counter(document.getElementById('death-counter'))
     this.stars = new Counter(document.getElementById('level-counter'))
     this.congrats = new Body(document.getElementById('congrats'))
+    this.esc = new Body(document.getElementById('esc'))
     this.game = game
     this.levels = levels
     this.bars = []
@@ -32,10 +33,33 @@ class Scene extends Body {
     this.index = 0
   }
 
+  get fromURL () {
+    return !!this._fromURL
+  }
+
+  set fromURL (value) {
+    this._fromURL = !!value
+    this.esc.hidden = !this.fromURL
+  }
+
   keydown ({key}) {
-    if (this.finished && key === 'Enter') {
-      this.game.state = 'title'
-      playMusic()
+    switch (key) {
+      case 'Enter':
+        if (this.finished) {
+          this.fromURL = false
+          this.levels = levels
+          this.game.state = 'title'
+          playMusic()
+        }
+        break
+      case 'Escape':
+        if (this.fromURL) {
+          this.fromURL = false
+          this.levels = levels
+          this.game.state = 'title'
+          playMusic()
+        }
+        break
     }
   }
 
@@ -249,6 +273,7 @@ const level = new URL(window.location).searchParams.get('level')
 if (level) {
   try {
     game.scene.levels = [JSON.parse(level)]
+    game.scene.fromURL = true
     game.scene.index = 0
     game.state = 'play'
   } catch (error) {}
