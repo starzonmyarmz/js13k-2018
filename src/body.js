@@ -9,10 +9,10 @@ export default class Body {
   }
 
   set hidden (value) {
-    if (this.hidden) {
-      this.element.removeAttribute('hidden')
-    } else {
+    if (value) {
       this.element.setAttribute('hidden', '')
+    } else {
+      this.element.removeAttribute('hidden')
     }
   }
 

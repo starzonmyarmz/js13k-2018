@@ -6,14 +6,10 @@ const EDITOR = 2
 const ITEMS = [START, CONTROLS, EDITOR]
 
 export default class Title extends Body {
-  constructor ({controls, edit, start}) {
+  constructor (game) {
     super(document.getElementById('title'))
-
-    this.controls = controls
-    this.edit = edit
-    this.start = start
+    this.game = game
     this.items = [].slice.call(this.element.querySelectorAll('.menu .item'))
-
     this.selected = START
   }
 
@@ -34,13 +30,15 @@ export default class Title extends Body {
   choose () {
     switch (this.selected) {
       case START:
-        this.start()
+        this.game.scene.index = 0
+        this.game.scene.paused = false
+        this.game.state = 'play'
         break
       case EDITOR:
-        this.edit()
+        this.game.state = 'edit'
         break
       case CONTROLS:
-        this.controls()
+        this.game.state = 'controls'
         break
     }
   }

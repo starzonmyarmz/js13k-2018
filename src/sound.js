@@ -348,12 +348,16 @@ setInterval(function() {
   MUSIC_HIGH_B.gain.gain.value = fade * 0.01
 }, 300)
 
-MUSIC_LOW_A.play()
-MUSIC_MID_A.play()
-MUSIC_HIGH_A.play()
-MUSIC_LOW_B.play()
-MUSIC_MID_B.play()
-MUSIC_HIGH_B.play()
+export const playMusic = () => {
+  MUSIC_LOW_A.play()
+  MUSIC_MID_A.play()
+  MUSIC_HIGH_A.play()
+  MUSIC_LOW_B.play()
+  MUSIC_MID_B.play()
+  MUSIC_HIGH_B.play()
+  MUSIC_WINNING_LOW.stop()
+  MUSIC_WINNING_HIGH.stop()
+}
 
 export const playWin = () => {
   MUSIC_LOW_A.stop()
@@ -365,6 +369,8 @@ export const playWin = () => {
   MUSIC_WINNING_LOW.play()
   MUSIC_WINNING_HIGH.play()
 }
+
+playMusic()
 
 //  Sound Effects
 

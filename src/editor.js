@@ -267,11 +267,12 @@ class EditableGoal extends Goal {
 }
 
 export default class Editor extends Body {
-  constructor (levels) {
+  constructor (levels, game) {
     super(document.getElementById('editor'))
     this.bars = []
     this.spikes = []
     this.levels = levels
+    this.game = game
     this.guy = new EditableGuy
     this.append(this.guy)
     this.goal = new EditableGoal
@@ -321,6 +322,8 @@ export default class Editor extends Body {
   }
 
   keydown ({key}) {
+    if (this.hidden) return
+
     switch (key) {
       case 'ArrowRight':
         this.level += 1
@@ -351,6 +354,9 @@ export default class Editor extends Body {
         const url = new URL(window.location)
         url.searchParams.set('level', JSON.stringify(this))
         window.location = url.toString()
+        break
+      case 'Escape':
+        if (this.game) this.game.state = 'title'
         break
     }
   }

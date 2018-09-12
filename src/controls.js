@@ -14,9 +14,9 @@ class Key extends Body {
 }
 
 export default class Controls extends Body {
-  constructor (element, back) {
-    super(element)
-    this.back = back
+  constructor (game) {
+    super(document.getElementById('controls'))
+    this.game = game
     this.keys = [
       new Key('key-w', () => DOWN.has('w')),
       new Key('key-a', () => DOWN.has('a')),
@@ -32,7 +32,7 @@ export default class Controls extends Body {
   keydown ({key}) {
     switch (key) {
       case 'Enter':
-        this.back()
+        this.game.state = 'title'
         break
       case 'ArrowUp':
       case 'ArrowDown':

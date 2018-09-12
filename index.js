@@ -6,7 +6,7 @@ import Goal from './src/goal.js'
 import Guy from './src/guy.js'
 import Bar from './src/bar.js'
 import Title from './src/title.js'
-import {GOAL_FX, JUMP_FX, DEATH_FX, ON_FX, OFF_FX, playWin} from './src/sound.js'
+import {GOAL_FX, JUMP_FX, DEATH_FX, ON_FX, OFF_FX, playWin, playMusic} from './src/sound.js'
 import create from './src/create.js'
 import {WIDTH, HEIGHT} from './src/dimensions.js'
 import Counter from './src/counter.js'
@@ -15,11 +15,12 @@ import Controls from './src/controls.js'
 import Editor from './src/editor.js'
 
 class Scene extends Body {
-  constructor (levels) {
+  constructor (game, levels) {
     super(document.getElementById('game'))
     this.deaths = new Counter(document.getElementById('death-counter'))
     this.stars = new Counter(document.getElementById('level-counter'))
     this.congrats = new Body(document.getElementById('congrats'))
+    this.game = game
     this.levels = levels
     this.bars = []
     this.spikes = []
@@ -29,6 +30,13 @@ class Scene extends Body {
     this.goal = new Goal
     this.append(this.goal)
     this.index = 0
+  }
+
+  keydown ({key}) {
+    if (this.finished && key === 'Enter') {
+      this.game.state = 'title'
+      playMusic()
+    }
   }
 
   get on () {
@@ -53,11 +61,19 @@ class Scene extends Body {
     while (this.bars.length) this.bars.pop().remove()
     while (this.spikes.length) this.spikes.pop().remove()
 
-    if (!this.level) return
+    if (this.finished) {
+      this.guy.hidden = true
+      this.congrats.hidden = false
+      playWin()
+      return
+    }
 
     const [guy, goal, bars, spikes] = this.level
     this.guy.load(...guy)
+    this.guy.hidden = false
     this.goal.load(...goal)
+    this.goal.hidden = false
+    this.congrats.hidden = true
 
     for (const values of bars) {
       const bar = new Bar(...values)
@@ -86,11 +102,6 @@ class Scene extends Body {
     document.body.classList.add('finish')
     await sleep(1000)
     this.index += 1
-    if (this.finished) {
-      this.guy.hidden = true
-      this.congrats.hidden = false
-      playWin()
-    }
     document.body.classList.remove('finish')
     await sleep(1000)
     if (this.finished) {
@@ -185,53 +196,61 @@ class Scene extends Body {
   }
 }
 
-const scene = new Scene(levels)
+class Game {
+  constructor () {
+    this.title = new Title(this)
+    this.controls = new Controls(this)
+    this.scene = new Scene(this, levels)
+    this.editor = new Editor(
+      [[[100, 300], [500, 300], [[84,361,362,48,1]], [[446,401,176,8,1,"up"]]]],
+      this
+    )
+    this.dialog = document.getElementById('dialog')
+    onPress(1, this.toggle.bind(this))
+    document.addEventListener('keydown', this.keydown.bind(this))
+  }
 
-const toggle = () => {
-  scene.on = !scene.on
-  if (scene.on) OFF_FX.play()
-  if (!scene.on) ON_FX.play()
+  toggle () {
+    this.scene.on = !this.scene.on
+    if (this.scene.on) OFF_FX.play()
+    else ON_FX.play()
+  }
+
+  keydown (event) {
+    if (event.key === ' ') this.toggle()
+    if (!this.scene.hidden) this.scene.keydown(event)
+    else if (!this.controls.hidden) this.controls.keydown(event)
+    else if (!this.title.hidden) this.title.keydown(event)
+  }
+
+  get state () {
+    return this._state
+  }
+
+  set state (value) {
+    this._state = value
+
+    this.scene.hidden = this.state !== 'play'
+    this.title.hidden = this.state !== 'title'
+    this.controls.hidden = this.state !== 'controls'
+    this.editor.hidden = this.state !== 'edit'
+    this.dialog.hidden = this.state !== 'edit'
+  }
+
+  tick (scale) {
+    this.scene.tick(scale)
+    this.controls.tick(scale)
+  }
 }
 
-document.addEventListener('keydown', (event) => {
-  if (!controls.hidden) controls.keydown(event)
-  else if (!title.hidden) title.keydown(event)
-
-  if (event.key === ' ') toggle()
-})
-
-onPress(1, toggle)
-
-const controls = new Controls(document.getElementById('controls'), () => {
-  controls.hidden = true
-  title.hidden = false
-})
-
-const dialog = document.getElementById('dialog')
-const editor = new Editor([[[100, 300], [500, 300], [[84,361,362,48,1]], [[446,401,176,8,1,"up"]]]])
-
-const title = new Title({
-  start: () => {
-    title.hidden = true
-    scene.index = 0
-    scene.hidden = false
-  },
-  controls: () => {
-    title.hidden = true
-    controls.hidden = false
-  },
-  edit: () => {
-    title.hidden = true
-    editor.hidden = false
-    dialog.hidden = false
-  }
-})
+const game = new Game
 
 const level = new URL(window.location).searchParams.get('level')
 if (level) {
   try {
-    scene.levels = [JSON.parse(level)]
-    title.start()
+    game.scene.levels = [JSON.parse(level)]
+    game.scene.index = 0
+    game.state = 'play'
   } catch (error) {}
 }
 
@@ -240,8 +259,7 @@ requestAnimationFrame(function tick (time) {
   // To deal with different frame rates, we define per-second speeds and adjust
   // them according to the time since the last frame was rendered.
   const duration = time - previous
-  scene.tick((value) => Math.round(value * duration / 1000))
-  controls.tick()
+  game.tick((value) => Math.round(value * duration / 1000))
   previous = time
   requestAnimationFrame(tick)
 })
