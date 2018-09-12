@@ -348,7 +348,9 @@ export default class Editor extends Body {
         document.getElementById('dialog').hidden = !document.getElementById('dialog').hidden
         break
       case 'g':
-        window.location = '/?level=' + encodeURIComponent(JSON.stringify(this))
+        const url = new URL(window.location)
+        url.searchParams.set('level', JSON.stringify(this))
+        window.location = url.toString()
         break
     }
   }

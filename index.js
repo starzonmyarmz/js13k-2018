@@ -207,7 +207,7 @@ const controls = new Controls(document.getElementById('controls'), () => {
 })
 
 const dialog = document.getElementById('dialog')
-const editor = new Editor([[[100, 300], [500, 300], [], []]])
+const editor = new Editor([[[100, 300], [500, 300], [[84,361,362,48,1]], [[446,401,176,8,1,"up"]]]])
 
 const title = new Title({
   start: () => {
