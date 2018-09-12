@@ -230,6 +230,7 @@ if (level) {
   try {
     scene.levels = [JSON.parse(level)]
     scene.index = 0
+    title.start()
   } catch (error) {}
 }
 
