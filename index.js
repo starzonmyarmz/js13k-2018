@@ -18,6 +18,7 @@ class Scene extends Body {
     super(document.getElementById('game'))
     this.deaths = new Counter(document.getElementById('death-counter'))
     this.stars = new Counter(document.getElementById('level-counter'))
+    this.congrats = new Body(document.getElementById('congrats'))
     this.bars = []
     this.spikes = []
     this.paused = false
@@ -43,22 +44,25 @@ class Scene extends Body {
   }
 
   set index (value) {
-    this._index = Math.min(levels.length - 1, Math.max(value || 0))
+    this._index = Math.min(levels.length, Math.max(value || 0))
+
+    this.on = true
     this.stars.value = this.index
+    while (this.bars.length) this.bars.pop().remove()
+    while (this.spikes.length) this.spikes.pop().remove()
+
+    if (!this.level) return
 
     const [guy, goal, bars, spikes] = this.level
-    this.on = true
     this.guy.load(...guy)
     this.goal.load(...goal)
 
-    while (this.bars.length) this.bars.pop().remove()
     for (const values of bars) {
       const bar = new Bar(...values)
       this.append(bar)
       this.bars.push(bar)
     }
 
-    while (this.spikes.length) this.spikes.pop().remove()
     for (const values of spikes) {
       const spike = new Spikes(...values)
       this.append(spike)
@@ -70,15 +74,27 @@ class Scene extends Body {
     return levels[this.index]
   }
 
+  get finished () {
+    return this.index >= levels.length
+  }
+
   async advance () {
     GOAL_FX.play()
     this.paused = true
     document.body.classList.add('finish')
     await sleep(1000)
     this.index += 1
+    if (this.finished) {
+      this.guy.hidden = true
+      this.congrats.hidden = false
+    }
     document.body.classList.remove('finish')
     await sleep(1000)
-    this.paused = false
+    if (this.finished) {
+      this.goal.hidden = true
+    } else {
+      this.paused = false
+    }
   }
 
   async death () {
