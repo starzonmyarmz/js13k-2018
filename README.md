@@ -1,7 +1,7 @@
 ONOFF
 =====
 
-A game created for js13kGames 2018
+A game created for [js13kGames 2018](https://js13kgames.com/entries/onoff)
 
 Navigate through 25 brain-teasing levels in this fast-paced, hand-crafted platformer. You'll dodge spikes, jump over pits, and toggle between dimensions.
 
@@ -78,3 +78,5 @@ Aside from having our kids play the game frequently (and they did!) we invited a
 ### Wrap Up
 
 Brad and I had a blast working on the js13k this year! I'm really grateful to Brad and all his help, our friends who took the time to playtest and give us feedback, and especially our families who gave endless support, and endured hours and hours of that music loop!
+
+If you haven't yet, make sure you checkout our game [ONOFF](https://js13kgames.com/entries/onoff)!
