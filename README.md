@@ -29,9 +29,18 @@ I had originally envisioned the game having a pixel art style, but with the 13K 
 
 I didn't want to have to use text to explain how to play the game. So as far as _educating_ the player, I took inspiration from countless video games (but specifically Super Mario World, Super Metroid, Megaman X), and started out by creating the first three levels that would introduce the game mechanics. I then kept exploring various level designs until I had about six or seven solid levels.
 
+![original idea about education](https://imgur.com/cndNSyh)
+_Original idea for educating game controls to player_
+
 While Brad started developing the mechanics, I solicited the help of my son, to help me design the character. What we ended up going with in the final game is pretty darn close to what we first designed. It went through some variations, but in the end we kept coming back to our robot-looking character. In my mind I could see his legs moving and his head bobbing. He originally had rounded corners, but that ended up making the `svg` output more complicated, so in the end we ditched them.
 
+![character ideas](https://imgur.com/KyaQGFT)
+_Other character ideas_
+
 I liked the idea of the _toggle_ concept being carried through all the various screens, and not just the levels. So I designed the title, end, and controller screens with this in mind.
+
+![typeface](https://imgur.com/98U1gMl)
+_Custom typeface designed for ONOFF_
 
 ### Music and Sound Effects
 
