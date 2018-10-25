@@ -43,7 +43,7 @@ I liked the idea of the _toggle_ concept being carried through all the various s
 
 ![typeface](https://i.imgur.com/S2H19VS.png)
 
-_Custom typeface designed for ONOFF_
+_[Custom typeface](https://github.com/starzonmyarmz/js13k-2018/blob/gh-pages/refs/onoff.otf) designed for ONOFF_
 
 ### Music and Sound Effects
 
